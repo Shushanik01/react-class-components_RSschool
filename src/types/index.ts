@@ -13,6 +13,7 @@ export interface AppState {
     items: Item[];
     loading: boolean;
     error: string | null;
+    hasError: boolean
 }
 
 export interface Item {

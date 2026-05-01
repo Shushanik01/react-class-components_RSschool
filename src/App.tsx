@@ -5,6 +5,7 @@ import type { AppState } from './types';
 import CardList from './components/CardList/CardList';
 import { getData, getAllData } from './services/api';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
+import TestButton from './components/testButton/testButton';
 
 class App extends Component<object, AppState> {
   constructor(props: object) {
@@ -14,6 +15,7 @@ class App extends Component<object, AppState> {
       items: [],
       loading: false,
       error: null,
+      hasError: false
     };
   };
 
@@ -40,9 +42,16 @@ class App extends Component<object, AppState> {
     } catch (error) {
       this.setState({ error: (error as Error).message, loading: false });
     }
-  }
+  };
+  
+    handleTestError = (): void => {
+      this.setState({hasError: true})
+    };
 
   render() {
+    if (this.state.hasError) {
+    throw new Error('Test error');
+}
     return (
       <Fragment>
         <SearchBar
@@ -51,6 +60,7 @@ class App extends Component<object, AppState> {
         />
         {this.state.error && <p className={styles.errorBanner}>{this.state.error}</p>}
      {this.state.loading ? <LoadingSpinner/> :  <CardList items={this.state.items} />}
+     <TestButton onClick={this.handleTestError}/>
       </Fragment>
     )
   }

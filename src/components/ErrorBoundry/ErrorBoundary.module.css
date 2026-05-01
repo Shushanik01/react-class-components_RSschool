@@ -1,0 +1,43 @@
+.fallbacContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.fallbacIcon {
+  font-size: 4rem;
+}
+
+.fallbacContainer h2 {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.fallbacContainer p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  max-width: 400px;
+  margin: 0;
+}
+
+.fallbackBtn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.fallbackBtn:hover {
+  background-color: #2563eb;
+}

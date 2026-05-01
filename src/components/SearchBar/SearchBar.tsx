@@ -33,10 +33,6 @@ class SearchBar extends Component<SearchProps, SearchState> {
             this.handleSearch()
         }
     }
-
-    handleTestError = (): void => {
-        this.setState({ hasError: true })
-    };
     render(): ReactNode {
         if (this.state.hasError) {
             throw new Error('Test Error from error boundary')
