@@ -16,12 +16,22 @@ export interface AppState {
 }
 
 export interface Item {
-    id: number;
-    name: string;
-    description: string;
-    image: string;
+  id: number;
+  name: string;
+  weight: number;
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
+  sprites: { front_default: string };
 }
 
 export interface CardListProps {
   items: Item[];
+}
+
+export interface CardItemProps {
+    name: string,
+    type: string,
+    weight: number,
+    ability: string,
+    image: string
 }

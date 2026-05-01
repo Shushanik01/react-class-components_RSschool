@@ -8,4 +8,7 @@
   box-shadow:
     inset 6px 6px 12px #c8cdd8,
     inset -6px -6px 12px #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

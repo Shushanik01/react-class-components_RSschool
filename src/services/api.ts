@@ -15,14 +15,17 @@ export const getData = async(term:string) =>{
 };
 
 export const getAllData = async() =>{
-    const response = await fetch(`${API_URL}`)
-    if(!response.status){
-        if (response.status === 404) throw new Error("Not fond");
+    const response = await fetch(`${API_URL}/pokemon?limit=20`)
+    if(!response.ok){
+        if (response.status === 404) throw new Error("Not found");
         if (response.status === 400) throw new Error("Invalid request. Please check your input");
         if (response.status === 500) throw new Error("Server error. Please try again later");
         if (response.status === 503) throw new Error("Service is temporarily unavailable");
         throw new Error("Something went wrong");
     }
-    const data = response.json()
-    return data
+    const data = await response.json()
+    const details = await Promise.all(
+        data.results.map((p: { url: string }) => fetch(p.url).then(r => r.json()))
+    )
+    return details
 }
