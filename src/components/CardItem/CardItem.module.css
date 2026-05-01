@@ -1,11 +1,12 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 16px;
   background: #e6eaf2;
   border-radius: 20px;
-  padding: 16px;
-  width: 160px;
+  padding: 20px 24px;
+  width: 340px;
   box-shadow:
     6px 6px 12px #c8cdd8,
     -6px -6px 12px #ffffff;
@@ -19,27 +20,29 @@
 }
 
 .container img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .container section {
-  text-align: center;
-  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .container h3 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   color: #6b7080;
   text-transform: capitalize;
-  margin-bottom: 6px;
+  margin: 0;
 }
 
 .container p {
-  font-size: 12px;
+  font-size: 16px;
   color: #9aa0b0;
-  margin: 2px 0;
+  margin: 0;
   text-transform: capitalize;
 }
