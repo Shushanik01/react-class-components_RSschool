@@ -4,6 +4,7 @@ import { Component, Fragment } from 'react';
 import type { AppState } from './types';
 import CardList from './components/CardList/CardList';
 import { getData, getAllData } from './services/api';
+import { getStoredSearchTerm } from './utils/localStorage';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import TestButton from './components/testButton/testButton';
 
@@ -21,8 +22,7 @@ class App extends Component<object, AppState> {
 
   async componentDidMount(): Promise<void> {
     this.setState({ loading: true });
-    const keptItem = localStorage.getItem('inputValue');
-    const term = keptItem ?? '';
+    const term = getStoredSearchTerm();
     await new Promise(resolve => setTimeout(resolve, 500));
     try {
       const data = term ? await getData(term) : await getAllData();
