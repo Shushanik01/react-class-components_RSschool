@@ -35,3 +35,8 @@ export interface CardItemProps {
     ability: string,
     image: string
 }
+
+export interface ErrorBoundaryProps {
+    hasError: boolean,
+    error: Error | null
+}
