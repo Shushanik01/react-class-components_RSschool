@@ -1,0 +1,73 @@
+.searchbarContainer {
+  display: flex;
+  align-items: center;
+  background: #e6eaf2;
+  border-radius: 50px;
+  padding: 18px 18px 18px 28px;
+  box-shadow:
+    8px 8px 16px #c8cdd8,
+    -8px -8px 16px #ffffff;
+  width: 750px;
+  max-width: 90vw;
+  gap: 12px;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: #8a8f9e;
+  caret-color: #8a8f9e;
+}
+
+.searchInput::placeholder {
+  color: #b0b5c3;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.searchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #e6eaf2;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #8a8f9e;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  box-shadow:
+    4px 4px 8px #c8cdd8,
+    -4px -4px 8px #ffffff;
+  transition: box-shadow 0.2s;
+}
+
+.searchBtn:hover {
+  box-shadow:
+    6px 6px 12px #c8cdd8,
+    -6px -6px 12px #ffffff;
+  color: #6b7080;
+}
+
+.searchBtn:active {
+  box-shadow:
+    inset 4px 4px 8px #c8cdd8,
+    inset -4px -4px 8px #ffffff;
+}
+
+.searchIcon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

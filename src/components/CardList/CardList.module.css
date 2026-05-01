@@ -1,0 +1,11 @@
+.cardListContainer {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 40px;
+  padding: 32px;
+  border-radius: 24px;
+  background: #e6eaf2;
+  box-shadow:
+    inset 6px 6px 12px #c8cdd8,
+    inset -6px -6px 12px #ffffff;
+}
