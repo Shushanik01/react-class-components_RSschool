@@ -3,6 +3,7 @@ import './App.css'
 import { Component, Fragment } from 'react';
 import type { AppState } from './types';
 import CardList from './components/CardList/CardList';
+// import { getData, getAllData } from './services/api';
 
 class App extends Component<object, AppState> {
   constructor(props: object) {
