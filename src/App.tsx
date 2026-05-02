@@ -4,7 +4,7 @@ import { Component, Fragment } from 'react';
 import type { AppState } from './types';
 import CardList from './components/CardList/CardList';
 import { getData, getAllData } from './services/api';
-import { getStoredSearchTerm } from './utils/localStorage';
+import { getStoredSearchTerm, setStoredSearchTerm } from './utils/localStorage';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import TestButton from './components/testButton/testButton';
 
@@ -49,6 +49,7 @@ class App extends Component<object, AppState> {
     if (term === this.state.searchTerm) {
       return;
     }
+    setStoredSearchTerm(term);
     await this.fetchWithLoading(async () => {
       const data = await getData(term);
       this.setState({ searchTerm: term, items: [data], loading: false });

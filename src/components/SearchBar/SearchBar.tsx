@@ -1,7 +1,6 @@
 import { Component, type ReactNode } from 'react';
 import type { SearchProps, SearchState } from '../../types';
 import styles from './SearchBar.module.css';
-import { setStoredSearchTerm } from '../../utils/localStorage';
 import { KEYBOARD_KEYS } from '../../constants';
 
 class SearchBar extends Component<SearchProps, SearchState> {
@@ -24,7 +23,6 @@ class SearchBar extends Component<SearchProps, SearchState> {
   handleSearch = (): void => {
     const trimmedValue = this.state.inputValue.trim();
     this.setState({ inputValue: trimmedValue });
-    setStoredSearchTerm(trimmedValue);
     this.props.onSearch(trimmedValue);
   };
 
