@@ -3,11 +3,6 @@ import type { CardItemProps } from "../../types";
 import styles from './CardItem.module.css'
 
 class CardItem extends Component<CardItemProps> {
-    constructor(props: CardItemProps) {
-        super(props)
-    }
-
-
     render(): ReactNode {
         return (
             <div className={styles.container}>

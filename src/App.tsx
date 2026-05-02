@@ -16,7 +16,6 @@ class App extends Component<object, AppState> {
       items: [],
       loading: false,
       error: null,
-      hasError: false
     };
   };
 
@@ -46,14 +45,7 @@ class App extends Component<object, AppState> {
     });
   };
   
-    handleTestError = (): void => {
-      this.setState({hasError: true})
-    };
-
-  render() {
-    if (this.state.hasError) {
-    throw new Error('Test error');
-}
+    render() {
     return (
       <Fragment>
         <SearchBar
@@ -61,8 +53,8 @@ class App extends Component<object, AppState> {
           initialValue={this.state.searchTerm}
         />
         {this.state.error && <p className={styles.errorBanner}>{this.state.error}</p>}
-     {this.state.loading ? <LoadingSpinner/> :  <CardList items={this.state.items} />}
-     <TestButton onClick={this.handleTestError}/>
+        {this.state.loading ? <LoadingSpinner /> : <CardList items={this.state.items} />}
+        <TestButton />
       </Fragment>
     )
   }

@@ -5,7 +5,6 @@ export interface SearchProps {
 
 export interface SearchState {
     inputValue: string,
-    hasError: boolean
 }
 
 export interface AppState {
@@ -13,7 +12,6 @@ export interface AppState {
     items: Item[];
     loading: boolean;
     error: string | null;
-    hasError: boolean
 }
 
 export interface Item {

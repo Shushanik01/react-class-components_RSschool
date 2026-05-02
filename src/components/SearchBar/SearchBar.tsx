@@ -9,7 +9,6 @@ class SearchBar extends Component<SearchProps, SearchState> {
         super(props)
         this.state = {
             inputValue: props.initialValue || '',
-            hasError: false
         }
     }
     componentDidUpdate(prevProps: SearchProps): void {
@@ -35,9 +34,6 @@ class SearchBar extends Component<SearchProps, SearchState> {
         }
     }
     render(): ReactNode {
-        if (this.state.hasError) {
-            throw new Error('Test Error from error boundary')
-        }
         return (
             <div className={styles.searchbarContainer}>
                 <input
