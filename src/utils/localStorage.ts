@@ -1,7 +1,9 @@
+const SEARCH_TERM_KEY = 'searchTerm';
+
 export const getStoredSearchTerm = (): string => {
-  return localStorage.getItem('inputValue') ?? '';
+  return localStorage.getItem(SEARCH_TERM_KEY) ?? '';
 };
 
 export const setStoredSearchTerm = (value: string): void => {
-  localStorage.setItem('inputValue', value);
+  localStorage.setItem(SEARCH_TERM_KEY, value);
 };
