@@ -5,15 +5,15 @@ import styles from './CardItem.module.css';
 class CardItem extends Component<CardItemProps> {
   render(): ReactNode {
     return (
-      <div className={styles.container}>
-        <img src={this.props.image} alt={this.props.name} />
+      <article className={styles.container}>
+        <img src={this.props.image} alt={this.props.name} width={120} height={120} />
         <section>
           <h3> Name: {this.props.name}</h3>
           <p>Type: {this.props.type}</p>
           <p>Weight: {this.props.weight}</p>
           <p>Ability: {this.props.ability}</p>
         </section>
-      </div>
+      </article>
     );
   }
 }

@@ -13,17 +13,19 @@ class ErrorBoundary extends Component<{ children: ReactNode }> {
   componentDidCatch(error: Error, info: React.ErrorInfo): void {
     console.error('ErrorBoundary caught:', error, info.componentStack);
   }
+
+  handleReload = (): void => {
+    window.location.reload();
+  };
+
   render(): ReactNode {
     if (this.state.error) {
       return (
         <div className={styles.fallbacContainer}>
-          <div className={styles.fallbacIcon}>⚠️</div>
+          <span className={styles.fallbacIcon}>⚠️</span>
           <h2>Something went wrong!</h2>
           <p>{this.state.error.message}</p>
-          <button
-            className={styles.fallbackBtn}
-            onClick={() => window.location.reload()}
-          >
+          <button className={styles.fallbackBtn} onClick={this.handleReload}>
             Reload Page
           </button>
         </div>
