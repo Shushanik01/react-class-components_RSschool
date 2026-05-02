@@ -28,8 +28,12 @@ export const getData = async (term: string) => {
 };
 
 export const getAllData = async () => {
-  const response = await fetch(`${API_URL}/pokemon?limit=${POKEMON_FETCH_LIMIT}`);
-  if (!response.ok) throwApiError(response);
+  const response = await fetch(
+    `${API_URL}/pokemon?limit=${POKEMON_FETCH_LIMIT}`
+  );
+  if (!response.ok) {
+    throwApiError(response);
+  }
   const data = await response.json();
   const details = await Promise.all(
     data.results.map((pokemon: { url: string }) =>

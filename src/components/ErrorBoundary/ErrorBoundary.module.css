@@ -1,4 +1,4 @@
-.fallbacContainer {
+.fallbackContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,17 +9,17 @@
   padding: 2rem;
 }
 
-.fallbacIcon {
+.fallbackIcon {
   font-size: 4rem;
 }
 
-.fallbacContainer h2 {
+.fallbackContainer h2 {
   font-size: 1.5rem;
   color: #1a1a1a;
   margin: 0;
 }
 
-.fallbacContainer p {
+.fallbackContainer p {
   color: #6b7280;
   font-size: 0.95rem;
   max-width: 400px;

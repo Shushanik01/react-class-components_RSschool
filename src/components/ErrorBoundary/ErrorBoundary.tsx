@@ -21,8 +21,8 @@ class ErrorBoundary extends Component<{ children: ReactNode }> {
   render(): ReactNode {
     if (this.state.error) {
       return (
-        <div className={styles.fallbacContainer}>
-          <span className={styles.fallbacIcon}>⚠️</span>
+        <div className={styles.fallbackContainer}>
+          <span className={styles.fallbackIcon}>⚠️</span>
           <h2>Something went wrong!</h2>
           <p>{this.state.error.message}</p>
           <button className={styles.fallbackBtn} onClick={this.handleReload}>
