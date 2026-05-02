@@ -6,7 +6,12 @@ class CardItem extends Component<CardItemProps> {
   render(): ReactNode {
     return (
       <article className={styles.container}>
-        <img src={this.props.image} alt={this.props.name} width={120} height={120} />
+        <img
+          src={this.props.image}
+          alt={this.props.name}
+          width={120}
+          height={120}
+        />
         <section>
           <h3> Name: {this.props.name}</h3>
           <p>Type: {this.props.type}</p>

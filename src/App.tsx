@@ -8,6 +8,8 @@ import { getStoredSearchTerm } from './utils/localStorage';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import TestButton from './components/testButton/testButton';
 
+const LOADING_DELAY_MS = 500;
+
 class App extends Component<object, AppState> {
   constructor(props: object) {
     super(props);
@@ -23,7 +25,7 @@ class App extends Component<object, AppState> {
     operation: () => Promise<void>
   ): Promise<void> {
     this.setState({ loading: true, error: null });
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, LOADING_DELAY_MS));
     try {
       await operation();
     } catch (error) {
@@ -44,7 +46,9 @@ class App extends Component<object, AppState> {
   }
 
   handleSearch = async (term: string): Promise<void> => {
-    if (term === this.state.searchTerm) return;
+    if (term === this.state.searchTerm) {
+      return;
+    }
     await this.fetchWithLoading(async () => {
       const data = await getData(term);
       this.setState({ searchTerm: term, items: [data], loading: false });

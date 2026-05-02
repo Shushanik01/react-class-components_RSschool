@@ -2,6 +2,7 @@ import { Component, type ReactNode } from 'react';
 import type { SearchProps, SearchState } from '../../types';
 import styles from './SearchBar.module.css';
 import { setStoredSearchTerm } from '../../utils/localStorage';
+import { KEYBOARD_KEYS } from '../../constants';
 
 class SearchBar extends Component<SearchProps, SearchState> {
   constructor(props: SearchProps) {
@@ -28,7 +29,7 @@ class SearchBar extends Component<SearchProps, SearchState> {
   };
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === KEYBOARD_KEYS.Enter) {
       this.handleSearch();
     }
   };
