@@ -19,4 +19,4 @@ class TestButton extends Component<object, TestButtonState> {
     );
   }
 }
-export default TestButton
+export default TestButton;

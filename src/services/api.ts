@@ -1,10 +1,14 @@
 const API_URL = 'https://pokeapi.co/api/v2';
 
 const throwApiError = (response: Response): never => {
-  if (response.status === 404) throw new Error('Pokemon not found. Please check the name');
-  if (response.status === 400) throw new Error('Invalid request. Please check your input');
-  if (response.status === 500) throw new Error('Server error. Please try again later');
-  if (response.status === 503) throw new Error('Service is temporarily unavailable');
+  if (response.status === 404)
+    throw new Error('Pokemon not found. Please check the name');
+  if (response.status === 400)
+    throw new Error('Invalid request. Please check your input');
+  if (response.status === 500)
+    throw new Error('Server error. Please try again later');
+  if (response.status === 503)
+    throw new Error('Service is temporarily unavailable');
   throw new Error('Something went wrong');
 };
 

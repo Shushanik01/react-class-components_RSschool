@@ -1,11 +1,11 @@
-
 * {
   margin: 10px;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   min-height: 100vh;
   background: #e6eaf2;
   scrollbar-width: none;

@@ -1,17 +1,17 @@
 export interface SearchProps {
-    onSearch: (term: string) => void,
-    initialValue: string
+  onSearch: (term: string) => void;
+  initialValue: string;
 }
 
 export interface SearchState {
-    inputValue: string,
+  inputValue: string;
 }
 
 export interface AppState {
-    searchTerm: string;
-    items: Item[];
-    loading: boolean;
-    error: string | null;
+  searchTerm: string;
+  items: Item[];
+  loading: boolean;
+  error: string | null;
 }
 
 export interface Item {
@@ -28,14 +28,14 @@ export interface CardListProps {
 }
 
 export interface CardItemProps {
-    name: string,
-    type: string,
-    weight: number,
-    ability: string,
-    image: string
+  name: string;
+  type: string;
+  weight: number;
+  ability: string;
+  image: string;
 }
 
 export interface ErrorBoundaryProps {
-    hasError: boolean,
-    error: Error | null
+  hasError: boolean;
+  error: Error | null;
 }

@@ -1,5 +1,5 @@
-import SearchBar from './components/SearchBar/SearchBar'
-import styles from './App.module.css'
+import SearchBar from './components/SearchBar/SearchBar';
+import styles from './App.module.css';
 import { Component, Fragment } from 'react';
 import type { AppState } from './types';
 import CardList from './components/CardList/CardList';
@@ -10,18 +10,20 @@ import TestButton from './components/testButton/testButton';
 
 class App extends Component<object, AppState> {
   constructor(props: object) {
-    super(props)
+    super(props);
     this.state = {
       searchTerm: '',
       items: [],
       loading: false,
       error: null,
     };
-  };
+  }
 
-  private async fetchWithLoading(operation: () => Promise<void>): Promise<void> {
+  private async fetchWithLoading(
+    operation: () => Promise<void>
+  ): Promise<void> {
     this.setState({ loading: true, error: null });
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 500));
     try {
       await operation();
     } catch (error) {
@@ -33,7 +35,11 @@ class App extends Component<object, AppState> {
     const term = getStoredSearchTerm();
     await this.fetchWithLoading(async () => {
       const data = term ? await getData(term) : await getAllData();
-      this.setState({ searchTerm: term, items: term ? [data] : data, loading: false });
+      this.setState({
+        searchTerm: term,
+        items: term ? [data] : data,
+        loading: false,
+      });
     });
   }
 
@@ -44,19 +50,25 @@ class App extends Component<object, AppState> {
       this.setState({ searchTerm: term, items: [data], loading: false });
     });
   };
-  
-    render() {
+
+  render() {
     return (
       <Fragment>
         <SearchBar
           onSearch={this.handleSearch}
           initialValue={this.state.searchTerm}
         />
-        {this.state.error && <p className={styles.errorBanner}>{this.state.error}</p>}
-        {this.state.loading ? <LoadingSpinner /> : <CardList items={this.state.items} />}
+        {this.state.error && (
+          <p className={styles.errorBanner}>{this.state.error}</p>
+        )}
+        {this.state.loading ? (
+          <LoadingSpinner />
+        ) : (
+          <CardList items={this.state.items} />
+        )}
         <TestButton />
       </Fragment>
-    )
+    );
   }
 }
-export default App
+export default App;
