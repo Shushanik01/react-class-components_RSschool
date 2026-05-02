@@ -20,28 +20,30 @@ class App extends Component<object, AppState> {
     };
   };
 
-  async componentDidMount(): Promise<void> {
-    this.setState({ loading: true });
-    const term = getStoredSearchTerm();
+  private async fetchWithLoading(operation: () => Promise<void>): Promise<void> {
+    this.setState({ loading: true, error: null });
     await new Promise(resolve => setTimeout(resolve, 500));
     try {
-      const data = term ? await getData(term) : await getAllData();
-      this.setState({ searchTerm: term, items: term ? [data] : data, loading: false });
+      await operation();
     } catch (error) {
       this.setState({ error: (error as Error).message, loading: false });
     }
   }
 
+  async componentDidMount(): Promise<void> {
+    const term = getStoredSearchTerm();
+    await this.fetchWithLoading(async () => {
+      const data = term ? await getData(term) : await getAllData();
+      this.setState({ searchTerm: term, items: term ? [data] : data, loading: false });
+    });
+  }
+
   handleSearch = async (term: string): Promise<void> => {
-    if (term === this.state.searchTerm) return
-    this.setState({ loading: true, error: null });
-    await new Promise(resolve => setTimeout(resolve, 500));
-    try {
+    if (term === this.state.searchTerm) return;
+    await this.fetchWithLoading(async () => {
       const data = await getData(term);
       this.setState({ searchTerm: term, items: [data], loading: false });
-    } catch (error) {
-      this.setState({ error: (error as Error).message, loading: false });
-    }
+    });
   };
   
     handleTestError = (): void => {
