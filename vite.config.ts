@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/shushanik01-REACT2026Q2/',
-});
+  base: command === 'build' ? '/react-class-components_RSschool/' : '/',
+}));

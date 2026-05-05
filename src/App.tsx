@@ -45,18 +45,28 @@ class App extends Component<object, AppState> {
     });
   }
 
-  handleSearch = async (term: string): Promise<void> => {
-    if (term === this.state.searchTerm) {
+  handleSearch = async (rawTerm: string): Promise<void> => {
+    const term = rawTerm.trim();
+    console.log('handleSearch called, rawTerm:', JSON.stringify(rawTerm), 'term:', JSON.stringify(term), 'searchTerm:', JSON.stringify(this.state.searchTerm));
+    if (rawTerm === this.state.searchTerm) {
+      console.log('early return: rawTerm === searchTerm');
       return;
     }
     setStoredSearchTerm(term);
+    if (term === this.state.searchTerm) {
+      console.log('early return: term === searchTerm');
+      return;
+    }
     await this.fetchWithLoading(async () => {
-      const data = await getData(term);
-      this.setState({ searchTerm: term, items: [data], loading: false });
+      console.log('fetching, term:', JSON.stringify(term));
+      const data = term ? await getData(term) : await getAllData();
+      console.log('data received, isArray:', Array.isArray(data));
+      this.setState({ searchTerm: term, items: term ? [data] : data, loading: false });
     });
   };
 
   render() {
+    console.log('render, items count:', this.state.items.length, 'first item keys:', this.state.items[0] ? Object.keys(this.state.items[0]) : 'none');
     return (
       <Fragment>
         <SearchBar

@@ -21,9 +21,10 @@ class SearchBar extends Component<SearchProps, SearchState> {
   };
 
   handleSearch = (): void => {
-    const trimmedValue = this.state.inputValue.trim();
+    const rawValue = this.state.inputValue;
+    const trimmedValue = rawValue.trim();
     this.setState({ inputValue: trimmedValue });
-    this.props.onSearch(trimmedValue);
+    this.props.onSearch(rawValue);
   };
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
