@@ -7,8 +7,7 @@
 html,
 body {
   min-height: 100vh;
-  /* background: #e6eaf2; */
-  background-color: aqua;
+  background: #e6eaf2;
   scrollbar-width: none;
   overflow-x: hidden;
 }
