@@ -1,4 +1,7 @@
-import { getStoredSearchTerm, setStoredSearchTerm } from '../utils/localStorage';
+import {
+  getStoredSearchTerm,
+  setStoredSearchTerm,
+} from '../utils/localStorage';
 
 describe('localStorage utils', () => {
   beforeEach(() => {

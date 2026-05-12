@@ -1,5 +1,4 @@
-import { render, screen, act } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, act, fireEvent } from '@testing-library/react';
 import App from '../App';
 import { mockItem, mockItems } from './mocks/mockData';
 
@@ -7,7 +6,10 @@ vi.mock('../services/api');
 vi.mock('../utils/localStorage');
 
 import { getData, getAllData } from '../services/api';
-import { getStoredSearchTerm, setStoredSearchTerm } from '../utils/localStorage';
+import {
+  getStoredSearchTerm,
+  setStoredSearchTerm,
+} from '../utils/localStorage';
 
 describe('App', () => {
   beforeEach(() => {
@@ -83,26 +85,31 @@ describe('App', () => {
     });
 
     it('saves search term to localStorage when search is performed', async () => {
-      const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime.bind(vi) });
-
       await mountAndSettle();
 
-      await user.clear(screen.getByRole('textbox'));
-      await user.type(screen.getByRole('textbox'), 'squirtle');
-      await user.click(screen.getByRole('button', { name: /search/i }));
+      fireEvent.change(screen.getByRole('textbox'), {
+        target: { value: 'squirtle' },
+      });
+      await act(async () => {
+        fireEvent.click(screen.getByRole('button', { name: /search/i }));
+        await vi.runAllTimersAsync();
+      });
 
       expect(setStoredSearchTerm).toHaveBeenCalledWith('squirtle');
     });
 
     it('overwrites existing localStorage value on new search', async () => {
       vi.mocked(getStoredSearchTerm).mockReturnValue('bulbasaur');
-      const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime.bind(vi) });
 
       await mountAndSettle();
 
-      await user.clear(screen.getByRole('textbox'));
-      await user.type(screen.getByRole('textbox'), 'squirtle');
-      await user.click(screen.getByRole('button', { name: /search/i }));
+      fireEvent.change(screen.getByRole('textbox'), {
+        target: { value: 'squirtle' },
+      });
+      await act(async () => {
+        fireEvent.click(screen.getByRole('button', { name: /search/i }));
+        await vi.runAllTimersAsync();
+      });
 
       expect(setStoredSearchTerm).toHaveBeenCalledWith('squirtle');
     });
@@ -110,16 +117,15 @@ describe('App', () => {
 
   describe('Search', () => {
     it('calls getData with the correct search term', async () => {
-      const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime.bind(vi) });
       vi.mocked(getData).mockResolvedValue({ ...mockItem, name: 'squirtle' });
 
       await mountAndSettle();
 
-      await user.clear(screen.getByRole('textbox'));
-      await user.type(screen.getByRole('textbox'), 'squirtle');
-      await user.click(screen.getByRole('button', { name: /search/i }));
-
+      fireEvent.change(screen.getByRole('textbox'), {
+        target: { value: 'squirtle' },
+      });
       await act(async () => {
+        fireEvent.click(screen.getByRole('button', { name: /search/i }));
         await vi.runAllTimersAsync();
       });
 
@@ -128,27 +134,27 @@ describe('App', () => {
 
     it('does not re-fetch when the same search term is submitted', async () => {
       vi.mocked(getStoredSearchTerm).mockReturnValue('bulbasaur');
-      const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime.bind(vi) });
 
       await mountAndSettle();
 
       const callsBefore = vi.mocked(getData).mock.calls.length;
 
-      await user.click(screen.getByRole('button', { name: /search/i }));
+      await act(async () => {
+        fireEvent.click(screen.getByRole('button', { name: /search/i }));
+        await vi.runAllTimersAsync();
+      });
 
       expect(vi.mocked(getData).mock.calls.length).toBe(callsBefore);
     });
 
     it('calls getAllData when search term is cleared', async () => {
       vi.mocked(getStoredSearchTerm).mockReturnValue('bulbasaur');
-      const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime.bind(vi) });
 
       await mountAndSettle();
 
-      await user.clear(screen.getByRole('textbox'));
-      await user.click(screen.getByRole('button', { name: /search/i }));
-
+      fireEvent.change(screen.getByRole('textbox'), { target: { value: '' } });
       await act(async () => {
+        fireEvent.click(screen.getByRole('button', { name: /search/i }));
         await vi.runAllTimersAsync();
       });
 
@@ -158,11 +164,15 @@ describe('App', () => {
 
   describe('Error handling', () => {
     it('displays error message when API call fails', async () => {
-      vi.mocked(getAllData).mockRejectedValue(new Error('Pokemon not found. Please check the name'));
+      vi.mocked(getAllData).mockRejectedValue(
+        new Error('Pokemon not found. Please check the name')
+      );
 
       await mountAndSettle();
 
-      expect(screen.getByText('Pokemon not found. Please check the name')).toBeInTheDocument();
+      expect(
+        screen.getByText('Pokemon not found. Please check the name')
+      ).toBeInTheDocument();
     });
 
     it('hides error message on successful fetch', async () => {

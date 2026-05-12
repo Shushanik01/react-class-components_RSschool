@@ -7,9 +7,7 @@ class CardList extends Component<CardListProps> {
   render(): ReactNode {
     return (
       <ul className={styles.cardListContainer}>
-        {(this.props.items ?? []).length === 0 && (
-          <p>No results found</p>
-        )}
+        {(this.props.items ?? []).length === 0 && <p>No results found</p>}
         {(this.props.items ?? []).map((item) => (
           <li key={item.name}>
             <CardItem

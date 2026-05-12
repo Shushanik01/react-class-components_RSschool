@@ -17,7 +17,9 @@ describe('SearchBar', () => {
 
     it('renders the search button', () => {
       render(<SearchBar onSearch={onSearch} initialValue="" />);
-      expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: /search/i })
+      ).toBeInTheDocument();
     });
 
     it('displays the initialValue in the input', () => {

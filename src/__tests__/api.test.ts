@@ -65,7 +65,9 @@ describe('API service', () => {
 
     it('throws generic error for other status codes', async () => {
       vi.mocked(fetch).mockResolvedValue(createResponse(null, false, 418));
-      await expect(getData('bulbasaur')).rejects.toThrow('Something went wrong');
+      await expect(getData('bulbasaur')).rejects.toThrow(
+        'Something went wrong'
+      );
     });
   });
 
@@ -90,7 +92,9 @@ describe('API service', () => {
 
     it('throws on failed list fetch', async () => {
       vi.mocked(fetch).mockResolvedValue(createResponse(null, false, 500));
-      await expect(getAllData()).rejects.toThrow('Server error. Please try again later');
+      await expect(getAllData()).rejects.toThrow(
+        'Server error. Please try again later'
+      );
     });
   });
 });

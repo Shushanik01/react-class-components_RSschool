@@ -3,7 +3,11 @@ import userEvent from '@testing-library/user-event';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 import TestButton from '../components/testButton/testButton';
 
-const ThrowingComponent = ({ message = 'Test error message' }: { message?: string }) => {
+const ThrowingComponent = ({
+  message = 'Test error message',
+}: {
+  message?: string;
+}) => {
   throw new Error(message);
 };
 
@@ -32,7 +36,9 @@ describe('ErrorBoundary', () => {
           <p>Child content</p>
         </ErrorBoundary>
       );
-      expect(screen.queryByText('Something went wrong!')).not.toBeInTheDocument();
+      expect(
+        screen.queryByText('Something went wrong!')
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -70,7 +76,9 @@ describe('ErrorBoundary', () => {
           <ThrowingComponent />
         </ErrorBoundary>
       );
-      expect(screen.getByRole('button', { name: /reload page/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: /reload page/i })
+      ).toBeInTheDocument();
     });
 
     it('calls window.location.reload when Reload Page is clicked', async () => {
@@ -98,7 +106,9 @@ describe('ErrorBoundary', () => {
           <TestButton />
         </ErrorBoundary>
       );
-      expect(screen.getByRole('button', { name: /test error/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: /test error/i })
+      ).toBeInTheDocument();
     });
 
     it('triggers fallback UI when Test Error button is clicked', async () => {
