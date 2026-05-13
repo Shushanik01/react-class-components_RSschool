@@ -1,6 +1,6 @@
 import SearchBar from './components/SearchBar/SearchBar';
 import styles from './App.module.css';
-import {  Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import type { AppState } from './types';
 import CardList from './components/CardList/CardList';
 import { getData, getAllData } from './services/api';
@@ -18,73 +18,68 @@ function App() {
     error: null,
   });
 
-  const fetchWithLoading = useCallback(async (operation: () => Promise<void>) => {
-    setState(prev => ({ ...prev, loading: true, error: null }))
-    await new Promise(resolve => setTimeout(resolve, LOADING_DELAY_MS))
-    try {
-      await operation()
-    } catch (error) {
-      setState(prev => ({
-        ...prev,
-        error: (error as Error).message,
-        loading: false
-      }))
-    } finally {
-      setState(prev => ({ ...prev, loading: false })); 
-    }
-  }, []);
+  const fetchWithLoading = useCallback(
+    async (operation: () => Promise<void>) => {
+      setState((prev) => ({ ...prev, loading: true, error: null }));
+      await new Promise((resolve) => setTimeout(resolve, LOADING_DELAY_MS));
+      try {
+        await operation();
+      } catch (error) {
+        setState((prev) => ({
+          ...prev,
+          error: (error as Error).message,
+          loading: false,
+        }));
+      } finally {
+        setState((prev) => ({ ...prev, loading: false }));
+      }
+    },
+    []
+  );
 
   useEffect(() => {
     const fetchInitialData = async () => {
       const term = getStoredSearchTerm();
       await fetchWithLoading(async () => {
-        const data = term ? await getData(term) : await getAllData()
+        const data = term ? await getData(term) : await getAllData();
         setState({
           searchTerm: term,
           items: term ? [data] : data,
           loading: false,
-          error: null
-        })
-      })
-    }
-    fetchInitialData()
+          error: null,
+        });
+      });
+    };
+    fetchInitialData();
   }, [fetchWithLoading]);
 
-  const handleSearch = useCallback(async (rawTerm: string) => {
-    const term = rawTerm.trim();
+  const handleSearch = useCallback(
+    async (rawTerm: string) => {
+      const term = rawTerm.trim();
 
-    if (term === state.searchTerm) return;
+      if (term === state.searchTerm) return;
 
-    setStoredSearchTerm(term);
+      setStoredSearchTerm(term);
 
-    await fetchWithLoading(async () => {
-      const data = term ? await getData(term) : await getAllData();
-      setState({
-        searchTerm: term,
-        items: term ? [data] : data,
-        loading: false,
-        error: null,
+      await fetchWithLoading(async () => {
+        const data = term ? await getData(term) : await getAllData();
+        setState({
+          searchTerm: term,
+          items: term ? [data] : data,
+          loading: false,
+          error: null,
+        });
       });
-    });
-  }, [state.searchTerm, fetchWithLoading]);
+    },
+    [state.searchTerm, fetchWithLoading]
+  );
   return (
     <Fragment>
-      <SearchBar
-        onSearch={handleSearch}
-        initialValue={state.searchTerm}
-      />
-      {state.error && (
-        <p className={styles.errorBanner}>{state.error}</p>
-      )}
-      {state.loading ? (
-        <LoadingSpinner />
-      ) : (
-        <CardList items={state.items} />
-      )}
+      <SearchBar onSearch={handleSearch} initialValue={state.searchTerm} />
+      {state.error && <p className={styles.errorBanner}>{state.error}</p>}
+      {state.loading ? <LoadingSpinner /> : <CardList items={state.items} />}
       <TestButton />
     </Fragment>
   );
 }
-export default App
-
-
+export default App;
