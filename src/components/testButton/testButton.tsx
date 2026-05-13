@@ -1,22 +1,15 @@
-import { Component, type ReactNode } from 'react';
+import { useState } from 'react';
 import styles from './testButton.module.css';
 
-type TestButtonState = { shouldThrow: boolean };
+const TestButton = () => {
+  const [shouldThrow, setShouldThrow] = useState(false);
 
-class TestButton extends Component<object, TestButtonState> {
-  state: TestButtonState = { shouldThrow: false };
+  if (shouldThrow) throw new Error('Test error');
 
-  handleClick = (): void => {
-    this.setState({ shouldThrow: true });
-  };
-
-  render(): ReactNode {
-    if (this.state.shouldThrow) throw new Error('Test error');
-    return (
-      <button onClick={this.handleClick} className={styles.testErrorBtn}>
-        Test Error
-      </button>
-    );
-  }
-}
+  return (
+    <button onClick={() => setShouldThrow(true)} className={styles.testErrorBtn}>
+      Test Error
+    </button>
+  );
+};
 export default TestButton;
