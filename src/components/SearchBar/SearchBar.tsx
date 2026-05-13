@@ -7,6 +7,12 @@ const SearchBar = (props: SearchProps) => {
   const [inputValue, setInputValue] = useState<string>(
     props.initialValue || ''
   );
+  const [prevInitialValue, setPrevInitialValue] = useState(props.initialValue);
+
+  if (prevInitialValue !== props.initialValue) {
+    setPrevInitialValue(props.initialValue);
+    setInputValue(props.initialValue || '');
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setInputValue(e.target.value);
