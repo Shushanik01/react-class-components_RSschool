@@ -1,14 +1,13 @@
-import { Component, type ReactNode } from 'react';
 import type { CardListProps } from '../../types';
 import styles from './CardList.module.css';
 import CardItem from '../CardItem/CardItem';
 
-class CardList extends Component<CardListProps> {
-  render(): ReactNode {
-    return (
-      <ul className={styles.cardListContainer}>
-        {(this.props.items ?? []).length === 0 && <p>No results found</p>}
-        {(this.props.items ?? []).map((item) => (
+
+const CardList = (props: CardListProps)=>{
+  return(
+    <ul className={styles.cardListContainer}>
+        {(props.items ?? []).length === 0 && <p>No results found</p>}
+        {(props.items ?? []).map((item) => (
           <li key={item.name}>
             <CardItem
               name={item.name}
@@ -20,7 +19,6 @@ class CardList extends Component<CardListProps> {
           </li>
         ))}
       </ul>
-    );
-  }
+  )
 }
-export default CardList;
+export default CardList
