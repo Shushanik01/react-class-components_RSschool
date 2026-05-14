@@ -13,6 +13,14 @@ export interface AppState {
   loading: boolean;
   error: string | null;
 }
+export interface Stat {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+}
 
 export interface Item {
   id: number;
@@ -21,6 +29,8 @@ export interface Item {
   types: { type: { name: string } }[];
   abilities: { ability: { name: string } }[];
   sprites: { front_default: string };
+  height?:number,
+  stats?: Stat[]
 }
 
 export interface CardListProps {

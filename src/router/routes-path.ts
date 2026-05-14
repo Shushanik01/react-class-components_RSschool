@@ -1,4 +1,4 @@
 export const ROUT_PATHS = {
-    ROOT: '/',
-    DETAILS: 'details/:id',
-}
+  ROOT: '/',
+  DETAILS: 'details/:id',
+};
