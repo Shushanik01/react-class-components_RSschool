@@ -3,7 +3,7 @@ import styles from './App.module.css';
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import type { AppState } from './types';
 import CardList from './components/CardList/CardList';
-import { getData, getAllData } from './services/api';
+import { getData } from './services/api';
 import { getStoredSearchTerm, setStoredSearchTerm } from './utils/localStorage';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import TestButton from './components/testButton/testButton';
@@ -41,7 +41,7 @@ function App() {
     const fetchInitialData = async () => {
       const term = getStoredSearchTerm();
       await fetchWithLoading(async () => {
-        const data = term ? await getData(term) : await getAllData();
+        const data = term ? await getData(term) : null;
         setState({
           searchTerm: term,
           items: term ? [data] : data,
@@ -62,7 +62,7 @@ function App() {
       setStoredSearchTerm(term);
 
       await fetchWithLoading(async () => {
-        const data = term ? await getData(term) : await getAllData();
+        const data = term ? await getData(term) : null;
         setState({
           searchTerm: term,
           items: term ? [data] : data,

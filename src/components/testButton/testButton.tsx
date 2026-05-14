@@ -7,7 +7,10 @@ const TestButton = () => {
   if (shouldThrow) throw new Error('Test error');
 
   return (
-    <button onClick={() => setShouldThrow(true)} className={styles.testErrorBtn}>
+    <button
+      onClick={() => setShouldThrow(true)}
+      className={styles.testErrorBtn}
+    >
       Test Error
     </button>
   );

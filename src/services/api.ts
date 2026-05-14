@@ -1,7 +1,6 @@
 import { HTTP_STATUS } from '../constants';
 
 const API_URL = 'https://pokeapi.co/api/v2';
-const POKEMON_FETCH_LIMIT = 20;
 
 const throwApiError = (response: Response): never => {
   if (response.status === HTTP_STATUS.NotFound) {
@@ -27,9 +26,9 @@ export const getData = async (term: string) => {
   return response.json();
 };
 
-export const getAllData = async () => {
+export const getAllData = async (offset: number, limit: number) => {
   const response = await fetch(
-    `${API_URL}/pokemon?limit=${POKEMON_FETCH_LIMIT}`
+    `${API_URL}/pokemon?offset=${offset}limit=${limit}`
   );
   if (!response.ok) {
     throwApiError(response);
@@ -40,5 +39,8 @@ export const getAllData = async () => {
       fetch(pokemon.url).then((response) => response.json())
     )
   );
-  return details;
+  return {
+    results: details,
+    count: data.count,
+  };
 };
