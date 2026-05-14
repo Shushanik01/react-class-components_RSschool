@@ -27,7 +27,8 @@
   color: #333;
 }
 
-.loading, .error {
+.loading,
+.error {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,14 +55,16 @@
   border-radius: 8px;
 }
 
-.types, .abilities {
+.types,
+.abilities {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   margin: 10px 0;
 }
 
-.type, .ability {
+.type,
+.ability {
   background: #e0e0e0;
   padding: 4px 12px;
   border-radius: 20px;

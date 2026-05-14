@@ -29,8 +29,8 @@ export interface Item {
   types: { type: { name: string } }[];
   abilities: { ability: { name: string } }[];
   sprites: { front_default: string };
-  height?:number,
-  stats?: Stat[]
+  height?: number;
+  stats?: Stat[];
 }
 
 export interface CardListProps {
