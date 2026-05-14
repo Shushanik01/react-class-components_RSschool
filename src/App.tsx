@@ -1,85 +1,63 @@
 import SearchBar from './components/SearchBar/SearchBar';
 import styles from './App.module.css';
-import { Fragment, useCallback, useEffect, useState } from 'react';
-import type { AppState } from './types';
+import { Fragment, useEffect, useState } from 'react';
 import CardList from './components/CardList/CardList';
-import { getData } from './services/api';
 import { getStoredSearchTerm, setStoredSearchTerm } from './utils/localStorage';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import TestButton from './components/testButton/testButton';
+import { useSearchParams } from 'react-router';
+import { usePagination } from './hooks/usePagination';
+import Pagination from './components/pagination/Pagination';
 
-const LOADING_DELAY_MS = 500;
+const App = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState(getStoredSearchTerm());
+  const initialPage = Number(searchParams.get('page')) || 1;
 
-function App() {
-  const [state, setState] = useState<AppState>({
-    searchTerm: getStoredSearchTerm(),
-    items: [],
-    loading: false,
-    error: null,
-  });
-
-  const fetchWithLoading = useCallback(
-    async (operation: () => Promise<void>) => {
-      setState((prev) => ({ ...prev, loading: true, error: null }));
-      await new Promise((resolve) => setTimeout(resolve, LOADING_DELAY_MS));
-      try {
-        await operation();
-      } catch (error) {
-        setState((prev) => ({
-          ...prev,
-          error: (error as Error).message,
-          loading: false,
-        }));
-      } finally {
-        setState((prev) => ({ ...prev, loading: false }));
-      }
-    },
-    []
-  );
+  const {
+    items,
+    loading,
+    error,
+    currentPage,
+    totalPages,
+    goToPage,
+    resetPage,
+  } = usePagination(searchTerm, initialPage);
 
   useEffect(() => {
-    const fetchInitialData = async () => {
-      const term = getStoredSearchTerm();
-      await fetchWithLoading(async () => {
-        const data = term ? await getData(term) : null;
-        setState({
-          searchTerm: term,
-          items: term ? [data] : data,
-          loading: false,
-          error: null,
-        });
-      });
-    };
-    fetchInitialData();
-  }, [fetchWithLoading]);
+    setSearchParams({ page: currentPage.toString() });
+  }, [currentPage, setSearchParams]);
 
-  const handleSearch = useCallback(
-    async (rawTerm: string) => {
-      const term = rawTerm.trim();
+  const handleSearch = (rawTerm: string) => {
+    const term = rawTerm.trim();
+    setSearchTerm(term);
+    setStoredSearchTerm(term);
+    resetPage();
+  };
 
-      if (term === state.searchTerm) return;
-
-      setStoredSearchTerm(term);
-
-      await fetchWithLoading(async () => {
-        const data = term ? await getData(term) : null;
-        setState({
-          searchTerm: term,
-          items: term ? [data] : data,
-          loading: false,
-          error: null,
-        });
-      });
-    },
-    [state.searchTerm, fetchWithLoading]
-  );
   return (
     <Fragment>
-      <SearchBar onSearch={handleSearch} initialValue={state.searchTerm} />
-      {state.error && <p className={styles.errorBanner}>{state.error}</p>}
-      {state.loading ? <LoadingSpinner /> : <CardList items={state.items} />}
+      <SearchBar onSearch={handleSearch} initialValue={searchTerm} />
+
+      {error && <p className={styles.errorBanner}>{error}</p>}
+
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          <CardList items={items} />
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={goToPage}
+            />
+          )}
+        </>
+      )}
+
       <TestButton />
     </Fragment>
   );
-}
+};
 export default App;

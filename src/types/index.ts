@@ -38,20 +38,10 @@ export interface CardItemProps {
 export interface ErrorBoundaryProps {
   hasError: boolean;
   error: Error | null;
-};
-
-export interface Pokemon {
-  name: string;
-  url: string;
-  id?: number;
-  types?: { type: { name: string } }[];
-  weight?: number;
-  abilities?: { ability: { name: string } }[];
-  sprites?: { front_default: string };
 }
 
 export interface UsePaginationReturn {
-  items: Pokemon[];
+  items: Item[];
   loading: boolean;
   error: string | null;
   currentPage: number;
@@ -60,4 +50,10 @@ export interface UsePaginationReturn {
   nextPage: () => void;
   prevPage: () => void;
   resetPage: () => void;
+}
+
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
 }

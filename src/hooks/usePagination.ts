@@ -1,16 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getAllData } from '../services/api';
-import type { UsePaginationReturn, Pokemon } from '../types';
+import type { UsePaginationReturn, Item } from '../types';
 
 const ITEMS_PER_PAGE = 20;
 const LOADING_DELAY_MS = 500;
 
-export const usePagination = (searchTerm: string): UsePaginationReturn => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [items, setItems] = useState<Pokemon[]>([]);
+export const usePagination = (
+  searchTerm: string,
+  initialPage = 1
+): UsePaginationReturn => {
+  const [currentPage, setCurrentPage] = useState<number>(initialPage);
+  const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [totalCount, setTotalCount] = useState<number>(0);
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   useEffect(() => {
     const loadItems = async () => {

@@ -74,6 +74,7 @@ describe('API service', () => {
   describe('getAllData', () => {
     it('fetches list then fetches details for each pokemon', async () => {
       const listResponse = {
+        count: 2,
         results: [
           { url: 'https://pokeapi.co/api/v2/pokemon/1/' },
           { url: 'https://pokeapi.co/api/v2/pokemon/4/' },
@@ -85,14 +86,17 @@ describe('API service', () => {
         .mockResolvedValueOnce(createResponse(mockItems[0]))
         .mockResolvedValueOnce(createResponse(mockItems[1]));
 
-      const result = await getAllData();
-      expect(result).toEqual([mockItems[0], mockItems[1]]);
+      const result = await getAllData(0, 20);
+      expect(result).toEqual({
+        results: [mockItems[0], mockItems[1]],
+        count: 2,
+      });
       expect(fetch).toHaveBeenCalledTimes(3);
     });
 
     it('throws on failed list fetch', async () => {
       vi.mocked(fetch).mockResolvedValue(createResponse(null, false, 500));
-      await expect(getAllData()).rejects.toThrow(
+      await expect(getAllData(0, 20)).rejects.toThrow(
         'Server error. Please try again later'
       );
     });

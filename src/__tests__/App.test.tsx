@@ -1,4 +1,5 @@
 import { render, screen, act, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
 import App from '../App';
 import { mockItem, mockItems } from './mocks/mockData';
 
@@ -16,7 +17,10 @@ describe('App', () => {
     vi.useFakeTimers();
     vi.mocked(getStoredSearchTerm).mockReturnValue('');
     vi.mocked(setStoredSearchTerm).mockImplementation(() => {});
-    vi.mocked(getAllData).mockResolvedValue(mockItems);
+    vi.mocked(getAllData).mockResolvedValue({
+      results: mockItems,
+      count: mockItems.length,
+    });
     vi.mocked(getData).mockResolvedValue(mockItem);
   });
 
@@ -26,7 +30,11 @@ describe('App', () => {
   });
 
   const mountAndSettle = async () => {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
     await act(async () => {
       await vi.runAllTimersAsync();
     });
@@ -34,7 +42,11 @@ describe('App', () => {
 
   describe('Initial load', () => {
     it('shows loading spinner while fetching', async () => {
-      render(<App />);
+      render(
+        <MemoryRouter>
+          <App />
+        </MemoryRouter>
+      );
       expect(screen.getByRole('status')).toBeInTheDocument();
       await act(async () => {
         await vi.runAllTimersAsync();
@@ -61,11 +73,11 @@ describe('App', () => {
   describe('localStorage integration', () => {
     it('reads stored search term on mount', async () => {
       vi.mocked(getStoredSearchTerm).mockReturnValue('pikachu');
-      vi.mocked(getData).mockResolvedValue({ ...mockItem, name: 'pikachu' });
 
       await mountAndSettle();
 
-      expect(getData).toHaveBeenCalledWith('pikachu');
+      expect(getStoredSearchTerm).toHaveBeenCalled();
+      expect(screen.getByRole('textbox')).toHaveValue('pikachu');
     });
 
     it('displays stored search term in the input on mount', async () => {
@@ -116,10 +128,10 @@ describe('App', () => {
   });
 
   describe('Search', () => {
-    it('calls getData with the correct search term', async () => {
-      vi.mocked(getData).mockResolvedValue({ ...mockItem, name: 'squirtle' });
-
+    it('triggers a new fetch when search term changes', async () => {
       await mountAndSettle();
+
+      const callsBefore = vi.mocked(getAllData).mock.calls.length;
 
       fireEvent.change(screen.getByRole('textbox'), {
         target: { value: 'squirtle' },
@@ -129,7 +141,9 @@ describe('App', () => {
         await vi.runAllTimersAsync();
       });
 
-      expect(getData).toHaveBeenCalledWith('squirtle');
+      expect(vi.mocked(getAllData).mock.calls.length).toBeGreaterThan(
+        callsBefore
+      );
     });
 
     it('does not re-fetch when the same search term is submitted', async () => {
@@ -137,14 +151,14 @@ describe('App', () => {
 
       await mountAndSettle();
 
-      const callsBefore = vi.mocked(getData).mock.calls.length;
+      const callsBefore = vi.mocked(getAllData).mock.calls.length;
 
       await act(async () => {
         fireEvent.click(screen.getByRole('button', { name: /search/i }));
         await vi.runAllTimersAsync();
       });
 
-      expect(vi.mocked(getData).mock.calls.length).toBe(callsBefore);
+      expect(vi.mocked(getAllData).mock.calls.length).toBe(callsBefore);
     });
 
     it('calls getAllData when search term is cleared', async () => {
@@ -181,7 +195,7 @@ describe('App', () => {
     });
 
     it('shows no results when search returns nothing', async () => {
-      vi.mocked(getAllData).mockResolvedValue([]);
+      vi.mocked(getAllData).mockResolvedValue({ results: [], count: 0 });
 
       await mountAndSettle();
 
