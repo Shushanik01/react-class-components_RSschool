@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useSearchParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import { getData } from '../../services/api';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import type { Item, Stat } from '../../types';
@@ -7,12 +7,12 @@ import styles from './style.module.css';
 
 const DetailsPannel = () => {
   const { id } = useParams<{ id: string }>();
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
   const [details, setDetails] = useState<Item>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (!id) return;
 
@@ -33,9 +33,10 @@ const DetailsPannel = () => {
   }, [id]);
 
   const handleClose = () => {
-    const newParams = new URLSearchParams(searchParams);
-    newParams.delete('details');
-    setSearchParams(newParams);
+    // const newParams = new URLSearchParams(searchParams);
+    // newParams.delete('details');
+    // setSearchParams(newParams);
+    navigate('/');
   };
 
   return (

@@ -9,11 +9,13 @@ const CardList = (props: CardListProps) => {
       {(props.items ?? []).map((item) => (
         <li key={item.name}>
           <CardItem
+            id={item.id}
             name={item.name}
             type={item.types[0].type.name}
             weight={item.weight}
             ability={item.abilities[0].ability.name}
             image={item.sprites.front_default}
+            onCardClick={props.onCardClick}
           />
         </li>
       ))}

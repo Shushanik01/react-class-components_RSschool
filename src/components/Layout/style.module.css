@@ -1,0 +1,37 @@
+.splitLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.leftSection {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  transition: flex 0.3s ease;
+}
+
+.rightSection {
+  width: 400px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 16px;
+  border-left: 1px solid #ccc;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.closeBtn {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 8px;
+}

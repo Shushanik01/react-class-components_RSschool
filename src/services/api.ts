@@ -28,7 +28,7 @@ export const getData = async (term: string) => {
 
 export const getAllData = async (offset: number, limit: number) => {
   const response = await fetch(
-    `${API_URL}/pokemon?offset=${offset}limit=${limit}`
+    `${API_URL}/pokemon?offset=${offset}&limit=${limit}`
   );
   if (!response.ok) {
     throwApiError(response);

@@ -35,14 +35,17 @@ export interface Item {
 
 export interface CardListProps {
   items: Item[];
+  onCardClick: (id: number) => void;
 }
 
 export interface CardItemProps {
+  id: number;
   name: string;
   type: string;
   weight: number;
   ability: string;
   image: string;
+  onCardClick: (id: number) => void;
 }
 
 export interface ErrorBoundaryProps {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { getAllData } from '../services/api';
+import { getAllData, getData } from '../services/api';
 import type { UsePaginationReturn, Item } from '../types';
 
 const ITEMS_PER_PAGE = 20;
@@ -32,12 +32,21 @@ export const usePagination = (
       await new Promise((resolve) => setTimeout(resolve, LOADING_DELAY_MS));
 
       try {
-        const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+        let results: Item[], count: number;
 
-        const fetchData = await getAllData(offset, ITEMS_PER_PAGE);
+        if (searchTerm.trim()) {
+          const item = await getData(searchTerm.trim());
+          results = [item];
+          count = 1;
+        } else {
+          const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+          const fetchData = await getAllData(offset, ITEMS_PER_PAGE);
+          results = fetchData.results;
+          count = fetchData.count;
+        }
 
-        setItems(fetchData.results);
-        setTotalCount(fetchData.count);
+        setItems(results);
+        setTotalCount(count);
       } catch (error) {
         setError((error as Error).message);
       } finally {
