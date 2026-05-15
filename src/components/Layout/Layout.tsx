@@ -6,10 +6,10 @@ import { usePagination } from '../../hooks/usePagination';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import styles from './style.module.css';
 import CardList from '../CardList/CardList';
+import TestButton from '../testButton/testButton';
 
 export default function Layout() {
-  const match = useMatch('/details/:id');
-  const selectedId = match?.params.id;
+  const detailsMatch = useMatch('/details/:id');
   const [searchTerm, setSearchTerm] = useState('');
   const { items, loading, currentPage, totalPages, goToPage } =
     usePagination(searchTerm);
@@ -35,8 +35,12 @@ export default function Layout() {
           totalPages={totalPages}
           onPageChange={goToPage}
         />
+        <TestButton/>
+        <button
+        onClick={()=> navigate('/about')}
+        >About</button>
       </div>
-      {selectedId && (
+      {detailsMatch && (
         <div className={styles.rightSection}>
           <Outlet />
         </div>
