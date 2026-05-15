@@ -7,11 +7,14 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import styles from './style.module.css';
 import CardList from '../CardList/CardList';
 import TestButton from '../testButton/testButton';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 export default function Layout() {
   const detailsMatch = useMatch('/details/:id');
-  const [searchTerm, setSearchTerm] = useState('');
-  const { items, loading, currentPage, totalPages, goToPage } =
+
+  const [savedTerm] = useLocalStorage('searchTerm');
+  const [searchTerm, setSearchTerm] = useState(savedTerm || '');
+  const { items, loading, error, currentPage, totalPages, goToPage } =
     usePagination(searchTerm);
 
   const navigate = useNavigate();
@@ -27,16 +30,23 @@ export default function Layout() {
         <SearchBar initialValue={searchTerm} onSearch={setSearchTerm} />
         {loading ? (
           <LoadingSpinner />
+        ) : error ? (
+          <p>{error}</p>
         ) : (
           <CardList items={items} onCardClick={handleCardClick} />
         )}
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={goToPage}
-        />
+        {!loading && items.length > 0 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={goToPage}
+          />
+        )}
+
         <TestButton />
-        <button onClick={() => navigate('/about')}>About</button>
+        <button className={styles.aboutBtn} onClick={() => navigate('/about')}>
+          About
+        </button>
       </div>
       {detailsMatch && (
         <div className={styles.rightSection}>

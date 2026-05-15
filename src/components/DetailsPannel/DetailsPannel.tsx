@@ -7,7 +7,6 @@ import styles from './style.module.css';
 
 const DetailsPannel = () => {
   const { id } = useParams<{ id: string }>();
-  // const [searchParams, setSearchParams] = useSearchParams();
 
   const [details, setDetails] = useState<Item>();
   const [loading, setLoading] = useState(false);
@@ -19,7 +18,7 @@ const DetailsPannel = () => {
     const fetchDetails = async () => {
       setLoading(true);
       setError(null);
-
+      await new Promise((resolve) => setTimeout(resolve, 200));
       try {
         const dataDetails = await getData(id);
         setDetails(dataDetails);
@@ -33,9 +32,6 @@ const DetailsPannel = () => {
   }, [id]);
 
   const handleClose = () => {
-    // const newParams = new URLSearchParams(searchParams);
-    // newParams.delete('details');
-    // setSearchParams(newParams);
     navigate('/');
   };
 

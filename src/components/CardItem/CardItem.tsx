@@ -3,11 +3,16 @@ import styles from './CardItem.module.css';
 
 const CardItem = (props: CardItemProps) => {
   return (
-    <article
-      className={styles.container}
-      onClick={() => props.onCardClick(props.id)}
-    >
-      <img src={props.image} alt={props.name} width={120} height={120} />
+    <article className={styles.container}>
+      <div className={styles.imageCol}>
+        <img src={props.image} alt={props.name} width={120} height={120} />
+        <button
+          className={styles.detailsBtn}
+          onClick={() => props.onCardClick(props.id)}
+        >
+          View Details
+        </button>
+      </div>
       <section>
         <h3> Name: {props.name}</h3>
         <p>Type: {props.type}</p>

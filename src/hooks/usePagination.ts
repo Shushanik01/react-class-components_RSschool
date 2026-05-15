@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { getAllData, getData } from '../services/api';
 import type { UsePaginationReturn, Item } from '../types';
-
+import { useSearchParams } from 'react-router';
 const ITEMS_PER_PAGE = 20;
 const LOADING_DELAY_MS = 500;
 
@@ -9,12 +9,20 @@ export const usePagination = (
   searchTerm: string,
   initialPage = 1
 ): UsePaginationReturn => {
-  const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [totalCount, setTotalCount] = useState<number>(0);
   const isFirstRender = useRef(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pageUrl = Number(searchParams.get('page') || 1);
+  const [currentPage, setCurrentPage] = useState<number>(
+    pageUrl || initialPage
+  );
+
+  useEffect(() => {
+    setSearchParams({ page: currentPage.toString() });
+  }, [currentPage, setSearchParams]);
 
   useEffect(() => {
     if (isFirstRender.current) {

@@ -1,28 +1,25 @@
-import { useState } from 'react';
 import type { SearchProps } from '../../types';
 import styles from './SearchBar.module.css';
 import { KEYBOARD_KEYS } from '../../constants';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useEffect } from 'react';
 
 const SearchBar = (props: SearchProps) => {
-  const [inputValue, setInputValue] = useState<string>(
-    props.initialValue || ''
-  );
-  const [prevInitialValue, setPrevInitialValue] = useState(props.initialValue);
+  const [storedValue, setStoredValue] = useLocalStorage('searchTerm');
 
-  if (prevInitialValue !== props.initialValue) {
-    setPrevInitialValue(props.initialValue);
-    setInputValue(props.initialValue || '');
-  }
-
+  useEffect(() => {
+    if (storedValue) {
+      props.onSearch(storedValue);
+    }
+  }, []);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(e.target.value);
+    setStoredValue(e.target.value);
   };
 
   const handleSearch = (): void => {
-    const rawValue = inputValue;
-    const trimmedValue = rawValue.trim();
-    setInputValue(trimmedValue);
-    props.onSearch(rawValue);
+    const trimmedValue = storedValue.trim();
+    setStoredValue(trimmedValue);
+    props.onSearch(trimmedValue);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -34,7 +31,7 @@ const SearchBar = (props: SearchProps) => {
     <div className={styles.searchbarContainer}>
       <input
         type="text"
-        value={inputValue}
+        value={storedValue}
         onChange={handleInputChange}
         placeholder="Search..."
         className={styles.searchInput}

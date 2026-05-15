@@ -25,7 +25,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">2/2</span>
+            <span class="fraction">3/3</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -43,7 +43,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">2/2</span>
+            <span class="fraction">3/3</span>
           </div>
         </div>
         <p class="quiet">
@@ -84,22 +84,16 @@
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">41x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">34x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,31 +105,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, type ReactNode } from 'react';
-import type { CardListProps } from '../../types';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { CardListProps } from '../../types';
 import styles from './CardList.module.css';
 import CardItem from '../CardItem/CardItem';
 &nbsp;
-class CardList extends Component&lt;CardListProps&gt; {
-  render(): ReactNode {
-    return (
-      &lt;ul className={styles.cardListContainer}&gt;
-        {(this.props.items ?? <span class="branch-1 cbranch-no" title="branch not covered" >[])</span>.length === 0 &amp;&amp; &lt;p&gt;No results found&lt;/p&gt;}
-        {(this.props.items ?? <span class="branch-1 cbranch-no" title="branch not covered" >[])</span>.map((item) =&gt; (
-          &lt;li key={item.name}&gt;
-            &lt;CardItem
-              name={item.name}
-              type={item.types[0].type.name}
-              weight={item.weight}
-              ability={item.abilities[0].ability.name}
-              image={item.sprites.front_default}
-            /&gt;
-          &lt;/li&gt;
-        ))}
-      &lt;/ul&gt;
-    );
-  }
-}
+const CardList = (props: CardListProps) =&gt; {
+  return (
+    &lt;ul className={styles.cardListContainer}&gt;
+      {(props.items ?? <span class="branch-1 cbranch-no" title="branch not covered" >[])</span>.length === 0 &amp;&amp; &lt;p&gt;No results found&lt;/p&gt;}
+      {(props.items ?? <span class="branch-1 cbranch-no" title="branch not covered" >[])</span>.map((item) =&gt; (
+        &lt;li key={item.name}&gt;
+          &lt;CardItem
+            id={item.id}
+            name={item.name}
+            type={item.types[0].type.name}
+            weight={item.weight}
+            ability={item.abilities[0].ability.name}
+            image={item.sprites.front_default}
+            onCardClick={props.onCardClick}
+          /&gt;
+        &lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+};
 export default CardList;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -151,7 +148,7 @@ export default CardList;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2026-05-12T16:25:04.782Z
+      at 2026-05-15T21:16:50.242Z
     </div>
     <script src="../../../prettify.js"></script>
     <script>

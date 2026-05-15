@@ -25,7 +25,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">1/1</span>
+            <span class="fraction">3/3</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -37,13 +37,13 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Functions</span>
-            <span class="fraction">1/1</span>
+            <span class="fraction">2/2</span>
           </div>
 
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">1/1</span>
+            <span class="fraction">3/3</span>
           </div>
         </div>
         <p class="quiet">
@@ -87,18 +87,14 @@
 <a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,30 +105,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, type ReactNode } from 'react';
-import type { CardItemProps } from '../../types';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { CardItemProps } from '../../types';
 import styles from './CardItem.module.css';
 &nbsp;
-class CardItem extends Component&lt;CardItemProps&gt; {
-  render(): ReactNode {
-    return (
-      &lt;article className={styles.container}&gt;
-        &lt;img
-          src={this.props.image}
-          alt={this.props.name}
-          width={120}
-          height={120}
-        /&gt;
-        &lt;section&gt;
-          &lt;h3&gt; Name: {this.props.name}&lt;/h3&gt;
-          &lt;p&gt;Type: {this.props.type}&lt;/p&gt;
-          &lt;p&gt;Weight: {this.props.weight}&lt;/p&gt;
-          &lt;p&gt;Ability: {this.props.ability}&lt;/p&gt;
-        &lt;/section&gt;
-      &lt;/article&gt;
-    );
-  }
-}
+const CardItem = (props: CardItemProps) =&gt; {
+  return (
+    &lt;article className={styles.container}&gt;
+      &lt;div className={styles.imageCol}&gt;
+        &lt;img src={props.image} alt={props.name} width={120} height={120} /&gt;
+        &lt;button
+          className={styles.detailsBtn}
+          onClick={() =&gt; props.onCardClick(props.id)}
+        &gt;
+          View Details
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;section&gt;
+        &lt;h3&gt; Name: {props.name}&lt;/h3&gt;
+        &lt;p&gt;Type: {props.type}&lt;/p&gt;
+        &lt;p&gt;Weight: {props.weight}&lt;/p&gt;
+        &lt;p&gt;Ability: {props.ability}&lt;/p&gt;
+      &lt;/section&gt;
+    &lt;/article&gt;
+  );
+};
 export default CardItem;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -148,7 +148,7 @@ export default CardItem;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2026-05-12T16:25:04.782Z
+      at 2026-05-15T21:16:50.242Z
     </div>
     <script src="../../../prettify.js"></script>
     <script>

@@ -28,7 +28,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">1/1</span>
+            <span class="fraction">2/2</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -46,7 +46,7 @@
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">1/1</span>
+            <span class="fraction">2/2</span>
           </div>
         </div>
         <p class="quiet">
@@ -73,15 +73,10 @@
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
 <a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a>
-<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L12'></a><a href='#L12'>12</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -89,19 +84,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component } from 'react';
-import styles from './LoadingSpinner.module.css';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styles from './LoadingSpinner.module.css';
 &nbsp;
-class LoadingSpinner extends Component {
-  render() {
-    return (
-      &lt;div className={styles.wrapper} role="status" aria-label="Loading"&gt;
-        &lt;div className={styles.spinner}&gt;&lt;/div&gt;
-      &lt;/div&gt;
-    );
-  }
-}
+const LoadingSpinner = () =&gt; {
+  return (
+    &lt;div className={styles.wrapper} role="status" aria-label="Loading"&gt;
+      &lt;div className={styles.spinner}&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
 &nbsp;
 export default LoadingSpinner;
 &nbsp;</pre></td></tr></table></pre>
@@ -118,7 +109,7 @@ export default LoadingSpinner;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2026-05-12T16:25:04.782Z
+      at 2026-05-15T21:16:50.242Z
     </div>
     <script src="../../../prettify.js"></script>
     <script>

@@ -1,413 +1,10 @@
 {
-  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\App.tsx": {
-    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\App.tsx",
-    "statementMap": {
-      "0": {
-        "start": { "line": 11, "column": 25 },
-        "end": { "line": 11, "column": null }
-      },
-      "1": {
-        "start": { "line": 48, "column": 17 },
-        "end": { "line": 61, "column": null }
-      },
-      "2": {
-        "start": { "line": 15, "column": 4 },
-        "end": { "line": 15, "column": null }
-      },
-      "3": {
-        "start": { "line": 16, "column": 4 },
-        "end": { "line": 21, "column": null }
-      },
-      "4": {
-        "start": { "line": 27, "column": 4 },
-        "end": { "line": 27, "column": null }
-      },
-      "5": {
-        "start": { "line": 28, "column": 4 },
-        "end": { "line": 28, "column": null }
-      },
-      "6": {
-        "start": { "line": 28, "column": 35 },
-        "end": { "line": 28, "column": 72 }
-      },
-      "7": {
-        "start": { "line": 29, "column": 4 },
-        "end": { "line": 32, "column": null }
-      },
-      "8": {
-        "start": { "line": 30, "column": 6 },
-        "end": { "line": 30, "column": null }
-      },
-      "9": {
-        "start": { "line": 32, "column": 6 },
-        "end": { "line": 32, "column": null }
-      },
-      "10": {
-        "start": { "line": 37, "column": 10 },
-        "end": { "line": 37, "column": 38 }
-      },
-      "11": {
-        "start": { "line": 38, "column": 4 },
-        "end": { "line": 45, "column": null }
-      },
-      "12": {
-        "start": { "line": 39, "column": 19 },
-        "end": { "line": 39, "column": 66 }
-      },
-      "13": {
-        "start": { "line": 40, "column": 6 },
-        "end": { "line": 44, "column": null }
-      },
-      "14": {
-        "start": { "line": 49, "column": 17 },
-        "end": { "line": 49, "column": 31 }
-      },
-      "15": {
-        "start": { "line": 50, "column": 4 },
-        "end": { "line": 51, "column": null }
-      },
-      "16": {
-        "start": { "line": 51, "column": 6 },
-        "end": { "line": 51, "column": null }
-      },
-      "17": {
-        "start": { "line": 53, "column": 4 },
-        "end": { "line": 53, "column": null }
-      },
-      "18": {
-        "start": { "line": 54, "column": 4 },
-        "end": { "line": 61, "column": null }
-      },
-      "19": {
-        "start": { "line": 55, "column": 19 },
-        "end": { "line": 55, "column": 66 }
-      },
-      "20": {
-        "start": { "line": 56, "column": 6 },
-        "end": { "line": 60, "column": null }
-      },
-      "21": {
-        "start": { "line": 65, "column": 4 },
-        "end": { "line": 80, "column": null }
-      }
-    },
-    "fnMap": {
-      "0": {
-        "name": "(anonymous_0)",
-        "decl": {
-          "start": { "line": 14, "column": 2 },
-          "end": { "line": 14, "column": 14 }
-        },
-        "loc": {
-          "start": { "line": 14, "column": 29 },
-          "end": { "line": 21, "column": null }
-        },
-        "line": 14
-      },
-      "1": {
-        "name": "(anonymous_1)",
-        "decl": {
-          "start": { "line": 24, "column": 16 },
-          "end": { "line": 24, "column": null }
-        },
-        "loc": {
-          "start": { "line": 26, "column": 19 },
-          "end": { "line": 32, "column": null }
-        },
-        "line": 26
-      },
-      "2": {
-        "name": "(anonymous_2)",
-        "decl": {
-          "start": { "line": 28, "column": 14 },
-          "end": { "line": 28, "column": 23 }
-        },
-        "loc": {
-          "start": { "line": 28, "column": 35 },
-          "end": { "line": 28, "column": 72 }
-        },
-        "line": 28
-      },
-      "3": {
-        "name": "(anonymous_3)",
-        "decl": {
-          "start": { "line": 36, "column": 8 },
-          "end": { "line": 36, "column": 43 }
-        },
-        "loc": {
-          "start": { "line": 36, "column": 43 },
-          "end": { "line": 45, "column": null }
-        },
-        "line": 36
-      },
-      "4": {
-        "name": "(anonymous_4)",
-        "decl": {
-          "start": { "line": 38, "column": 32 },
-          "end": { "line": 38, "column": 44 }
-        },
-        "loc": {
-          "start": { "line": 38, "column": 44 },
-          "end": { "line": 45, "column": null }
-        },
-        "line": 38
-      },
-      "5": {
-        "name": "(anonymous_5)",
-        "decl": {
-          "start": { "line": 48, "column": 17 },
-          "end": { "line": 48, "column": 24 }
-        },
-        "loc": {
-          "start": { "line": 48, "column": 59 },
-          "end": { "line": 61, "column": null }
-        },
-        "line": 48
-      },
-      "6": {
-        "name": "(anonymous_6)",
-        "decl": {
-          "start": { "line": 54, "column": 32 },
-          "end": { "line": 54, "column": 44 }
-        },
-        "loc": {
-          "start": { "line": 54, "column": 44 },
-          "end": { "line": 61, "column": null }
-        },
-        "line": 54
-      },
-      "7": {
-        "name": "(anonymous_7)",
-        "decl": {
-          "start": { "line": 64, "column": 2 },
-          "end": { "line": 64, "column": 11 }
-        },
-        "loc": {
-          "start": { "line": 64, "column": 11 },
-          "end": { "line": 80, "column": null }
-        },
-        "line": 64
-      }
-    },
-    "branchMap": {
-      "0": {
-        "loc": {
-          "start": { "line": 39, "column": 19 },
-          "end": { "line": 39, "column": 66 }
-        },
-        "type": "cond-expr",
-        "locations": [
-          {
-            "start": { "line": 39, "column": 26 },
-            "end": { "line": 39, "column": 45 }
-          },
-          {
-            "start": { "line": 39, "column": 48 },
-            "end": { "line": 39, "column": 66 }
-          }
-        ],
-        "line": 39
-      },
-      "1": {
-        "loc": {
-          "start": { "line": 42, "column": 15 },
-          "end": { "line": 42, "column": null }
-        },
-        "type": "cond-expr",
-        "locations": [
-          {
-            "start": { "line": 42, "column": 22 },
-            "end": { "line": 42, "column": 28 }
-          },
-          {
-            "start": { "line": 42, "column": 31 },
-            "end": { "line": 42, "column": null }
-          }
-        ],
-        "line": 42
-      },
-      "2": {
-        "loc": {
-          "start": { "line": 50, "column": 4 },
-          "end": { "line": 51, "column": null }
-        },
-        "type": "if",
-        "locations": [
-          {
-            "start": { "line": 50, "column": 4 },
-            "end": { "line": 51, "column": null }
-          },
-          { "start": {}, "end": {} }
-        ],
-        "line": 50
-      },
-      "3": {
-        "loc": {
-          "start": { "line": 55, "column": 19 },
-          "end": { "line": 55, "column": 66 }
-        },
-        "type": "cond-expr",
-        "locations": [
-          {
-            "start": { "line": 55, "column": 26 },
-            "end": { "line": 55, "column": 45 }
-          },
-          {
-            "start": { "line": 55, "column": 48 },
-            "end": { "line": 55, "column": 66 }
-          }
-        ],
-        "line": 55
-      },
-      "4": {
-        "loc": {
-          "start": { "line": 58, "column": 15 },
-          "end": { "line": 58, "column": null }
-        },
-        "type": "cond-expr",
-        "locations": [
-          {
-            "start": { "line": 58, "column": 22 },
-            "end": { "line": 58, "column": 28 }
-          },
-          {
-            "start": { "line": 58, "column": 31 },
-            "end": { "line": 58, "column": null }
-          }
-        ],
-        "line": 58
-      },
-      "5": {
-        "loc": {
-          "start": { "line": 71, "column": 9 },
-          "end": { "line": 72, "column": null }
-        },
-        "type": "binary-expr",
-        "locations": [
-          {
-            "start": { "line": 71, "column": 9 },
-            "end": { "line": 71, "column": null }
-          },
-          {
-            "start": { "line": 72, "column": 10 },
-            "end": { "line": 72, "column": null }
-          }
-        ],
-        "line": 71
-      },
-      "6": {
-        "loc": {
-          "start": { "line": 74, "column": 9 },
-          "end": { "line": 77, "column": null }
-        },
-        "type": "cond-expr",
-        "locations": [
-          {
-            "start": { "line": 75, "column": 10 },
-            "end": { "line": 77, "column": 11 }
-          },
-          {
-            "start": { "line": 77, "column": 10 },
-            "end": { "line": 77, "column": null }
-          }
-        ],
-        "line": 74
-      }
-    },
-    "s": {
-      "0": 1,
-      "1": 5,
-      "2": 15,
-      "3": 15,
-      "4": 19,
-      "5": 19,
-      "6": 19,
-      "7": 19,
-      "8": 19,
-      "9": 1,
-      "10": 15,
-      "11": 15,
-      "12": 15,
-      "13": 9,
-      "14": 5,
-      "15": 5,
-      "16": 1,
-      "17": 4,
-      "18": 4,
-      "19": 4,
-      "20": 1,
-      "21": 53
-    },
-    "f": {
-      "0": 15,
-      "1": 19,
-      "2": 19,
-      "3": 15,
-      "4": 15,
-      "5": 5,
-      "6": 4,
-      "7": 53
-    },
-    "b": {
-      "0": [5, 10],
-      "1": [5, 9],
-      "2": [1, 4],
-      "3": [3, 1],
-      "4": [3, 1],
-      "5": [53, 1],
-      "6": [19, 34]
-    },
-    "meta": {
-      "lastBranch": 7,
-      "lastFunction": 8,
-      "lastStatement": 22,
-      "seen": {
-        "s:11:25:11:Infinity": 0,
-        "s:48:17:61:Infinity": 1,
-        "f:14:2:14:14": 0,
-        "s:15:4:15:Infinity": 2,
-        "s:16:4:21:Infinity": 3,
-        "f:24:16:24:Infinity": 1,
-        "s:27:4:27:Infinity": 4,
-        "s:28:4:28:Infinity": 5,
-        "f:28:14:28:23": 2,
-        "s:28:35:28:72": 6,
-        "s:29:4:32:Infinity": 7,
-        "s:30:6:30:Infinity": 8,
-        "s:32:6:32:Infinity": 9,
-        "f:36:8:36:43": 3,
-        "s:37:10:37:38": 10,
-        "s:38:4:45:Infinity": 11,
-        "f:38:32:38:44": 4,
-        "s:39:19:39:66": 12,
-        "b:39:26:39:45:39:48:39:66": 0,
-        "s:40:6:44:Infinity": 13,
-        "b:42:22:42:28:42:31:42:Infinity": 1,
-        "f:48:17:48:24": 5,
-        "s:49:17:49:31": 14,
-        "b:50:4:51:Infinity:undefined:undefined:undefined:undefined": 2,
-        "s:50:4:51:Infinity": 15,
-        "s:51:6:51:Infinity": 16,
-        "s:53:4:53:Infinity": 17,
-        "s:54:4:61:Infinity": 18,
-        "f:54:32:54:44": 6,
-        "s:55:19:55:66": 19,
-        "b:55:26:55:45:55:48:55:66": 3,
-        "s:56:6:60:Infinity": 20,
-        "b:58:22:58:28:58:31:58:Infinity": 4,
-        "f:64:2:64:11": 7,
-        "s:65:4:80:Infinity": 21,
-        "b:71:9:71:Infinity:72:10:72:Infinity": 5,
-        "b:75:10:77:11:77:10:77:Infinity": 6
-      }
-    }
-  },
   "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\main.tsx": {
     "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\main.tsx",
     "statementMap": {
       "0": {
-        "start": { "line": 7, "column": 0 },
-        "end": { "line": 13, "column": null }
+        "start": { "line": 8, "column": 0 },
+        "end": { "line": 14, "column": null }
       }
     },
     "fnMap": {},
@@ -419,7 +16,7 @@
       "lastBranch": 0,
       "lastFunction": 0,
       "lastStatement": 1,
-      "seen": { "s:7:0:13:Infinity": 0 }
+      "seen": { "s:8:0:14:Infinity": 0 }
     }
   },
   "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\__tests__\\helpers\\renderHelpers.tsx": {
@@ -477,7 +74,7 @@
     },
     "fnMap": {},
     "branchMap": {},
-    "s": { "0": 3, "1": 3 },
+    "s": { "0": 4, "1": 4 },
     "f": {},
     "b": {},
     "meta": {
@@ -491,44 +88,74 @@
     "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\CardItem\\CardItem.tsx",
     "statementMap": {
       "0": {
-        "start": { "line": 7, "column": 4 },
-        "end": { "line": 20, "column": null }
+        "start": { "line": 4, "column": 6 },
+        "end": { "line": 21, "column": null }
+      },
+      "1": {
+        "start": { "line": 5, "column": 2 },
+        "end": { "line": 21, "column": null }
+      },
+      "2": {
+        "start": { "line": 11, "column": 25 },
+        "end": { "line": 11, "column": 52 }
       }
     },
     "fnMap": {
       "0": {
         "name": "(anonymous_0)",
         "decl": {
-          "start": { "line": 6, "column": 2 },
-          "end": { "line": 6, "column": 22 }
+          "start": { "line": 4, "column": 6 },
+          "end": { "line": 4, "column": 18 }
         },
         "loc": {
-          "start": { "line": 6, "column": 22 },
-          "end": { "line": 20, "column": null }
+          "start": { "line": 4, "column": 43 },
+          "end": { "line": 21, "column": null }
         },
-        "line": 6
+        "line": 4
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 11, "column": 10 },
+          "end": { "line": 11, "column": 25 }
+        },
+        "loc": {
+          "start": { "line": 11, "column": 25 },
+          "end": { "line": 11, "column": 52 }
+        },
+        "line": 11
       }
     },
     "branchMap": {},
-    "s": { "0": 40 },
-    "f": { "0": 40 },
+    "s": { "0": 2, "1": 15, "2": 1 },
+    "f": { "0": 15, "1": 1 },
     "b": {},
     "meta": {
       "lastBranch": 0,
-      "lastFunction": 1,
-      "lastStatement": 1,
-      "seen": { "f:6:2:6:22": 0, "s:7:4:20:Infinity": 0 }
+      "lastFunction": 2,
+      "lastStatement": 3,
+      "seen": {
+        "s:4:6:21:Infinity": 0,
+        "f:4:6:4:18": 0,
+        "s:5:2:21:Infinity": 1,
+        "f:11:10:11:25": 1,
+        "s:11:25:11:52": 2
+      }
     }
   },
   "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\CardList\\CardList.tsx": {
     "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\CardList\\CardList.tsx",
     "statementMap": {
       "0": {
-        "start": { "line": 8, "column": 4 },
+        "start": { "line": 5, "column": 6 },
         "end": { "line": 21, "column": null }
       },
       "1": {
-        "start": { "line": 12, "column": 10 },
+        "start": { "line": 6, "column": 2 },
+        "end": { "line": 21, "column": null }
+      },
+      "2": {
+        "start": { "line": 10, "column": 8 },
         "end": { "line": 20, "column": null }
       }
     },
@@ -536,99 +163,461 @@
       "0": {
         "name": "(anonymous_0)",
         "decl": {
-          "start": { "line": 7, "column": 2 },
-          "end": { "line": 7, "column": 22 }
+          "start": { "line": 5, "column": 6 },
+          "end": { "line": 5, "column": 18 }
         },
         "loc": {
-          "start": { "line": 7, "column": 22 },
+          "start": { "line": 5, "column": 43 },
           "end": { "line": 21, "column": null }
         },
-        "line": 7
+        "line": 5
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
-          "start": { "line": 11, "column": 34 },
-          "end": { "line": 11, "column": 39 }
+          "start": { "line": 9, "column": 27 },
+          "end": { "line": 9, "column": 32 }
         },
         "loc": {
-          "start": { "line": 12, "column": 10 },
+          "start": { "line": 10, "column": 8 },
           "end": { "line": 20, "column": null }
         },
-        "line": 12
+        "line": 10
       }
     },
     "branchMap": {
       "0": {
         "loc": {
-          "start": { "line": 9, "column": 6 },
-          "end": { "line": 11, "column": 15 }
+          "start": { "line": 7, "column": 4 },
+          "end": { "line": 9, "column": 14 }
         },
         "type": "binary-expr",
         "locations": [
           {
-            "start": { "line": 9, "column": 6 },
-            "end": { "line": 10, "column": 50 }
+            "start": { "line": 7, "column": 4 },
+            "end": { "line": 8, "column": 43 }
           },
           {
-            "start": { "line": 10, "column": 50 },
-            "end": { "line": 11, "column": 15 }
+            "start": { "line": 8, "column": 43 },
+            "end": { "line": 9, "column": 14 }
           }
         ],
-        "line": 9
+        "line": 7
       },
       "1": {
         "loc": {
-          "start": { "line": 10, "column": 10 },
-          "end": { "line": 10, "column": 32 }
+          "start": { "line": 8, "column": 8 },
+          "end": { "line": 8, "column": 25 }
         },
         "type": "binary-expr",
         "locations": [
           {
-            "start": { "line": 10, "column": 10 },
-            "end": { "line": 10, "column": 30 }
+            "start": { "line": 8, "column": 8 },
+            "end": { "line": 8, "column": 23 }
           },
           {
-            "start": { "line": 10, "column": 30 },
-            "end": { "line": 10, "column": 32 }
+            "start": { "line": 8, "column": 23 },
+            "end": { "line": 8, "column": 25 }
           }
         ],
-        "line": 10
+        "line": 8
       },
       "2": {
         "loc": {
-          "start": { "line": 11, "column": 10 },
-          "end": { "line": 11, "column": 32 }
+          "start": { "line": 9, "column": 8 },
+          "end": { "line": 9, "column": 25 }
         },
         "type": "binary-expr",
         "locations": [
           {
-            "start": { "line": 11, "column": 10 },
-            "end": { "line": 11, "column": 30 }
+            "start": { "line": 9, "column": 8 },
+            "end": { "line": 9, "column": 23 }
           },
           {
-            "start": { "line": 11, "column": 30 },
-            "end": { "line": 11, "column": 32 }
+            "start": { "line": 9, "column": 23 },
+            "end": { "line": 9, "column": 25 }
           }
         ],
-        "line": 11
+        "line": 9
       }
     },
-    "s": { "0": 41, "1": 34 },
-    "f": { "0": 41, "1": 34 },
-    "b": { "0": [41, 19], "1": [41, 0], "2": [41, 0] },
+    "s": { "0": 1, "1": 7, "2": 8 },
+    "f": { "0": 7, "1": 8 },
+    "b": { "0": [7, 2], "1": [7, 0], "2": [7, 0] },
     "meta": {
       "lastBranch": 3,
       "lastFunction": 2,
-      "lastStatement": 2,
+      "lastStatement": 3,
       "seen": {
-        "f:7:2:7:22": 0,
-        "s:8:4:21:Infinity": 0,
-        "b:9:6:10:50:10:50:11:15": 0,
-        "b:10:10:10:30:10:30:10:32": 1,
-        "b:11:10:11:30:11:30:11:32": 2,
-        "f:11:34:11:39": 1,
-        "s:12:10:20:Infinity": 1
+        "s:5:6:21:Infinity": 0,
+        "f:5:6:5:18": 0,
+        "s:6:2:21:Infinity": 1,
+        "b:7:4:8:43:8:43:9:14": 0,
+        "b:8:8:8:23:8:23:8:25": 1,
+        "b:9:8:9:23:9:23:9:25": 2,
+        "f:9:27:9:32": 1,
+        "s:10:8:20:Infinity": 2
+      }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\DetailsPannel\\DetailsPannel.tsx": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\DetailsPannel\\DetailsPannel.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 8, "column": 6 },
+        "end": { "line": 105, "column": null }
+      },
+      "1": {
+        "start": { "line": 9, "column": 10 },
+        "end": { "line": 9, "column": 44 }
+      },
+      "2": {
+        "start": { "line": 11, "column": 18 },
+        "end": { "line": 11, "column": 48 }
+      },
+      "3": {
+        "start": { "line": 12, "column": 18 },
+        "end": { "line": 12, "column": 47 }
+      },
+      "4": {
+        "start": { "line": 13, "column": 16 },
+        "end": { "line": 13, "column": 57 }
+      },
+      "5": {
+        "start": { "line": 14, "column": 8 },
+        "end": { "line": 14, "column": 32 }
+      },
+      "6": {
+        "start": { "line": 15, "column": 2 },
+        "end": { "line": 36, "column": null }
+      },
+      "7": {
+        "start": { "line": 16, "column": 4 },
+        "end": { "line": 16, "column": null }
+      },
+      "8": {
+        "start": { "line": 16, "column": 13 },
+        "end": { "line": 16, "column": null }
+      },
+      "9": {
+        "start": { "line": 18, "column": 25 },
+        "end": { "line": 28, "column": null }
+      },
+      "10": {
+        "start": { "line": 19, "column": 6 },
+        "end": { "line": 19, "column": null }
+      },
+      "11": {
+        "start": { "line": 20, "column": 6 },
+        "end": { "line": 20, "column": null }
+      },
+      "12": {
+        "start": { "line": 22, "column": 6 },
+        "end": { "line": 28, "column": null }
+      },
+      "13": {
+        "start": { "line": 23, "column": 28 },
+        "end": { "line": 23, "column": 45 }
+      },
+      "14": {
+        "start": { "line": 24, "column": 8 },
+        "end": { "line": 24, "column": null }
+      },
+      "15": {
+        "start": { "line": 26, "column": 8 },
+        "end": { "line": 26, "column": null }
+      },
+      "16": {
+        "start": { "line": 28, "column": 8 },
+        "end": { "line": 28, "column": null }
+      },
+      "17": {
+        "start": { "line": 31, "column": 4 },
+        "end": { "line": 31, "column": null }
+      },
+      "18": {
+        "start": { "line": 32, "column": 4 },
+        "end": { "line": 35, "column": null }
+      },
+      "19": {
+        "start": { "line": 33, "column": 4 },
+        "end": { "line": 33, "column": null }
+      },
+      "20": {
+        "start": { "line": 38, "column": 8 },
+        "end": { "line": 39, "column": null }
+      },
+      "21": {
+        "start": { "line": 39, "column": 4 },
+        "end": { "line": 39, "column": null }
+      },
+      "22": {
+        "start": { "line": 42, "column": 2 },
+        "end": { "line": 105, "column": null }
+      },
+      "23": {
+        "start": { "line": 83, "column": 16 },
+        "end": { "line": 85, "column": null }
+      },
+      "24": {
+        "start": { "line": 92, "column": 16 },
+        "end": { "line": 94, "column": null }
+      },
+      "25": {
+        "start": { "line": 101, "column": 16 },
+        "end": { "line": 104, "column": null }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": { "line": 8, "column": 6 },
+          "end": { "line": 8, "column": 28 }
+        },
+        "loc": {
+          "start": { "line": 8, "column": 28 },
+          "end": { "line": 105, "column": null }
+        },
+        "line": 8
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 15, "column": 2 },
+          "end": { "line": 15, "column": 18 }
+        },
+        "loc": {
+          "start": { "line": 15, "column": 18 },
+          "end": { "line": 36, "column": 6 }
+        },
+        "line": 15
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": { "line": 18, "column": 25 },
+          "end": { "line": 18, "column": 37 }
+        },
+        "loc": {
+          "start": { "line": 18, "column": 37 },
+          "end": { "line": 28, "column": null }
+        },
+        "line": 18
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": { "line": 32, "column": 4 },
+          "end": { "line": 32, "column": 19 }
+        },
+        "loc": {
+          "start": { "line": 32, "column": 19 },
+          "end": { "line": 35, "column": 10 }
+        },
+        "line": 32
+      },
+      "4": {
+        "name": "(anonymous_4)",
+        "decl": {
+          "start": { "line": 38, "column": 8 },
+          "end": { "line": 38, "column": 28 }
+        },
+        "loc": {
+          "start": { "line": 38, "column": 28 },
+          "end": { "line": 39, "column": null }
+        },
+        "line": 38
+      },
+      "5": {
+        "name": "(anonymous_5)",
+        "decl": {
+          "start": { "line": 82, "column": 30 },
+          "end": { "line": 82, "column": 35 }
+        },
+        "loc": {
+          "start": { "line": 83, "column": 16 },
+          "end": { "line": 85, "column": null }
+        },
+        "line": 83
+      },
+      "6": {
+        "name": "(anonymous_6)",
+        "decl": {
+          "start": { "line": 91, "column": 34 },
+          "end": { "line": 91, "column": 39 }
+        },
+        "loc": {
+          "start": { "line": 92, "column": 16 },
+          "end": { "line": 94, "column": null }
+        },
+        "line": 92
+      },
+      "7": {
+        "name": "(anonymous_7)",
+        "decl": {
+          "start": { "line": 100, "column": 30 },
+          "end": { "line": 100, "column": 35 }
+        },
+        "loc": {
+          "start": { "line": 101, "column": 16 },
+          "end": { "line": 104, "column": null }
+        },
+        "line": 101
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": { "line": 16, "column": 4 },
+          "end": { "line": 16, "column": null }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": { "line": 16, "column": 4 },
+            "end": { "line": 16, "column": null }
+          },
+          { "start": {}, "end": {} }
+        ],
+        "line": 16
+      },
+      "1": {
+        "loc": {
+          "start": { "line": 51, "column": 7 },
+          "end": { "line": 54, "column": null }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 51, "column": 7 },
+            "end": { "line": 51, "column": null }
+          },
+          {
+            "start": { "line": 52, "column": 8 },
+            "end": { "line": 54, "column": null }
+          }
+        ],
+        "line": 51
+      },
+      "2": {
+        "loc": {
+          "start": { "line": 57, "column": 7 },
+          "end": { "line": 60, "column": null }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 57, "column": 7 },
+            "end": { "line": 57, "column": null }
+          },
+          {
+            "start": { "line": 58, "column": 8 },
+            "end": { "line": 60, "column": null }
+          }
+        ],
+        "line": 57
+      },
+      "3": {
+        "loc": {
+          "start": { "line": 63, "column": 7 },
+          "end": { "line": 105, "column": null }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 63, "column": 7 },
+            "end": { "line": 63, "column": 18 }
+          },
+          {
+            "start": { "line": 63, "column": 18 },
+            "end": { "line": 63, "column": 30 }
+          },
+          {
+            "start": { "line": 63, "column": 30 },
+            "end": { "line": 63, "column": null }
+          },
+          {
+            "start": { "line": 64, "column": 8 },
+            "end": { "line": 105, "column": null }
+          }
+        ],
+        "line": 63
+      }
+    },
+    "s": {
+      "0": 1,
+      "1": 12,
+      "2": 12,
+      "3": 12,
+      "4": 12,
+      "5": 12,
+      "6": 12,
+      "7": 5,
+      "8": 0,
+      "9": 5,
+      "10": 2,
+      "11": 2,
+      "12": 2,
+      "13": 2,
+      "14": 1,
+      "15": 1,
+      "16": 2,
+      "17": 5,
+      "18": 5,
+      "19": 2,
+      "20": 12,
+      "21": 1,
+      "22": 12,
+      "23": 1,
+      "24": 1,
+      "25": 0
+    },
+    "f": { "0": 12, "1": 5, "2": 2, "3": 2, "4": 1, "5": 1, "6": 1, "7": 0 },
+    "b": { "0": [0, 5], "1": [12, 5], "2": [12, 1], "3": [12, 1, 1, 1] },
+    "meta": {
+      "lastBranch": 4,
+      "lastFunction": 8,
+      "lastStatement": 26,
+      "seen": {
+        "s:8:6:105:Infinity": 0,
+        "f:8:6:8:28": 0,
+        "s:9:10:9:44": 1,
+        "s:11:18:11:48": 2,
+        "s:12:18:12:47": 3,
+        "s:13:16:13:57": 4,
+        "s:14:8:14:32": 5,
+        "s:15:2:36:Infinity": 6,
+        "f:15:2:15:18": 1,
+        "b:16:4:16:Infinity:undefined:undefined:undefined:undefined": 0,
+        "s:16:4:16:Infinity": 7,
+        "s:16:13:16:Infinity": 8,
+        "s:18:25:28:Infinity": 9,
+        "f:18:25:18:37": 2,
+        "s:19:6:19:Infinity": 10,
+        "s:20:6:20:Infinity": 11,
+        "s:22:6:28:Infinity": 12,
+        "s:23:28:23:45": 13,
+        "s:24:8:24:Infinity": 14,
+        "s:26:8:26:Infinity": 15,
+        "s:28:8:28:Infinity": 16,
+        "s:31:4:31:Infinity": 17,
+        "s:32:4:35:Infinity": 18,
+        "f:32:4:32:19": 3,
+        "s:33:4:33:Infinity": 19,
+        "s:38:8:39:Infinity": 20,
+        "f:38:8:38:28": 4,
+        "s:39:4:39:Infinity": 21,
+        "s:42:2:105:Infinity": 22,
+        "b:51:7:51:Infinity:52:8:54:Infinity": 1,
+        "b:57:7:57:Infinity:58:8:60:Infinity": 2,
+        "b:63:7:63:18:63:18:63:30:63:30:63:Infinity:64:8:105:Infinity": 3,
+        "f:82:30:82:35": 5,
+        "s:83:16:85:Infinity": 23,
+        "f:91:34:91:39": 6,
+        "s:92:16:94:Infinity": 24,
+        "f:100:30:100:35": 7,
+        "s:101:16:104:Infinity": 25
       }
     }
   },
@@ -768,294 +757,754 @@
       }
     }
   },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\Layout\\Layout.tsx": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\Layout\\Layout.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 13, "column": 8 },
+        "end": { "line": 13, "column": 47 }
+      },
+      "1": {
+        "start": { "line": 15, "column": 9 },
+        "end": { "line": 15, "column": 51 }
+      },
+      "2": {
+        "start": { "line": 16, "column": 21 },
+        "end": { "line": 16, "column": 63 }
+      },
+      "3": {
+        "start": { "line": 17, "column": 58 },
+        "end": { "line": 18, "column": 29 }
+      },
+      "4": {
+        "start": { "line": 20, "column": 2 },
+        "end": { "line": 24, "column": null }
+      },
+      "5": {
+        "start": { "line": 21, "column": 4 },
+        "end": { "line": 22, "column": null }
+      },
+      "6": {
+        "start": { "line": 22, "column": 6 },
+        "end": { "line": 22, "column": null }
+      },
+      "7": {
+        "start": { "line": 25, "column": 8 },
+        "end": { "line": 25, "column": 32 }
+      },
+      "8": {
+        "start": { "line": 27, "column": 8 },
+        "end": { "line": 29, "column": null }
+      },
+      "9": {
+        "start": { "line": 28, "column": 4 },
+        "end": { "line": 28, "column": null }
+      },
+      "10": {
+        "start": { "line": 29, "column": 4 },
+        "end": { "line": 29, "column": null }
+      },
+      "11": {
+        "start": { "line": 32, "column": 2 },
+        "end": { "line": 59, "column": null }
+      },
+      "12": {
+        "start": { "line": 54, "column": 25 },
+        "end": { "line": 54, "column": 43 }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "Layout",
+        "decl": {
+          "start": { "line": 12, "column": 24 },
+          "end": { "line": 12, "column": 33 }
+        },
+        "loc": {
+          "start": { "line": 12, "column": 33 },
+          "end": { "line": 59, "column": null }
+        },
+        "line": 12
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 20, "column": 2 },
+          "end": { "line": 20, "column": 18 }
+        },
+        "loc": {
+          "start": { "line": 20, "column": 18 },
+          "end": { "line": 24, "column": 6 }
+        },
+        "line": 20
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": { "line": 27, "column": 8 },
+          "end": { "line": 27, "column": 27 }
+        },
+        "loc": {
+          "start": { "line": 27, "column": 49 },
+          "end": { "line": 29, "column": null }
+        },
+        "line": 27
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": { "line": 54, "column": 10 },
+          "end": { "line": 54, "column": 25 }
+        },
+        "loc": {
+          "start": { "line": 54, "column": 25 },
+          "end": { "line": 54, "column": 43 }
+        },
+        "line": 54
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": { "line": 16, "column": 47 },
+          "end": { "line": 16, "column": 63 }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 16, "column": 47 },
+            "end": { "line": 16, "column": 60 }
+          },
+          {
+            "start": { "line": 16, "column": 60 },
+            "end": { "line": 16, "column": 63 }
+          }
+        ],
+        "line": 16
+      },
+      "1": {
+        "loc": {
+          "start": { "line": 21, "column": 4 },
+          "end": { "line": 22, "column": null }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": { "line": 21, "column": 4 },
+            "end": { "line": 22, "column": null }
+          },
+          { "start": {}, "end": {} }
+        ],
+        "line": 21
+      },
+      "2": {
+        "loc": {
+          "start": { "line": 36, "column": 9 },
+          "end": { "line": 41, "column": null }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": { "line": 37, "column": 10 },
+            "end": { "line": 38, "column": null }
+          },
+          {
+            "start": { "line": 38, "column": 12 },
+            "end": { "line": 41, "column": null }
+          }
+        ],
+        "line": 36
+      },
+      "3": {
+        "loc": {
+          "start": { "line": 38, "column": 12 },
+          "end": { "line": 41, "column": null }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": { "line": 39, "column": 10 },
+            "end": { "line": 41, "column": 11 }
+          },
+          {
+            "start": { "line": 41, "column": 10 },
+            "end": { "line": 41, "column": null }
+          }
+        ],
+        "line": 38
+      },
+      "4": {
+        "loc": {
+          "start": { "line": 43, "column": 9 },
+          "end": { "line": 49, "column": null }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 43, "column": 9 },
+            "end": { "line": 43, "column": 21 }
+          },
+          {
+            "start": { "line": 43, "column": 21 },
+            "end": { "line": 43, "column": null }
+          },
+          {
+            "start": { "line": 45, "column": 10 },
+            "end": { "line": 49, "column": null }
+          }
+        ],
+        "line": 43
+      },
+      "5": {
+        "loc": {
+          "start": { "line": 56, "column": 7 },
+          "end": { "line": 59, "column": null }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 56, "column": 7 },
+            "end": { "line": 56, "column": null }
+          },
+          {
+            "start": { "line": 57, "column": 8 },
+            "end": { "line": 59, "column": null }
+          }
+        ],
+        "line": 56
+      }
+    },
+    "s": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+    },
+    "f": { "0": 0, "1": 0, "2": 0, "3": 0 },
+    "b": {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0, 0],
+      "3": [0, 0],
+      "4": [0, 0, 0],
+      "5": [0, 0]
+    },
+    "meta": {
+      "lastBranch": 6,
+      "lastFunction": 4,
+      "lastStatement": 13,
+      "seen": {
+        "f:12:24:12:33": 0,
+        "s:13:8:13:47": 0,
+        "s:15:9:15:51": 1,
+        "s:16:21:16:63": 2,
+        "b:16:47:16:60:16:60:16:63": 0,
+        "s:17:58:18:29": 3,
+        "s:20:2:24:Infinity": 4,
+        "f:20:2:20:18": 1,
+        "b:21:4:22:Infinity:undefined:undefined:undefined:undefined": 1,
+        "s:21:4:22:Infinity": 5,
+        "s:22:6:22:Infinity": 6,
+        "s:25:8:25:32": 7,
+        "s:27:8:29:Infinity": 8,
+        "f:27:8:27:27": 2,
+        "s:28:4:28:Infinity": 9,
+        "s:29:4:29:Infinity": 10,
+        "s:32:2:59:Infinity": 11,
+        "b:37:10:38:Infinity:38:12:41:Infinity": 2,
+        "b:39:10:41:11:41:10:41:Infinity": 3,
+        "b:43:9:43:21:43:21:43:Infinity:45:10:49:Infinity": 4,
+        "f:54:10:54:25": 3,
+        "s:54:25:54:43": 12,
+        "b:56:7:56:Infinity:57:8:59:Infinity": 5
+      }
+    }
+  },
   "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\LoadingSpinner\\LoadingSpinner.tsx": {
     "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\LoadingSpinner\\LoadingSpinner.tsx",
     "statementMap": {
       "0": {
-        "start": { "line": 6, "column": 4 },
-        "end": { "line": 9, "column": null }
+        "start": { "line": 3, "column": 6 },
+        "end": { "line": 7, "column": null }
+      },
+      "1": {
+        "start": { "line": 4, "column": 2 },
+        "end": { "line": 7, "column": null }
       }
     },
     "fnMap": {
       "0": {
         "name": "(anonymous_0)",
         "decl": {
-          "start": { "line": 5, "column": 2 },
-          "end": { "line": 5, "column": 11 }
+          "start": { "line": 3, "column": 6 },
+          "end": { "line": 3, "column": 29 }
         },
         "loc": {
-          "start": { "line": 5, "column": 11 },
-          "end": { "line": 9, "column": null }
+          "start": { "line": 3, "column": 29 },
+          "end": { "line": 7, "column": null }
         },
-        "line": 5
+        "line": 3
       }
     },
     "branchMap": {},
-    "s": { "0": 22 },
-    "f": { "0": 22 },
+    "s": { "0": 2, "1": 8 },
+    "f": { "0": 8 },
     "b": {},
     "meta": {
       "lastBranch": 0,
       "lastFunction": 1,
-      "lastStatement": 1,
-      "seen": { "f:5:2:5:11": 0, "s:6:4:9:Infinity": 0 }
+      "lastStatement": 2,
+      "seen": { "s:3:6:7:Infinity": 0, "f:3:6:3:29": 0, "s:4:2:7:Infinity": 1 }
     }
   },
   "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\SearchBar\\SearchBar.tsx": {
     "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\SearchBar\\SearchBar.tsx",
     "statementMap": {
       "0": {
-        "start": { "line": 19, "column": 2 },
-        "end": { "line": 20, "column": null }
+        "start": { "line": 7, "column": 6 },
+        "end": { "line": 43, "column": null }
       },
       "1": {
-        "start": { "line": 23, "column": 2 },
-        "end": { "line": 27, "column": null }
+        "start": { "line": 8, "column": 22 },
+        "end": { "line": 8, "column": 69 }
       },
       "2": {
-        "start": { "line": 30, "column": 2 },
-        "end": { "line": 32, "column": null }
+        "start": { "line": 10, "column": 0 },
+        "end": { "line": 14, "column": null }
       },
       "3": {
-        "start": { "line": 8, "column": 4 },
-        "end": { "line": 8, "column": null }
+        "start": { "line": 11, "column": 2 },
+        "end": { "line": 12, "column": null }
       },
       "4": {
-        "start": { "line": 9, "column": 4 },
-        "end": { "line": 11, "column": null }
+        "start": { "line": 12, "column": 4 },
+        "end": { "line": 12, "column": null }
       },
       "5": {
-        "start": { "line": 14, "column": 4 },
-        "end": { "line": 15, "column": null }
+        "start": { "line": 15, "column": 8 },
+        "end": { "line": 16, "column": null }
       },
       "6": {
-        "start": { "line": 15, "column": 6 },
-        "end": { "line": 15, "column": null }
+        "start": { "line": 16, "column": 4 },
+        "end": { "line": 16, "column": null }
       },
       "7": {
-        "start": { "line": 20, "column": 4 },
-        "end": { "line": 20, "column": null }
+        "start": { "line": 19, "column": 8 },
+        "end": { "line": 22, "column": null }
       },
       "8": {
-        "start": { "line": 24, "column": 21 },
-        "end": { "line": 24, "column": null }
+        "start": { "line": 20, "column": 25 },
+        "end": { "line": 20, "column": 43 }
       },
       "9": {
-        "start": { "line": 25, "column": 25 },
-        "end": { "line": 25, "column": 40 }
+        "start": { "line": 21, "column": 4 },
+        "end": { "line": 21, "column": null }
       },
       "10": {
-        "start": { "line": 26, "column": 4 },
-        "end": { "line": 26, "column": null }
+        "start": { "line": 22, "column": 4 },
+        "end": { "line": 22, "column": null }
       },
       "11": {
-        "start": { "line": 27, "column": 4 },
+        "start": { "line": 25, "column": 8 },
         "end": { "line": 27, "column": null }
       },
       "12": {
-        "start": { "line": 31, "column": 4 },
-        "end": { "line": 32, "column": null }
+        "start": { "line": 26, "column": 4 },
+        "end": { "line": 27, "column": null }
       },
       "13": {
-        "start": { "line": 32, "column": 6 },
-        "end": { "line": 32, "column": null }
+        "start": { "line": 27, "column": 6 },
+        "end": { "line": 27, "column": null }
       },
       "14": {
-        "start": { "line": 36, "column": 4 },
-        "end": { "line": 49, "column": null }
+        "start": { "line": 30, "column": 2 },
+        "end": { "line": 43, "column": null }
       }
     },
     "fnMap": {
       "0": {
         "name": "(anonymous_0)",
         "decl": {
-          "start": { "line": 7, "column": 2 },
-          "end": { "line": 7, "column": 14 }
+          "start": { "line": 7, "column": 6 },
+          "end": { "line": 7, "column": 19 }
         },
         "loc": {
-          "start": { "line": 7, "column": 34 },
-          "end": { "line": 11, "column": null }
+          "start": { "line": 7, "column": 42 },
+          "end": { "line": 43, "column": null }
         },
         "line": 7
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
-          "start": { "line": 13, "column": 2 },
-          "end": { "line": 13, "column": 21 }
+          "start": { "line": 10, "column": 0 },
+          "end": { "line": 10, "column": 14 }
         },
         "loc": {
-          "start": { "line": 13, "column": 51 },
-          "end": { "line": 15, "column": null }
+          "start": { "line": 10, "column": 14 },
+          "end": { "line": 14, "column": 4 }
         },
-        "line": 13
+        "line": 10
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
-          "start": { "line": 19, "column": 2 },
-          "end": { "line": 19, "column": 23 }
+          "start": { "line": 15, "column": 8 },
+          "end": { "line": 15, "column": 29 }
         },
         "loc": {
-          "start": { "line": 19, "column": 72 },
-          "end": { "line": 20, "column": null }
+          "start": { "line": 15, "column": 78 },
+          "end": { "line": 16, "column": null }
         },
-        "line": 19
+        "line": 15
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
-          "start": { "line": 23, "column": 2 },
-          "end": { "line": 23, "column": 29 }
+          "start": { "line": 19, "column": 8 },
+          "end": { "line": 19, "column": 35 }
         },
         "loc": {
-          "start": { "line": 23, "column": 29 },
-          "end": { "line": 27, "column": null }
+          "start": { "line": 19, "column": 35 },
+          "end": { "line": 22, "column": null }
         },
-        "line": 23
+        "line": 19
       },
       "4": {
         "name": "(anonymous_4)",
         "decl": {
-          "start": { "line": 30, "column": 2 },
-          "end": { "line": 30, "column": 19 }
+          "start": { "line": 25, "column": 8 },
+          "end": { "line": 25, "column": 25 }
         },
         "loc": {
-          "start": { "line": 30, "column": 64 },
-          "end": { "line": 32, "column": null }
+          "start": { "line": 25, "column": 70 },
+          "end": { "line": 27, "column": null }
         },
-        "line": 30
-      },
-      "5": {
-        "name": "(anonymous_5)",
-        "decl": {
-          "start": { "line": 35, "column": 2 },
-          "end": { "line": 35, "column": 22 }
-        },
-        "loc": {
-          "start": { "line": 35, "column": 22 },
-          "end": { "line": 49, "column": null }
-        },
-        "line": 35
+        "line": 25
       }
     },
     "branchMap": {
       "0": {
         "loc": {
-          "start": { "line": 10, "column": 18 },
-          "end": { "line": 10, "column": null }
+          "start": { "line": 11, "column": 2 },
+          "end": { "line": 12, "column": null }
         },
-        "type": "binary-expr",
+        "type": "if",
         "locations": [
           {
-            "start": { "line": 10, "column": 18 },
-            "end": { "line": 10, "column": 40 }
+            "start": { "line": 11, "column": 2 },
+            "end": { "line": 12, "column": null }
           },
-          {
-            "start": { "line": 10, "column": 40 },
-            "end": { "line": 10, "column": null }
-          }
+          { "start": {}, "end": {} }
         ],
-        "line": 10
+        "line": 11
       },
       "1": {
         "loc": {
-          "start": { "line": 14, "column": 4 },
-          "end": { "line": 15, "column": null }
+          "start": { "line": 26, "column": 4 },
+          "end": { "line": 27, "column": null }
         },
         "type": "if",
         "locations": [
           {
-            "start": { "line": 14, "column": 4 },
-            "end": { "line": 15, "column": null }
+            "start": { "line": 26, "column": 4 },
+            "end": { "line": 27, "column": null }
           },
           { "start": {}, "end": {} }
         ],
-        "line": 14
-      },
-      "2": {
-        "loc": {
-          "start": { "line": 15, "column": 34 },
-          "end": { "line": 15, "column": 65 }
-        },
-        "type": "binary-expr",
-        "locations": [
-          {
-            "start": { "line": 15, "column": 34 },
-            "end": { "line": 15, "column": 61 }
-          },
-          {
-            "start": { "line": 15, "column": 61 },
-            "end": { "line": 15, "column": 65 }
-          }
-        ],
-        "line": 15
-      },
-      "3": {
-        "loc": {
-          "start": { "line": 31, "column": 4 },
-          "end": { "line": 32, "column": null }
-        },
-        "type": "if",
-        "locations": [
-          {
-            "start": { "line": 31, "column": 4 },
-            "end": { "line": 32, "column": null }
-          },
-          { "start": {}, "end": {} }
-        ],
-        "line": 31
+        "line": 26
       }
     },
     "s": {
-      "0": 47,
-      "1": 8,
-      "2": 45,
-      "3": 25,
-      "4": 25,
-      "5": 95,
-      "6": 5,
-      "7": 47,
-      "8": 8,
-      "9": 8,
-      "10": 8,
-      "11": 8,
-      "12": 45,
+      "0": 1,
+      "1": 68,
+      "2": 68,
+      "3": 11,
+      "4": 2,
+      "5": 68,
+      "6": 53,
+      "7": 68,
+      "8": 4,
+      "9": 4,
+      "10": 4,
+      "11": 68,
+      "12": 55,
       "13": 1,
-      "14": 120
+      "14": 68
     },
-    "f": { "0": 25, "1": 95, "2": 47, "3": 8, "4": 45, "5": 120 },
-    "b": { "0": [25, 18], "1": [5, 90], "2": [5, 1], "3": [1, 44] },
+    "f": { "0": 68, "1": 11, "2": 53, "3": 4, "4": 55 },
+    "b": { "0": [2, 9], "1": [1, 54] },
     "meta": {
-      "lastBranch": 4,
-      "lastFunction": 6,
+      "lastBranch": 2,
+      "lastFunction": 5,
       "lastStatement": 15,
       "seen": {
-        "s:19:2:20:Infinity": 0,
-        "s:23:2:27:Infinity": 1,
-        "s:30:2:32:Infinity": 2,
-        "f:7:2:7:14": 0,
-        "s:8:4:8:Infinity": 3,
-        "s:9:4:11:Infinity": 4,
-        "b:10:18:10:40:10:40:10:Infinity": 0,
-        "f:13:2:13:21": 1,
-        "b:14:4:15:Infinity:undefined:undefined:undefined:undefined": 1,
-        "s:14:4:15:Infinity": 5,
-        "s:15:6:15:Infinity": 6,
-        "b:15:34:15:61:15:61:15:65": 2,
-        "f:19:2:19:23": 2,
-        "s:20:4:20:Infinity": 7,
-        "f:23:2:23:29": 3,
-        "s:24:21:24:Infinity": 8,
-        "s:25:25:25:40": 9,
-        "s:26:4:26:Infinity": 10,
-        "s:27:4:27:Infinity": 11,
-        "f:30:2:30:19": 4,
-        "b:31:4:32:Infinity:undefined:undefined:undefined:undefined": 3,
-        "s:31:4:32:Infinity": 12,
-        "s:32:6:32:Infinity": 13,
-        "f:35:2:35:22": 5,
-        "s:36:4:49:Infinity": 14
+        "s:7:6:43:Infinity": 0,
+        "f:7:6:7:19": 0,
+        "s:8:22:8:69": 1,
+        "s:10:0:14:Infinity": 2,
+        "f:10:0:10:14": 1,
+        "b:11:2:12:Infinity:undefined:undefined:undefined:undefined": 0,
+        "s:11:2:12:Infinity": 3,
+        "s:12:4:12:Infinity": 4,
+        "s:15:8:16:Infinity": 5,
+        "f:15:8:15:29": 2,
+        "s:16:4:16:Infinity": 6,
+        "s:19:8:22:Infinity": 7,
+        "f:19:8:19:35": 3,
+        "s:20:25:20:43": 8,
+        "s:21:4:21:Infinity": 9,
+        "s:22:4:22:Infinity": 10,
+        "s:25:8:27:Infinity": 11,
+        "f:25:8:25:25": 4,
+        "b:26:4:27:Infinity:undefined:undefined:undefined:undefined": 1,
+        "s:26:4:27:Infinity": 12,
+        "s:27:6:27:Infinity": 13,
+        "s:30:2:43:Infinity": 14
+      }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\pagination\\Pagination.tsx": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\pagination\\Pagination.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 4, "column": 6 },
+        "end": { "line": 51, "column": null }
+      },
+      "1": {
+        "start": { "line": 9, "column": 8 },
+        "end": { "line": 22, "column": null }
+      },
+      "2": {
+        "start": { "line": 10, "column": 18 },
+        "end": { "line": 10, "column": 20 }
+      },
+      "3": {
+        "start": { "line": 11, "column": 23 },
+        "end": { "line": 11, "column": null }
+      },
+      "4": {
+        "start": { "line": 12, "column": 16 },
+        "end": { "line": 12, "column": 69 }
+      },
+      "5": {
+        "start": { "line": 13, "column": 16 },
+        "end": { "line": 13, "column": 60 }
+      },
+      "6": {
+        "start": { "line": 15, "column": 4 },
+        "end": { "line": 16, "column": null }
+      },
+      "7": {
+        "start": { "line": 16, "column": 6 },
+        "end": { "line": 16, "column": null }
+      },
+      "8": {
+        "start": { "line": 19, "column": 4 },
+        "end": { "line": 20, "column": null }
+      },
+      "9": {
+        "start": { "line": 19, "column": 17 },
+        "end": { "line": 19, "column": 24 }
+      },
+      "10": {
+        "start": { "line": 20, "column": 6 },
+        "end": { "line": 20, "column": null }
+      },
+      "11": {
+        "start": { "line": 22, "column": 4 },
+        "end": { "line": 22, "column": null }
+      },
+      "12": {
+        "start": { "line": 25, "column": 2 },
+        "end": { "line": 51, "column": null }
+      },
+      "13": {
+        "start": { "line": 28, "column": 23 },
+        "end": { "line": 28, "column": 52 }
+      },
+      "14": {
+        "start": { "line": 36, "column": 8 },
+        "end": { "line": 42, "column": null }
+      },
+      "15": {
+        "start": { "line": 38, "column": 25 },
+        "end": { "line": 38, "column": 43 }
+      },
+      "16": {
+        "start": { "line": 46, "column": 23 },
+        "end": { "line": 46, "column": 52 }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": { "line": 4, "column": 6 },
+          "end": { "line": 4, "column": 20 }
+        },
+        "loc": {
+          "start": { "line": 8, "column": 23 },
+          "end": { "line": 51, "column": null }
+        },
+        "line": 8
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 9, "column": 8 },
+          "end": { "line": 9, "column": 31 }
+        },
+        "loc": {
+          "start": { "line": 9, "column": 31 },
+          "end": { "line": 22, "column": null }
+        },
+        "line": 9
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": { "line": 28, "column": 8 },
+          "end": { "line": 28, "column": 23 }
+        },
+        "loc": {
+          "start": { "line": 28, "column": 23 },
+          "end": { "line": 28, "column": 52 }
+        },
+        "line": 28
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": { "line": 35, "column": 24 },
+          "end": { "line": 35, "column": 29 }
+        },
+        "loc": {
+          "start": { "line": 36, "column": 8 },
+          "end": { "line": 42, "column": null }
+        },
+        "line": 36
+      },
+      "4": {
+        "name": "(anonymous_4)",
+        "decl": {
+          "start": { "line": 38, "column": 10 },
+          "end": { "line": 38, "column": 25 }
+        },
+        "loc": {
+          "start": { "line": 38, "column": 25 },
+          "end": { "line": 38, "column": 43 }
+        },
+        "line": 38
+      },
+      "5": {
+        "name": "(anonymous_5)",
+        "decl": {
+          "start": { "line": 46, "column": 8 },
+          "end": { "line": 46, "column": 23 }
+        },
+        "loc": {
+          "start": { "line": 46, "column": 23 },
+          "end": { "line": 46, "column": 52 }
+        },
+        "line": 46
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": { "line": 15, "column": 4 },
+          "end": { "line": 16, "column": null }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": { "line": 15, "column": 4 },
+            "end": { "line": 16, "column": null }
+          },
+          { "start": {}, "end": {} }
+        ],
+        "line": 15
+      },
+      "1": {
+        "loc": {
+          "start": { "line": 39, "column": 41 },
+          "end": { "line": 39, "column": null }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": { "line": 39, "column": 64 },
+            "end": { "line": 39, "column": 80 }
+          },
+          {
+            "start": { "line": 39, "column": 80 },
+            "end": { "line": 39, "column": null }
+          }
+        ],
+        "line": 39
+      }
+    },
+    "s": {
+      "0": 1,
+      "1": 7,
+      "2": 7,
+      "3": 7,
+      "4": 7,
+      "5": 7,
+      "6": 7,
+      "7": 1,
+      "8": 7,
+      "9": 7,
+      "10": 35,
+      "11": 7,
+      "12": 7,
+      "13": 1,
+      "14": 35,
+      "15": 1,
+      "16": 1
+    },
+    "f": { "0": 7, "1": 7, "2": 1, "3": 35, "4": 1, "5": 1 },
+    "b": { "0": [1, 6], "1": [7, 28] },
+    "meta": {
+      "lastBranch": 2,
+      "lastFunction": 6,
+      "lastStatement": 17,
+      "seen": {
+        "s:4:6:51:Infinity": 0,
+        "f:4:6:4:20": 0,
+        "s:9:8:22:Infinity": 1,
+        "f:9:8:9:31": 1,
+        "s:10:18:10:20": 2,
+        "s:11:23:11:Infinity": 3,
+        "s:12:16:12:69": 4,
+        "s:13:16:13:60": 5,
+        "b:15:4:16:Infinity:undefined:undefined:undefined:undefined": 0,
+        "s:15:4:16:Infinity": 6,
+        "s:16:6:16:Infinity": 7,
+        "s:19:4:20:Infinity": 8,
+        "s:19:17:19:24": 9,
+        "s:20:6:20:Infinity": 10,
+        "s:22:4:22:Infinity": 11,
+        "s:25:2:51:Infinity": 12,
+        "f:28:8:28:23": 2,
+        "s:28:23:28:52": 13,
+        "f:35:24:35:29": 3,
+        "s:36:8:42:Infinity": 14,
+        "f:38:10:38:25": 4,
+        "s:38:25:38:43": 15,
+        "b:39:64:39:80:39:80:39:Infinity": 1,
+        "f:46:8:46:23": 5,
+        "s:46:23:46:52": 16
       }
     }
   },
@@ -1063,90 +1512,90 @@
     "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\components\\testButton\\testButton.tsx",
     "statementMap": {
       "0": {
-        "start": { "line": 7, "column": 27 },
-        "end": { "line": 7, "column": 49 }
+        "start": { "line": 4, "column": 6 },
+        "end": { "line": 15, "column": null }
       },
       "1": {
-        "start": { "line": 9, "column": 2 },
-        "end": { "line": 10, "column": null }
+        "start": { "line": 5, "column": 22 },
+        "end": { "line": 5, "column": 55 }
       },
       "2": {
-        "start": { "line": 10, "column": 4 },
-        "end": { "line": 10, "column": null }
+        "start": { "line": 7, "column": 2 },
+        "end": { "line": 7, "column": null }
       },
       "3": {
-        "start": { "line": 14, "column": 4 },
-        "end": { "line": 14, "column": null }
+        "start": { "line": 7, "column": 19 },
+        "end": { "line": 7, "column": null }
       },
       "4": {
-        "start": { "line": 14, "column": 32 },
-        "end": { "line": 14, "column": null }
+        "start": { "line": 9, "column": 2 },
+        "end": { "line": 15, "column": null }
       },
       "5": {
-        "start": { "line": 15, "column": 4 },
-        "end": { "line": 18, "column": null }
+        "start": { "line": 11, "column": 21 },
+        "end": { "line": 11, "column": 41 }
       }
     },
     "fnMap": {
       "0": {
         "name": "(anonymous_0)",
         "decl": {
-          "start": { "line": 9, "column": 2 },
-          "end": { "line": 9, "column": 28 }
+          "start": { "line": 4, "column": 6 },
+          "end": { "line": 4, "column": 25 }
         },
         "loc": {
-          "start": { "line": 9, "column": 28 },
-          "end": { "line": 10, "column": null }
+          "start": { "line": 4, "column": 25 },
+          "end": { "line": 15, "column": null }
         },
-        "line": 9
+        "line": 4
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
-          "start": { "line": 13, "column": 2 },
-          "end": { "line": 13, "column": 22 }
+          "start": { "line": 11, "column": 6 },
+          "end": { "line": 11, "column": 21 }
         },
         "loc": {
-          "start": { "line": 13, "column": 22 },
-          "end": { "line": 18, "column": null }
+          "start": { "line": 11, "column": 21 },
+          "end": { "line": 11, "column": 41 }
         },
-        "line": 13
+        "line": 11
       }
     },
     "branchMap": {
       "0": {
         "loc": {
-          "start": { "line": 14, "column": 4 },
-          "end": { "line": 14, "column": null }
+          "start": { "line": 7, "column": 2 },
+          "end": { "line": 7, "column": null }
         },
         "type": "if",
         "locations": [
           {
-            "start": { "line": 14, "column": 4 },
-            "end": { "line": 14, "column": null }
+            "start": { "line": 7, "column": 2 },
+            "end": { "line": 7, "column": null }
           },
           { "start": {}, "end": {} }
         ],
-        "line": 14
+        "line": 7
       }
     },
-    "s": { "0": 17, "1": 1, "2": 1, "3": 57, "4": 2, "5": 55 },
-    "f": { "0": 1, "1": 57 },
-    "b": { "0": [2, 55] },
+    "s": { "0": 1, "1": 5, "2": 5, "3": 2, "4": 2, "5": 1 },
+    "f": { "0": 5, "1": 1 },
+    "b": { "0": [2, 3] },
     "meta": {
       "lastBranch": 1,
       "lastFunction": 2,
       "lastStatement": 6,
       "seen": {
-        "s:7:27:7:49": 0,
-        "s:9:2:10:Infinity": 1,
-        "f:9:2:9:28": 0,
-        "s:10:4:10:Infinity": 2,
-        "f:13:2:13:22": 1,
-        "b:14:4:14:Infinity:undefined:undefined:undefined:undefined": 0,
-        "s:14:4:14:Infinity": 3,
-        "s:14:32:14:Infinity": 4,
-        "s:15:4:18:Infinity": 5
+        "s:4:6:15:Infinity": 0,
+        "f:4:6:4:25": 0,
+        "s:5:22:5:55": 1,
+        "b:7:2:7:Infinity:undefined:undefined:undefined:undefined": 0,
+        "s:7:2:7:Infinity": 2,
+        "s:7:19:7:Infinity": 3,
+        "s:9:2:15:Infinity": 4,
+        "f:11:6:11:21": 1,
+        "s:11:21:11:41": 5
       }
     }
   },
@@ -1164,7 +1613,7 @@
     },
     "fnMap": {},
     "branchMap": {},
-    "s": { "0": 3, "1": 3 },
+    "s": { "0": 4, "1": 4 },
     "f": {},
     "b": {},
     "meta": {
@@ -1172,6 +1621,934 @@
       "lastFunction": 0,
       "lastStatement": 2,
       "seen": { "s:1:29:5:Infinity": 0, "s:7:27:12:Infinity": 1 }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\hooks\\useLocalStorage.ts": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\hooks\\useLocalStorage.ts",
+    "statementMap": {
+      "0": {
+        "start": { "line": 4, "column": 13 },
+        "end": { "line": 28, "column": null }
+      },
+      "1": {
+        "start": { "line": 6, "column": 22 },
+        "end": { "line": 14, "column": null }
+      },
+      "2": {
+        "start": { "line": 7, "column": 4 },
+        "end": { "line": 12, "column": null }
+      },
+      "3": {
+        "start": { "line": 8, "column": 19 },
+        "end": { "line": 8, "column": 44 }
+      },
+      "4": {
+        "start": { "line": 9, "column": 6 },
+        "end": { "line": 9, "column": null }
+      },
+      "5": {
+        "start": { "line": 11, "column": 6 },
+        "end": { "line": 11, "column": null }
+      },
+      "6": {
+        "start": { "line": 12, "column": 6 },
+        "end": { "line": 12, "column": null }
+      },
+      "7": {
+        "start": { "line": 16, "column": 2 },
+        "end": { "line": 26, "column": null }
+      },
+      "8": {
+        "start": { "line": 17, "column": 4 },
+        "end": { "line": 24, "column": null }
+      },
+      "9": {
+        "start": { "line": 18, "column": 6 },
+        "end": { "line": 21, "column": null }
+      },
+      "10": {
+        "start": { "line": 19, "column": 8 },
+        "end": { "line": 19, "column": null }
+      },
+      "11": {
+        "start": { "line": 21, "column": 8 },
+        "end": { "line": 21, "column": null }
+      },
+      "12": {
+        "start": { "line": 24, "column": 6 },
+        "end": { "line": 24, "column": null }
+      },
+      "13": {
+        "start": { "line": 28, "column": 2 },
+        "end": { "line": 28, "column": null }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": { "line": 4, "column": 13 },
+          "end": { "line": 4, "column": 32 }
+        },
+        "loc": {
+          "start": { "line": 4, "column": 83 },
+          "end": { "line": 28, "column": null }
+        },
+        "line": 4
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 6, "column": 40 },
+          "end": { "line": 6, "column": 63 }
+        },
+        "loc": {
+          "start": { "line": 6, "column": 63 },
+          "end": { "line": 14, "column": null }
+        },
+        "line": 6
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": { "line": 16, "column": 2 },
+          "end": { "line": 16, "column": 18 }
+        },
+        "loc": {
+          "start": { "line": 16, "column": 18 },
+          "end": { "line": 26, "column": 6 }
+        },
+        "line": 16
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": { "line": 9, "column": 13 },
+          "end": { "line": 9, "column": null }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": { "line": 9, "column": 29 },
+            "end": { "line": 9, "column": 36 }
+          },
+          {
+            "start": { "line": 9, "column": 36 },
+            "end": { "line": 9, "column": null }
+          }
+        ],
+        "line": 9
+      },
+      "1": {
+        "loc": {
+          "start": { "line": 18, "column": 6 },
+          "end": { "line": 21, "column": null }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": { "line": 18, "column": 6 },
+            "end": { "line": 21, "column": null }
+          },
+          {
+            "start": { "line": 20, "column": 13 },
+            "end": { "line": 21, "column": null }
+          }
+        ],
+        "line": 18
+      }
+    },
+    "s": {
+      "0": 2,
+      "1": 78,
+      "2": 17,
+      "3": 17,
+      "4": 17,
+      "5": 0,
+      "6": 0,
+      "7": 78,
+      "8": 75,
+      "9": 75,
+      "10": 62,
+      "11": 13,
+      "12": 0,
+      "13": 78
+    },
+    "f": { "0": 78, "1": 17, "2": 75 },
+    "b": { "0": [5, 12], "1": [62, 13] },
+    "meta": {
+      "lastBranch": 2,
+      "lastFunction": 3,
+      "lastStatement": 14,
+      "seen": {
+        "s:4:13:28:Infinity": 0,
+        "f:4:13:4:32": 0,
+        "s:6:22:14:Infinity": 1,
+        "f:6:40:6:63": 1,
+        "s:7:4:12:Infinity": 2,
+        "s:8:19:8:44": 3,
+        "s:9:6:9:Infinity": 4,
+        "b:9:29:9:36:9:36:9:Infinity": 0,
+        "s:11:6:11:Infinity": 5,
+        "s:12:6:12:Infinity": 6,
+        "s:16:2:26:Infinity": 7,
+        "f:16:2:16:18": 2,
+        "s:17:4:24:Infinity": 8,
+        "b:18:6:21:Infinity:20:13:21:Infinity": 1,
+        "s:18:6:21:Infinity": 9,
+        "s:19:8:19:Infinity": 10,
+        "s:21:8:21:Infinity": 11,
+        "s:24:6:24:Infinity": 12,
+        "s:28:2:28:Infinity": 13
+      }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\hooks\\usePagination.ts": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\hooks\\usePagination.ts",
+    "statementMap": {
+      "0": {
+        "start": { "line": 5, "column": 23 },
+        "end": { "line": 5, "column": null }
+      },
+      "1": {
+        "start": { "line": 6, "column": 25 },
+        "end": { "line": 6, "column": null }
+      },
+      "2": {
+        "start": { "line": 8, "column": 13 },
+        "end": { "line": 85, "column": null }
+      },
+      "3": {
+        "start": { "line": 12, "column": 16 },
+        "end": { "line": 12, "column": 48 }
+      },
+      "4": {
+        "start": { "line": 13, "column": 18 },
+        "end": { "line": 13, "column": 56 }
+      },
+      "5": {
+        "start": { "line": 14, "column": 16 },
+        "end": { "line": 14, "column": 57 }
+      },
+      "6": {
+        "start": { "line": 15, "column": 21 },
+        "end": { "line": 15, "column": 57 }
+      },
+      "7": {
+        "start": { "line": 16, "column": 8 },
+        "end": { "line": 16, "column": 36 }
+      },
+      "8": {
+        "start": { "line": 17, "column": 23 },
+        "end": { "line": 17, "column": 59 }
+      },
+      "9": {
+        "start": { "line": 18, "column": 18 },
+        "end": { "line": 18, "column": 56 }
+      },
+      "10": {
+        "start": { "line": 19, "column": 22 },
+        "end": { "line": 19, "column": 79 }
+      },
+      "11": {
+        "start": { "line": 21, "column": 2 },
+        "end": { "line": 23, "column": null }
+      },
+      "12": {
+        "start": { "line": 22, "column": 4 },
+        "end": { "line": 22, "column": null }
+      },
+      "13": {
+        "start": { "line": 25, "column": 2 },
+        "end": { "line": 31, "column": null }
+      },
+      "14": {
+        "start": { "line": 26, "column": 4 },
+        "end": { "line": 28, "column": null }
+      },
+      "15": {
+        "start": { "line": 27, "column": 6 },
+        "end": { "line": 27, "column": null }
+      },
+      "16": {
+        "start": { "line": 28, "column": 6 },
+        "end": { "line": 28, "column": null }
+      },
+      "17": {
+        "start": { "line": 30, "column": 4 },
+        "end": { "line": 30, "column": null }
+      },
+      "18": {
+        "start": { "line": 33, "column": 2 },
+        "end": { "line": 63, "column": null }
+      },
+      "19": {
+        "start": { "line": 34, "column": 22 },
+        "end": { "line": 59, "column": null }
+      },
+      "20": {
+        "start": { "line": 35, "column": 6 },
+        "end": { "line": 35, "column": null }
+      },
+      "21": {
+        "start": { "line": 36, "column": 6 },
+        "end": { "line": 36, "column": null }
+      },
+      "22": {
+        "start": { "line": 38, "column": 6 },
+        "end": { "line": 38, "column": null }
+      },
+      "23": {
+        "start": { "line": 38, "column": 37 },
+        "end": { "line": 38, "column": 74 }
+      },
+      "24": {
+        "start": { "line": 40, "column": 6 },
+        "end": { "line": 59, "column": null }
+      },
+      "25": {
+        "start": { "line": 43, "column": 8 },
+        "end": { "line": 51, "column": null }
+      },
+      "26": {
+        "start": { "line": 44, "column": 23 },
+        "end": { "line": 44, "column": 55 }
+      },
+      "27": {
+        "start": { "line": 45, "column": 10 },
+        "end": { "line": 45, "column": null }
+      },
+      "28": {
+        "start": { "line": 46, "column": 10 },
+        "end": { "line": 46, "column": null }
+      },
+      "29": {
+        "start": { "line": 48, "column": 16 },
+        "end": { "line": 48, "column": null }
+      },
+      "30": {
+        "start": { "line": 49, "column": 28 },
+        "end": { "line": 49, "column": 68 }
+      },
+      "31": {
+        "start": { "line": 50, "column": 10 },
+        "end": { "line": 50, "column": null }
+      },
+      "32": {
+        "start": { "line": 51, "column": 10 },
+        "end": { "line": 51, "column": null }
+      },
+      "33": {
+        "start": { "line": 54, "column": 8 },
+        "end": { "line": 54, "column": null }
+      },
+      "34": {
+        "start": { "line": 55, "column": 8 },
+        "end": { "line": 55, "column": null }
+      },
+      "35": {
+        "start": { "line": 57, "column": 8 },
+        "end": { "line": 57, "column": null }
+      },
+      "36": {
+        "start": { "line": 59, "column": 8 },
+        "end": { "line": 59, "column": null }
+      },
+      "37": {
+        "start": { "line": 62, "column": 4 },
+        "end": { "line": 62, "column": null }
+      },
+      "38": {
+        "start": { "line": 65, "column": 21 },
+        "end": { "line": 65, "column": 59 }
+      },
+      "39": {
+        "start": { "line": 67, "column": 8 },
+        "end": { "line": 68, "column": null }
+      },
+      "40": {
+        "start": { "line": 68, "column": 4 },
+        "end": { "line": 68, "column": null }
+      },
+      "41": {
+        "start": { "line": 71, "column": 8 },
+        "end": { "line": 71, "column": 50 }
+      },
+      "42": {
+        "start": { "line": 71, "column": 25 },
+        "end": { "line": 71, "column": 50 }
+      },
+      "43": {
+        "start": { "line": 72, "column": 8 },
+        "end": { "line": 72, "column": 50 }
+      },
+      "44": {
+        "start": { "line": 72, "column": 25 },
+        "end": { "line": 72, "column": 50 }
+      },
+      "45": {
+        "start": { "line": 73, "column": 8 },
+        "end": { "line": 73, "column": 43 }
+      },
+      "46": {
+        "start": { "line": 73, "column": 26 },
+        "end": { "line": 73, "column": 43 }
+      },
+      "47": {
+        "start": { "line": 75, "column": 2 },
+        "end": { "line": 85, "column": null }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": { "line": 8, "column": 13 },
+          "end": { "line": 8, "column": null }
+        },
+        "loc": {
+          "start": { "line": 11, "column": 26 },
+          "end": { "line": 85, "column": null }
+        },
+        "line": 11
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 21, "column": 2 },
+          "end": { "line": 21, "column": 16 }
+        },
+        "loc": {
+          "start": { "line": 21, "column": 16 },
+          "end": { "line": 23, "column": 5 }
+        },
+        "line": 21
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": { "line": 25, "column": 2 },
+          "end": { "line": 25, "column": 18 }
+        },
+        "loc": {
+          "start": { "line": 25, "column": 18 },
+          "end": { "line": 31, "column": 6 }
+        },
+        "line": 25
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": { "line": 33, "column": 2 },
+          "end": { "line": 33, "column": 18 }
+        },
+        "loc": {
+          "start": { "line": 33, "column": 18 },
+          "end": { "line": 63, "column": 6 }
+        },
+        "line": 33
+      },
+      "4": {
+        "name": "(anonymous_4)",
+        "decl": {
+          "start": { "line": 34, "column": 22 },
+          "end": { "line": 34, "column": 34 }
+        },
+        "loc": {
+          "start": { "line": 34, "column": 34 },
+          "end": { "line": 59, "column": null }
+        },
+        "line": 34
+      },
+      "5": {
+        "name": "(anonymous_5)",
+        "decl": {
+          "start": { "line": 38, "column": 16 },
+          "end": { "line": 38, "column": 25 }
+        },
+        "loc": {
+          "start": { "line": 38, "column": 37 },
+          "end": { "line": 38, "column": 74 }
+        },
+        "line": 38
+      },
+      "6": {
+        "name": "(anonymous_6)",
+        "decl": {
+          "start": { "line": 67, "column": 8 },
+          "end": { "line": 67, "column": 20 }
+        },
+        "loc": {
+          "start": { "line": 67, "column": 37 },
+          "end": { "line": 68, "column": null }
+        },
+        "line": 67
+      },
+      "7": {
+        "name": "(anonymous_7)",
+        "decl": {
+          "start": { "line": 71, "column": 8 },
+          "end": { "line": 71, "column": 25 }
+        },
+        "loc": {
+          "start": { "line": 71, "column": 25 },
+          "end": { "line": 71, "column": 50 }
+        },
+        "line": 71
+      },
+      "8": {
+        "name": "(anonymous_8)",
+        "decl": {
+          "start": { "line": 72, "column": 8 },
+          "end": { "line": 72, "column": 25 }
+        },
+        "loc": {
+          "start": { "line": 72, "column": 25 },
+          "end": { "line": 72, "column": 50 }
+        },
+        "line": 72
+      },
+      "9": {
+        "name": "(anonymous_9)",
+        "decl": {
+          "start": { "line": 73, "column": 8 },
+          "end": { "line": 73, "column": 26 }
+        },
+        "loc": {
+          "start": { "line": 73, "column": 26 },
+          "end": { "line": 73, "column": 43 }
+        },
+        "line": 73
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": { "line": 10, "column": 2 },
+          "end": { "line": 10, "column": null }
+        },
+        "type": "default-arg",
+        "locations": [
+          {
+            "start": { "line": 10, "column": 16 },
+            "end": { "line": 10, "column": null }
+          }
+        ],
+        "line": 10
+      },
+      "1": {
+        "loc": {
+          "start": { "line": 18, "column": 26 },
+          "end": { "line": 18, "column": 56 }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 18, "column": 26 },
+            "end": { "line": 18, "column": 50 }
+          },
+          {
+            "start": { "line": 18, "column": 54 },
+            "end": { "line": 18, "column": 56 }
+          }
+        ],
+        "line": 18
+      },
+      "2": {
+        "loc": {
+          "start": { "line": 26, "column": 4 },
+          "end": { "line": 28, "column": null }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": { "line": 26, "column": 4 },
+            "end": { "line": 28, "column": null }
+          },
+          { "start": {}, "end": {} }
+        ],
+        "line": 26
+      },
+      "3": {
+        "loc": {
+          "start": { "line": 43, "column": 8 },
+          "end": { "line": 51, "column": null }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": { "line": 43, "column": 8 },
+            "end": { "line": 51, "column": null }
+          },
+          {
+            "start": { "line": 47, "column": 15 },
+            "end": { "line": 51, "column": null }
+          }
+        ],
+        "line": 43
+      }
+    },
+    "s": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 63,
+      "4": 63,
+      "5": 63,
+      "6": 63,
+      "7": 63,
+      "8": 63,
+      "9": 63,
+      "10": 63,
+      "11": 63,
+      "12": 24,
+      "13": 63,
+      "14": 11,
+      "15": 9,
+      "16": 9,
+      "17": 2,
+      "18": 63,
+      "19": 14,
+      "20": 14,
+      "21": 14,
+      "22": 14,
+      "23": 14,
+      "24": 12,
+      "25": 12,
+      "26": 5,
+      "27": 4,
+      "28": 4,
+      "29": 7,
+      "30": 7,
+      "31": 6,
+      "32": 6,
+      "33": 10,
+      "34": 10,
+      "35": 2,
+      "36": 12,
+      "37": 14,
+      "38": 63,
+      "39": 63,
+      "40": 3,
+      "41": 63,
+      "42": 1,
+      "43": 63,
+      "44": 1,
+      "45": 63,
+      "46": 0,
+      "47": 63
+    },
+    "f": {
+      "0": 63,
+      "1": 24,
+      "2": 11,
+      "3": 14,
+      "4": 14,
+      "5": 14,
+      "6": 3,
+      "7": 1,
+      "8": 1,
+      "9": 0
+    },
+    "b": { "0": [63], "1": [63, 18], "2": [9, 2], "3": [5, 7] },
+    "meta": {
+      "lastBranch": 4,
+      "lastFunction": 10,
+      "lastStatement": 48,
+      "seen": {
+        "s:5:23:5:Infinity": 0,
+        "s:6:25:6:Infinity": 1,
+        "s:8:13:85:Infinity": 2,
+        "f:8:13:8:Infinity": 0,
+        "b:10:16:10:Infinity": 0,
+        "s:12:16:12:48": 3,
+        "s:13:18:13:56": 4,
+        "s:14:16:14:57": 5,
+        "s:15:21:15:57": 6,
+        "s:16:8:16:36": 7,
+        "s:17:23:17:59": 8,
+        "s:18:18:18:56": 9,
+        "b:18:26:18:50:18:54:18:56": 1,
+        "s:19:22:19:79": 10,
+        "s:21:2:23:Infinity": 11,
+        "f:21:2:21:16": 1,
+        "s:22:4:22:Infinity": 12,
+        "s:25:2:31:Infinity": 13,
+        "f:25:2:25:18": 2,
+        "b:26:4:28:Infinity:undefined:undefined:undefined:undefined": 2,
+        "s:26:4:28:Infinity": 14,
+        "s:27:6:27:Infinity": 15,
+        "s:28:6:28:Infinity": 16,
+        "s:30:4:30:Infinity": 17,
+        "s:33:2:63:Infinity": 18,
+        "f:33:2:33:18": 3,
+        "s:34:22:59:Infinity": 19,
+        "f:34:22:34:34": 4,
+        "s:35:6:35:Infinity": 20,
+        "s:36:6:36:Infinity": 21,
+        "s:38:6:38:Infinity": 22,
+        "f:38:16:38:25": 5,
+        "s:38:37:38:74": 23,
+        "s:40:6:59:Infinity": 24,
+        "b:43:8:51:Infinity:47:15:51:Infinity": 3,
+        "s:43:8:51:Infinity": 25,
+        "s:44:23:44:55": 26,
+        "s:45:10:45:Infinity": 27,
+        "s:46:10:46:Infinity": 28,
+        "s:48:16:48:Infinity": 29,
+        "s:49:28:49:68": 30,
+        "s:50:10:50:Infinity": 31,
+        "s:51:10:51:Infinity": 32,
+        "s:54:8:54:Infinity": 33,
+        "s:55:8:55:Infinity": 34,
+        "s:57:8:57:Infinity": 35,
+        "s:59:8:59:Infinity": 36,
+        "s:62:4:62:Infinity": 37,
+        "s:65:21:65:59": 38,
+        "s:67:8:68:Infinity": 39,
+        "f:67:8:67:20": 6,
+        "s:68:4:68:Infinity": 40,
+        "s:71:8:71:50": 41,
+        "f:71:8:71:25": 7,
+        "s:71:25:71:50": 42,
+        "s:72:8:72:50": 43,
+        "f:72:8:72:25": 8,
+        "s:72:25:72:50": 44,
+        "s:73:8:73:43": 45,
+        "f:73:8:73:26": 9,
+        "s:73:26:73:43": 46,
+        "s:75:2:85:Infinity": 47
+      }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\pages\\AboutPage\\About.tsx": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\pages\\AboutPage\\About.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 6, "column": 6 },
+        "end": { "line": 61, "column": null }
+      },
+      "1": {
+        "start": { "line": 7, "column": 2 },
+        "end": { "line": 61, "column": null }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": { "line": 6, "column": 6 },
+          "end": { "line": 6, "column": 20 }
+        },
+        "loc": {
+          "start": { "line": 6, "column": 20 },
+          "end": { "line": 61, "column": null }
+        },
+        "line": 6
+      }
+    },
+    "branchMap": {},
+    "s": { "0": 1, "1": 6 },
+    "f": { "0": 6 },
+    "b": {},
+    "meta": {
+      "lastBranch": 0,
+      "lastFunction": 1,
+      "lastStatement": 2,
+      "seen": {
+        "s:6:6:61:Infinity": 0,
+        "f:6:6:6:20": 0,
+        "s:7:2:61:Infinity": 1
+      }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\pages\\notFoundPage\\notFound.tsx": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\pages\\notFoundPage\\notFound.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 5, "column": 6 },
+        "end": { "line": 20, "column": null }
+      },
+      "1": {
+        "start": { "line": 6, "column": 8 },
+        "end": { "line": 6, "column": 32 }
+      },
+      "2": {
+        "start": { "line": 8, "column": 2 },
+        "end": { "line": 20, "column": null }
+      },
+      "3": {
+        "start": { "line": 16, "column": 61 },
+        "end": { "line": 16, "column": 74 }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": { "line": 5, "column": 6 },
+          "end": { "line": 5, "column": 23 }
+        },
+        "loc": {
+          "start": { "line": 5, "column": 23 },
+          "end": { "line": 20, "column": null }
+        },
+        "line": 5
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 16, "column": 46 },
+          "end": { "line": 16, "column": 61 }
+        },
+        "loc": {
+          "start": { "line": 16, "column": 61 },
+          "end": { "line": 16, "column": 74 }
+        },
+        "line": 16
+      }
+    },
+    "branchMap": {},
+    "s": { "0": 1, "1": 4, "2": 4, "3": 1 },
+    "f": { "0": 4, "1": 1 },
+    "b": {},
+    "meta": {
+      "lastBranch": 0,
+      "lastFunction": 2,
+      "lastStatement": 4,
+      "seen": {
+        "s:5:6:20:Infinity": 0,
+        "f:5:6:5:23": 0,
+        "s:6:8:6:32": 1,
+        "s:8:2:20:Infinity": 2,
+        "f:16:46:16:61": 1,
+        "s:16:61:16:74": 3
+      }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\router\\RouteError.tsx": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\router\\RouteError.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 4, "column": 6 },
+        "end": { "line": 17, "column": null }
+      },
+      "1": {
+        "start": { "line": 5, "column": 8 },
+        "end": { "line": 5, "column": 31 }
+      },
+      "2": {
+        "start": { "line": 7, "column": 2 },
+        "end": { "line": 17, "column": null }
+      },
+      "3": {
+        "start": { "line": 14, "column": 23 },
+        "end": { "line": 14, "column": 47 }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": { "line": 4, "column": 6 },
+          "end": { "line": 4, "column": 25 }
+        },
+        "loc": {
+          "start": { "line": 4, "column": 25 },
+          "end": { "line": 17, "column": null }
+        },
+        "line": 4
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 14, "column": 8 },
+          "end": { "line": 14, "column": 23 }
+        },
+        "loc": {
+          "start": { "line": 14, "column": 23 },
+          "end": { "line": 14, "column": 47 }
+        },
+        "line": 14
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": { "line": 11, "column": 10 },
+          "end": { "line": 11, "column": 63 }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": { "line": 11, "column": 10 },
+            "end": { "line": 11, "column": 28 }
+          },
+          {
+            "start": { "line": 11, "column": 28 },
+            "end": { "line": 11, "column": 63 }
+          }
+        ],
+        "line": 11
+      }
+    },
+    "s": { "0": 1, "1": 5, "2": 5, "3": 1 },
+    "f": { "0": 5, "1": 1 },
+    "b": { "0": [5, 1] },
+    "meta": {
+      "lastBranch": 1,
+      "lastFunction": 2,
+      "lastStatement": 4,
+      "seen": {
+        "s:4:6:17:Infinity": 0,
+        "f:4:6:4:25": 0,
+        "s:5:8:5:31": 1,
+        "s:7:2:17:Infinity": 2,
+        "b:11:10:11:28:11:28:11:63": 0,
+        "f:14:8:14:23": 1,
+        "s:14:23:14:47": 3
+      }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\router\\routes-path.ts": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\router\\routes-path.ts",
+    "statementMap": {
+      "0": {
+        "start": { "line": 1, "column": 26 },
+        "end": { "line": 6, "column": null }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": { "0": 0 },
+    "f": {},
+    "b": {},
+    "meta": {
+      "lastBranch": 0,
+      "lastFunction": 0,
+      "lastStatement": 1,
+      "seen": { "s:1:26:6:Infinity": 0 }
+    }
+  },
+  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\router\\routes.tsx": {
+    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\router\\routes.tsx",
+    "statementMap": {
+      "0": {
+        "start": { "line": 9, "column": 13 },
+        "end": { "line": 30, "column": 2 }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": { "0": 0 },
+    "f": {},
+    "b": {},
+    "meta": {
+      "lastBranch": 0,
+      "lastFunction": 0,
+      "lastStatement": 1,
+      "seen": { "s:9:13:30:2": 0 }
     }
   },
   "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\services\\api.ts": {
@@ -1182,287 +2559,282 @@
         "end": { "line": 3, "column": null }
       },
       "1": {
-        "start": { "line": 4, "column": 28 },
-        "end": { "line": 4, "column": null }
+        "start": { "line": 5, "column": 6 },
+        "end": { "line": 18, "column": null }
       },
       "2": {
-        "start": { "line": 6, "column": 6 },
-        "end": { "line": 19, "column": null }
+        "start": { "line": 6, "column": 2 },
+        "end": { "line": 7, "column": null }
       },
       "3": {
-        "start": { "line": 7, "column": 2 },
-        "end": { "line": 8, "column": null }
+        "start": { "line": 7, "column": 4 },
+        "end": { "line": 7, "column": null }
       },
       "4": {
-        "start": { "line": 8, "column": 4 },
-        "end": { "line": 8, "column": null }
+        "start": { "line": 9, "column": 2 },
+        "end": { "line": 10, "column": null }
       },
       "5": {
-        "start": { "line": 10, "column": 2 },
-        "end": { "line": 11, "column": null }
+        "start": { "line": 10, "column": 4 },
+        "end": { "line": 10, "column": null }
       },
       "6": {
-        "start": { "line": 11, "column": 4 },
-        "end": { "line": 11, "column": null }
+        "start": { "line": 12, "column": 2 },
+        "end": { "line": 13, "column": null }
       },
       "7": {
-        "start": { "line": 13, "column": 2 },
-        "end": { "line": 14, "column": null }
+        "start": { "line": 13, "column": 4 },
+        "end": { "line": 13, "column": null }
       },
       "8": {
-        "start": { "line": 14, "column": 4 },
-        "end": { "line": 14, "column": null }
+        "start": { "line": 15, "column": 2 },
+        "end": { "line": 16, "column": null }
       },
       "9": {
-        "start": { "line": 16, "column": 2 },
-        "end": { "line": 17, "column": null }
+        "start": { "line": 16, "column": 4 },
+        "end": { "line": 16, "column": null }
       },
       "10": {
-        "start": { "line": 17, "column": 4 },
-        "end": { "line": 17, "column": null }
+        "start": { "line": 18, "column": 2 },
+        "end": { "line": 18, "column": null }
       },
       "11": {
-        "start": { "line": 19, "column": 2 },
-        "end": { "line": 19, "column": null }
+        "start": { "line": 21, "column": 23 },
+        "end": { "line": 26, "column": null }
       },
       "12": {
-        "start": { "line": 22, "column": 23 },
-        "end": { "line": 27, "column": null }
+        "start": { "line": 22, "column": 19 },
+        "end": { "line": 22, "column": 74 }
       },
       "13": {
-        "start": { "line": 23, "column": 19 },
-        "end": { "line": 23, "column": 74 }
+        "start": { "line": 23, "column": 2 },
+        "end": { "line": 24, "column": null }
       },
       "14": {
-        "start": { "line": 24, "column": 2 },
-        "end": { "line": 25, "column": null }
+        "start": { "line": 24, "column": 4 },
+        "end": { "line": 24, "column": null }
       },
       "15": {
-        "start": { "line": 25, "column": 4 },
-        "end": { "line": 25, "column": null }
+        "start": { "line": 26, "column": 2 },
+        "end": { "line": 26, "column": null }
       },
       "16": {
-        "start": { "line": 27, "column": 2 },
-        "end": { "line": 27, "column": null }
+        "start": { "line": 29, "column": 26 },
+        "end": { "line": 45, "column": null }
       },
       "17": {
-        "start": { "line": 30, "column": 26 },
-        "end": { "line": 43, "column": null }
+        "start": { "line": 30, "column": 19 },
+        "end": { "line": 31, "column": null }
       },
       "18": {
-        "start": { "line": 31, "column": 19 },
-        "end": { "line": 32, "column": null }
+        "start": { "line": 33, "column": 2 },
+        "end": { "line": 34, "column": null }
       },
       "19": {
-        "start": { "line": 34, "column": 2 },
-        "end": { "line": 35, "column": null }
+        "start": { "line": 34, "column": 4 },
+        "end": { "line": 34, "column": null }
       },
       "20": {
-        "start": { "line": 35, "column": 4 },
-        "end": { "line": 35, "column": null }
+        "start": { "line": 36, "column": 15 },
+        "end": { "line": 36, "column": 36 }
       },
       "21": {
-        "start": { "line": 37, "column": 15 },
-        "end": { "line": 37, "column": 36 }
+        "start": { "line": 37, "column": 18 },
+        "end": { "line": 40, "column": null }
       },
       "22": {
-        "start": { "line": 38, "column": 18 },
-        "end": { "line": 41, "column": null }
+        "start": { "line": 39, "column": 6 },
+        "end": { "line": 39, "column": 60 }
       },
       "23": {
-        "start": { "line": 40, "column": 6 },
-        "end": { "line": 40, "column": 60 }
+        "start": { "line": 39, "column": 44 },
+        "end": { "line": 39, "column": 59 }
       },
       "24": {
-        "start": { "line": 40, "column": 44 },
-        "end": { "line": 40, "column": 59 }
-      },
-      "25": {
-        "start": { "line": 43, "column": 2 },
-        "end": { "line": 43, "column": null }
+        "start": { "line": 42, "column": 2 },
+        "end": { "line": 45, "column": null }
       }
     },
     "fnMap": {
       "0": {
         "name": "(anonymous_0)",
         "decl": {
-          "start": { "line": 6, "column": 6 },
-          "end": { "line": 6, "column": 23 }
+          "start": { "line": 5, "column": 6 },
+          "end": { "line": 5, "column": 23 }
         },
         "loc": {
-          "start": { "line": 6, "column": 53 },
-          "end": { "line": 19, "column": null }
+          "start": { "line": 5, "column": 53 },
+          "end": { "line": 18, "column": null }
         },
-        "line": 6
+        "line": 5
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
-          "start": { "line": 22, "column": 23 },
-          "end": { "line": 22, "column": 30 }
+          "start": { "line": 21, "column": 23 },
+          "end": { "line": 21, "column": 30 }
         },
         "loc": {
-          "start": { "line": 22, "column": 47 },
-          "end": { "line": 27, "column": null }
+          "start": { "line": 21, "column": 47 },
+          "end": { "line": 26, "column": null }
         },
-        "line": 22
+        "line": 21
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
-          "start": { "line": 30, "column": 26 },
-          "end": { "line": 30, "column": 38 }
+          "start": { "line": 29, "column": 26 },
+          "end": { "line": 29, "column": 33 }
         },
         "loc": {
-          "start": { "line": 30, "column": 38 },
-          "end": { "line": 43, "column": null }
+          "start": { "line": 29, "column": 67 },
+          "end": { "line": 45, "column": null }
         },
-        "line": 30
+        "line": 29
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
-          "start": { "line": 39, "column": 17 },
-          "end": { "line": 39, "column": 22 }
+          "start": { "line": 38, "column": 17 },
+          "end": { "line": 38, "column": 22 }
         },
         "loc": {
-          "start": { "line": 40, "column": 6 },
-          "end": { "line": 40, "column": 60 }
+          "start": { "line": 39, "column": 6 },
+          "end": { "line": 39, "column": 60 }
         },
-        "line": 40
+        "line": 39
       },
       "4": {
         "name": "(anonymous_4)",
         "decl": {
-          "start": { "line": 40, "column": 25 },
-          "end": { "line": 40, "column": 31 }
+          "start": { "line": 39, "column": 25 },
+          "end": { "line": 39, "column": 31 }
         },
         "loc": {
-          "start": { "line": 40, "column": 44 },
-          "end": { "line": 40, "column": 59 }
+          "start": { "line": 39, "column": 44 },
+          "end": { "line": 39, "column": 59 }
         },
-        "line": 40
+        "line": 39
       }
     },
     "branchMap": {
       "0": {
         "loc": {
-          "start": { "line": 7, "column": 2 },
-          "end": { "line": 8, "column": null }
+          "start": { "line": 6, "column": 2 },
+          "end": { "line": 7, "column": null }
         },
         "type": "if",
         "locations": [
           {
-            "start": { "line": 7, "column": 2 },
-            "end": { "line": 8, "column": null }
+            "start": { "line": 6, "column": 2 },
+            "end": { "line": 7, "column": null }
           },
           { "start": {}, "end": {} }
         ],
-        "line": 7
+        "line": 6
       },
       "1": {
         "loc": {
-          "start": { "line": 10, "column": 2 },
-          "end": { "line": 11, "column": null }
+          "start": { "line": 9, "column": 2 },
+          "end": { "line": 10, "column": null }
         },
         "type": "if",
         "locations": [
           {
-            "start": { "line": 10, "column": 2 },
-            "end": { "line": 11, "column": null }
+            "start": { "line": 9, "column": 2 },
+            "end": { "line": 10, "column": null }
           },
           { "start": {}, "end": {} }
         ],
-        "line": 10
+        "line": 9
       },
       "2": {
         "loc": {
-          "start": { "line": 13, "column": 2 },
-          "end": { "line": 14, "column": null }
+          "start": { "line": 12, "column": 2 },
+          "end": { "line": 13, "column": null }
         },
         "type": "if",
         "locations": [
           {
-            "start": { "line": 13, "column": 2 },
-            "end": { "line": 14, "column": null }
+            "start": { "line": 12, "column": 2 },
+            "end": { "line": 13, "column": null }
           },
           { "start": {}, "end": {} }
         ],
-        "line": 13
+        "line": 12
       },
       "3": {
         "loc": {
-          "start": { "line": 16, "column": 2 },
-          "end": { "line": 17, "column": null }
+          "start": { "line": 15, "column": 2 },
+          "end": { "line": 16, "column": null }
         },
         "type": "if",
         "locations": [
           {
-            "start": { "line": 16, "column": 2 },
-            "end": { "line": 17, "column": null }
+            "start": { "line": 15, "column": 2 },
+            "end": { "line": 16, "column": null }
           },
           { "start": {}, "end": {} }
         ],
-        "line": 16
+        "line": 15
       },
       "4": {
         "loc": {
-          "start": { "line": 24, "column": 2 },
-          "end": { "line": 25, "column": null }
+          "start": { "line": 23, "column": 2 },
+          "end": { "line": 24, "column": null }
         },
         "type": "if",
         "locations": [
           {
-            "start": { "line": 24, "column": 2 },
-            "end": { "line": 25, "column": null }
+            "start": { "line": 23, "column": 2 },
+            "end": { "line": 24, "column": null }
           },
           { "start": {}, "end": {} }
         ],
-        "line": 24
+        "line": 23
       },
       "5": {
         "loc": {
-          "start": { "line": 34, "column": 2 },
-          "end": { "line": 35, "column": null }
+          "start": { "line": 33, "column": 2 },
+          "end": { "line": 34, "column": null }
         },
         "type": "if",
         "locations": [
           {
-            "start": { "line": 34, "column": 2 },
-            "end": { "line": 35, "column": null }
+            "start": { "line": 33, "column": 2 },
+            "end": { "line": 34, "column": null }
           },
           { "start": {}, "end": {} }
         ],
-        "line": 34
+        "line": 33
       }
     },
     "s": {
-      "0": 2,
-      "1": 2,
-      "2": 2,
-      "3": 6,
-      "4": 1,
-      "5": 5,
-      "6": 1,
-      "7": 4,
+      "0": 3,
+      "1": 3,
+      "2": 6,
+      "3": 1,
+      "4": 5,
+      "5": 1,
+      "6": 4,
+      "7": 2,
       "8": 2,
-      "9": 2,
+      "9": 1,
       "10": 1,
-      "11": 1,
-      "12": 2,
+      "11": 3,
+      "12": 7,
       "13": 7,
-      "14": 7,
-      "15": 5,
-      "16": 2,
+      "14": 5,
+      "15": 2,
+      "16": 3,
       "17": 2,
       "18": 2,
-      "19": 2,
+      "19": 1,
       "20": 1,
       "21": 1,
-      "22": 1,
+      "22": 2,
       "23": 2,
-      "24": 2,
-      "25": 1
+      "24": 1
     },
     "f": { "0": 6, "1": 7, "2": 2, "3": 2, "4": 2 },
     "b": {
@@ -1476,45 +2848,44 @@
     "meta": {
       "lastBranch": 6,
       "lastFunction": 5,
-      "lastStatement": 26,
+      "lastStatement": 25,
       "seen": {
         "s:3:16:3:Infinity": 0,
-        "s:4:28:4:Infinity": 1,
-        "s:6:6:19:Infinity": 2,
-        "f:6:6:6:23": 0,
-        "b:7:2:8:Infinity:undefined:undefined:undefined:undefined": 0,
-        "s:7:2:8:Infinity": 3,
-        "s:8:4:8:Infinity": 4,
-        "b:10:2:11:Infinity:undefined:undefined:undefined:undefined": 1,
-        "s:10:2:11:Infinity": 5,
-        "s:11:4:11:Infinity": 6,
-        "b:13:2:14:Infinity:undefined:undefined:undefined:undefined": 2,
-        "s:13:2:14:Infinity": 7,
-        "s:14:4:14:Infinity": 8,
-        "b:16:2:17:Infinity:undefined:undefined:undefined:undefined": 3,
-        "s:16:2:17:Infinity": 9,
-        "s:17:4:17:Infinity": 10,
-        "s:19:2:19:Infinity": 11,
-        "s:22:23:27:Infinity": 12,
-        "f:22:23:22:30": 1,
-        "s:23:19:23:74": 13,
-        "b:24:2:25:Infinity:undefined:undefined:undefined:undefined": 4,
-        "s:24:2:25:Infinity": 14,
-        "s:25:4:25:Infinity": 15,
-        "s:27:2:27:Infinity": 16,
-        "s:30:26:43:Infinity": 17,
-        "f:30:26:30:38": 2,
-        "s:31:19:32:Infinity": 18,
-        "b:34:2:35:Infinity:undefined:undefined:undefined:undefined": 5,
-        "s:34:2:35:Infinity": 19,
-        "s:35:4:35:Infinity": 20,
-        "s:37:15:37:36": 21,
-        "s:38:18:41:Infinity": 22,
-        "f:39:17:39:22": 3,
-        "s:40:6:40:60": 23,
-        "f:40:25:40:31": 4,
-        "s:40:44:40:59": 24,
-        "s:43:2:43:Infinity": 25
+        "s:5:6:18:Infinity": 1,
+        "f:5:6:5:23": 0,
+        "b:6:2:7:Infinity:undefined:undefined:undefined:undefined": 0,
+        "s:6:2:7:Infinity": 2,
+        "s:7:4:7:Infinity": 3,
+        "b:9:2:10:Infinity:undefined:undefined:undefined:undefined": 1,
+        "s:9:2:10:Infinity": 4,
+        "s:10:4:10:Infinity": 5,
+        "b:12:2:13:Infinity:undefined:undefined:undefined:undefined": 2,
+        "s:12:2:13:Infinity": 6,
+        "s:13:4:13:Infinity": 7,
+        "b:15:2:16:Infinity:undefined:undefined:undefined:undefined": 3,
+        "s:15:2:16:Infinity": 8,
+        "s:16:4:16:Infinity": 9,
+        "s:18:2:18:Infinity": 10,
+        "s:21:23:26:Infinity": 11,
+        "f:21:23:21:30": 1,
+        "s:22:19:22:74": 12,
+        "b:23:2:24:Infinity:undefined:undefined:undefined:undefined": 4,
+        "s:23:2:24:Infinity": 13,
+        "s:24:4:24:Infinity": 14,
+        "s:26:2:26:Infinity": 15,
+        "s:29:26:45:Infinity": 16,
+        "f:29:26:29:33": 2,
+        "s:30:19:31:Infinity": 17,
+        "b:33:2:34:Infinity:undefined:undefined:undefined:undefined": 5,
+        "s:33:2:34:Infinity": 18,
+        "s:34:4:34:Infinity": 19,
+        "s:36:15:36:36": 20,
+        "s:37:18:40:Infinity": 21,
+        "f:38:17:38:22": 3,
+        "s:39:6:39:60": 22,
+        "f:39:25:39:31": 4,
+        "s:39:44:39:59": 23,
+        "s:42:2:45:Infinity": 24
       }
     }
   },
@@ -1531,95 +2902,6 @@
       "lastFunction": 0,
       "lastStatement": 0,
       "seen": {}
-    }
-  },
-  "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\utils\\localStorage.ts": {
-    "path": "C:\\Users\\user\\Desktop\\projects\\shushanik01-REACT2026Q2\\src\\utils\\localStorage.ts",
-    "statementMap": {
-      "0": {
-        "start": { "line": 1, "column": 24 },
-        "end": { "line": 1, "column": null }
-      },
-      "1": {
-        "start": { "line": 3, "column": 13 },
-        "end": { "line": 4, "column": null }
-      },
-      "2": {
-        "start": { "line": 4, "column": 2 },
-        "end": { "line": 4, "column": null }
-      },
-      "3": {
-        "start": { "line": 7, "column": 13 },
-        "end": { "line": 8, "column": null }
-      },
-      "4": {
-        "start": { "line": 8, "column": 2 },
-        "end": { "line": 8, "column": null }
-      }
-    },
-    "fnMap": {
-      "0": {
-        "name": "(anonymous_0)",
-        "decl": {
-          "start": { "line": 3, "column": 13 },
-          "end": { "line": 3, "column": 49 }
-        },
-        "loc": {
-          "start": { "line": 3, "column": 49 },
-          "end": { "line": 4, "column": null }
-        },
-        "line": 3
-      },
-      "1": {
-        "name": "(anonymous_1)",
-        "decl": {
-          "start": { "line": 7, "column": 13 },
-          "end": { "line": 7, "column": 36 }
-        },
-        "loc": {
-          "start": { "line": 7, "column": 60 },
-          "end": { "line": 8, "column": null }
-        },
-        "line": 7
-      }
-    },
-    "branchMap": {
-      "0": {
-        "loc": {
-          "start": { "line": 4, "column": 9 },
-          "end": { "line": 4, "column": null }
-        },
-        "type": "binary-expr",
-        "locations": [
-          {
-            "start": { "line": 4, "column": 9 },
-            "end": { "line": 4, "column": 46 }
-          },
-          {
-            "start": { "line": 4, "column": 50 },
-            "end": { "line": 4, "column": null }
-          }
-        ],
-        "line": 4
-      }
-    },
-    "s": { "0": 2, "1": 2, "2": 3, "3": 2, "4": 5 },
-    "f": { "0": 3, "1": 5 },
-    "b": { "0": [3, 1] },
-    "meta": {
-      "lastBranch": 1,
-      "lastFunction": 2,
-      "lastStatement": 5,
-      "seen": {
-        "s:1:24:1:Infinity": 0,
-        "s:3:13:4:Infinity": 1,
-        "f:3:13:3:49": 0,
-        "s:4:2:4:Infinity": 2,
-        "b:4:9:4:46:4:50:4:Infinity": 0,
-        "s:7:13:8:Infinity": 3,
-        "f:7:13:7:36": 1,
-        "s:8:2:8:Infinity": 4
-      }
     }
   }
 }

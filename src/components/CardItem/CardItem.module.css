@@ -19,11 +19,18 @@
     -8px -8px 16px #ffffff;
 }
 
+.imageCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 .container img {
   width: 120px;
   height: 120px;
   object-fit: contain;
-  flex-shrink: 0;
 }
 
 .container section {
@@ -45,4 +52,20 @@
   color: #9aa0b0;
   margin: 0;
   text-transform: capitalize;
+}
+
+.detailsBtn {
+  margin-top: 8px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #6b7080;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.detailsBtn:hover {
+  background: #4e5566;
 }
