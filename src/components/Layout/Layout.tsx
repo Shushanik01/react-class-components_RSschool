@@ -35,10 +35,8 @@ export default function Layout() {
           totalPages={totalPages}
           onPageChange={goToPage}
         />
-        <TestButton/>
-        <button
-        onClick={()=> navigate('/about')}
-        >About</button>
+        <TestButton />
+        <button onClick={() => navigate('/about')}>About</button>
       </div>
       {detailsMatch && (
         <div className={styles.rightSection}>

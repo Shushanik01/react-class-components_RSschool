@@ -9,7 +9,10 @@ const RouteError = () => {
       <span className={styles.fallbackIcon}>⚠️</span>
       <h2>Something went wrong!</h2>
       <p>{error?.message ?? 'An unexpected error occurred'}</p>
-      <button className={styles.fallbackBtn} onClick={() => window.location.reload()}>
+      <button
+        className={styles.fallbackBtn}
+        onClick={() => window.location.reload()}
+      >
         Reload Page
       </button>
     </div>
