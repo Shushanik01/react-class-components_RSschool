@@ -67,7 +67,7 @@ const DetailsPannel = () => {
 
           <div className={styles.info}>
             <p>
-              <strong>Height:</strong> {details.height / 10} m
+              <strong>Height:</strong> {details.height !== undefined ? details.height / 10 : 'N/A'} m
             </p>
             <p>
               <strong>Weight:</strong> {details.weight / 10} kg
