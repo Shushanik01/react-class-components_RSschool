@@ -52,4 +52,16 @@ describe('CardList', () => {
     render(<CardList items={[itemWithMinimalData]} onCardClick={noop} />);
     expect(screen.getByText(/testmon/i)).toBeInTheDocument();
   });
+
+  it('shows "No results found" when items is null', () => {
+    render(<CardList items={null as unknown as Item[]} onCardClick={noop} />);
+    expect(screen.getByText('No results found')).toBeInTheDocument();
+  });
+
+  it('shows "No results found" when items is undefined', () => {
+    render(
+      <CardList items={undefined as unknown as Item[]} onCardClick={noop} />
+    );
+    expect(screen.getByText('No results found')).toBeInTheDocument();
+  });
 });

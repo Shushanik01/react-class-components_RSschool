@@ -121,6 +121,17 @@ describe('usePagination', () => {
     expect(result.current.currentPage).toBe(1);
   });
 
+  it('uses initialPage when page URL param resolves to 0', async () => {
+    const wrapper = ({ children }: { children: ReactNode }) => (
+      <MemoryRouter initialEntries={['/?page=0']}>{children}</MemoryRouter>
+    );
+    const { result } = renderHook(() => usePagination('', 3), { wrapper });
+    await act(async () => {
+      await vi.runAllTimersAsync();
+    });
+    expect(result.current.currentPage).toBe(3);
+  });
+
   it('clears error on new fetch', async () => {
     vi.mocked(api.getData).mockRejectedValueOnce(
       new Error('Pokemon not found. Please check the name')
