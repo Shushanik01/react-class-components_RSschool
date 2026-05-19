@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background: #fff;
+  padding: 40px 20px;
+}
+
+.errorCode {
+  font-size: 120px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1;
+}
+
+.errorMessage {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 16px 0 8px;
+}
+
+.description {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 32px;
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.homeButton {
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.homeButton:hover {
+  background: #333;
+}

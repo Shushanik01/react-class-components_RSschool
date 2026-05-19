@@ -7,6 +7,7 @@ const onSearch = vi.fn();
 describe('SearchBar', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    localStorage.clear();
   });
 
   describe('Rendering', () => {
@@ -22,12 +23,13 @@ describe('SearchBar', () => {
       ).toBeInTheDocument();
     });
 
-    it('displays the initialValue in the input', () => {
-      render(<SearchBar onSearch={onSearch} initialValue="pikachu" />);
+    it('shows stored value from localStorage in the input', () => {
+      localStorage.setItem('searchTerm', 'pikachu');
+      render(<SearchBar onSearch={onSearch} initialValue="" />);
       expect(screen.getByDisplayValue('pikachu')).toBeInTheDocument();
     });
 
-    it('shows empty input when initialValue is empty string', () => {
+    it('shows empty input when localStorage is empty', () => {
       render(<SearchBar onSearch={onSearch} initialValue="" />);
       expect(screen.getByRole('textbox')).toHaveValue('');
     });
@@ -74,17 +76,21 @@ describe('SearchBar', () => {
       await user.keyboard('{Escape}');
       expect(onSearch).not.toHaveBeenCalled();
     });
+
+    it('calls onSearch on mount when localStorage has a stored value', () => {
+      localStorage.setItem('searchTerm', 'pikachu');
+      render(<SearchBar onSearch={onSearch} initialValue="" />);
+      expect(onSearch).toHaveBeenCalledWith('pikachu');
+    });
   });
 
-  describe('Props sync', () => {
-    it('syncs input value when initialValue prop changes', () => {
-      const { rerender } = render(
-        <SearchBar onSearch={onSearch} initialValue="bulbasaur" />
-      );
-      expect(screen.getByDisplayValue('bulbasaur')).toBeInTheDocument();
-
-      rerender(<SearchBar onSearch={onSearch} initialValue="charmander" />);
-      expect(screen.getByDisplayValue('charmander')).toBeInTheDocument();
+  describe('localStorage persistence', () => {
+    it('saves searched value to localStorage', async () => {
+      const user = userEvent.setup();
+      render(<SearchBar onSearch={onSearch} initialValue="" />);
+      await user.type(screen.getByRole('textbox'), 'charmander');
+      await user.click(screen.getByRole('button', { name: /search/i }));
+      expect(localStorage.getItem('searchTerm')).toBe('charmander');
     });
   });
 });

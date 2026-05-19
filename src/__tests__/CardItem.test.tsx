@@ -1,12 +1,17 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import CardItem from '../components/CardItem/CardItem';
 
+const onCardClick = vi.fn();
+
 const defaultProps = {
+  id: 1,
   name: 'bulbasaur',
   type: 'grass',
   weight: 69,
   ability: 'overgrow',
   image: 'https://example.com/bulbasaur.png',
+  onCardClick,
 };
 
 describe('CardItem', () => {
@@ -40,5 +45,12 @@ describe('CardItem', () => {
   it('renders without crashing when weight is zero', () => {
     render(<CardItem {...defaultProps} weight={0} />);
     expect(screen.getByText(/0/)).toBeInTheDocument();
+  });
+
+  it('calls onCardClick with the correct id when View Details is clicked', async () => {
+    const user = userEvent.setup();
+    render(<CardItem {...defaultProps} />);
+    await user.click(screen.getByRole('button', { name: /view details/i }));
+    expect(onCardClick).toHaveBeenCalledWith(1);
   });
 });

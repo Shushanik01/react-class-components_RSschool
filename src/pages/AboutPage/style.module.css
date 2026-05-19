@@ -1,0 +1,174 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.introText {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #34495e;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.introText span {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.socialsTitle {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin: 30px 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.socialLinks a {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.socialLinks a:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.socialLinks img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.socialLinks img:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.portfolioSection {
+  margin: 30px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.portfolioSection p {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.portfolioLink {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.portfolioLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rsLink {
+  margin-top: 30px;
+}
+
+.rsLink a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: transparent;
+  color: #667eea;
+  text-decoration: none;
+  border: 2px solid #667eea;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.rsLink a:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.divider {
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ccc, transparent);
+  margin: 30px 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+    margin: 10px;
+  }
+
+  .header {
+    font-size: 1.8rem;
+  }
+
+  .introText {
+    font-size: 1rem;
+  }
+
+  .socialLinks img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .portfolioLink {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

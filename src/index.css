@@ -10,10 +10,12 @@ body {
   background: #e6eaf2;
   scrollbar-width: none;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
+  width: 0;
   display: none;
 }
 
