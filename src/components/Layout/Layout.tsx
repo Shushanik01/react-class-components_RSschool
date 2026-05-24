@@ -8,6 +8,9 @@ import styles from './style.module.css';
 import CardList from '../CardList/CardList';
 import TestButton from '../testButton/testButton';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useTheme } from '../../ThemeContext/context';
+import pikachu from '../../assets/apika.png';
+import gengar from '../../assets/gengar.png';
 
 export default function Layout() {
   const detailsMatch = useMatch('/details/:id');
@@ -23,9 +26,16 @@ export default function Layout() {
     navigate(`/details/${pokemonId}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+  const { theme, handleThemeChange } = useTheme();
 
   return (
     <div className={styles.splitLayout}>
+      <button className={styles.themeToggleBtn} onClick={handleThemeChange}>
+        <img
+          src={theme === 'Light' ? pikachu : gengar}
+          alt="pikachu ang gengar"
+        />
+      </button>
       <div className={styles.leftSection}>
         <SearchBar initialValue={searchTerm} onSearch={setSearchTerm} />
         {loading ? (
