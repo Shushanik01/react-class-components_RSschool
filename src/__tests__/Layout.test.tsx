@@ -22,6 +22,13 @@ vi.mock('../hooks/useLocalStorage', () => ({
   useLocalStorage: vi.fn(() => ['', vi.fn()]),
 }));
 
+vi.mock('../ThemeContext/context', () => ({
+  useTheme: vi.fn(() => ({
+    theme: 'Light',
+    handleThemeChange: vi.fn(),
+  })),
+}));
+
 const defaultPagination = {
   items: mockItems,
   loading: false,

@@ -47,7 +47,9 @@
   box-shadow:
     4px 4px 8px var(--shadow-dark),
     -4px -4px 8px var(--shadow-light);
-  transition: box-shadow 0.2s, background 0.3s ease;
+  transition:
+    box-shadow 0.2s,
+    background 0.3s ease;
 }
 
 .searchBtn:hover {

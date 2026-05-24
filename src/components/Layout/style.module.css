@@ -64,7 +64,9 @@
   height: 80px;
   object-fit: contain;
   border-radius: 50%;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .themeToggleBtn:hover img {

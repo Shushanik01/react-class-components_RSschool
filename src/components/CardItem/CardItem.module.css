@@ -10,7 +10,9 @@
   box-shadow:
     6px 6px 12px var(--shadow-dark),
     -6px -6px 12px var(--shadow-light);
-  transition: box-shadow 0.2s, background 0.3s ease;
+  transition:
+    box-shadow 0.2s,
+    background 0.3s ease;
 }
 
 .container:hover {
