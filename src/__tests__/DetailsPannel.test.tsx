@@ -1,6 +1,10 @@
 import { render, screen, act } from '@testing-library/react';
 import { fireEvent } from '@testing-library/dom';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 import DetailsPannel from '../components/DetailsPannel/DetailsPannel';
+import pokemonListReducer from '../slices/pokemonListSlice';
+import pokemonDetailsReducer from '../slices/pokemonDetailsSlice';
 import * as api from '../services/api';
 import { mockItem } from './mocks/mockData';
 import type { Item } from '../types';
@@ -28,6 +32,19 @@ const mockItemWithStats: Item = {
   ],
 };
 
+const createTestStore = () =>
+  configureStore({
+    reducer: {
+      pokemonList: pokemonListReducer,
+      pokemonDetails: pokemonDetailsReducer,
+    },
+  });
+
+const renderWithStore = (ui: React.ReactElement) => {
+  const store = createTestStore();
+  return render(<Provider store={store}>{ui}</Provider>);
+};
+
 describe('DetailsPannel', () => {
   beforeEach(() => {
     vi.useFakeTimers();
@@ -41,17 +58,17 @@ describe('DetailsPannel', () => {
   });
 
   it('renders the Pokémon Details header', () => {
-    render(<DetailsPannel />);
+    renderWithStore(<DetailsPannel />);
     expect(screen.getByText(/pokémon details/i)).toBeInTheDocument();
   });
 
   it('renders the close button', () => {
-    render(<DetailsPannel />);
+    renderWithStore(<DetailsPannel />);
     expect(screen.getByRole('button', { name: '✕' })).toBeInTheDocument();
   });
 
   it('shows pokemon details after fetch completes', async () => {
-    render(<DetailsPannel />);
+    renderWithStore(<DetailsPannel />);
     await act(async () => {
       await vi.runAllTimersAsync();
     });
@@ -63,7 +80,7 @@ describe('DetailsPannel', () => {
     vi.mocked(api.getData).mockRejectedValue(
       new Error('Pokemon not found. Please check the name')
     );
-    render(<DetailsPannel />);
+    renderWithStore(<DetailsPannel />);
     await act(async () => {
       await vi.runAllTimersAsync();
     });
@@ -71,14 +88,14 @@ describe('DetailsPannel', () => {
   });
 
   it('navigates to "/" when close button is clicked', () => {
-    render(<DetailsPannel />);
+    renderWithStore(<DetailsPannel />);
     fireEvent.click(screen.getByRole('button', { name: '✕' }));
     expect(mockNavigate).toHaveBeenCalledWith('/');
   });
 
   it('does not fetch when id is undefined', async () => {
     mockUseParams.mockReturnValue({ id: undefined });
-    render(<DetailsPannel />);
+    renderWithStore(<DetailsPannel />);
     await act(async () => {
       await vi.runAllTimersAsync();
     });
@@ -87,7 +104,7 @@ describe('DetailsPannel', () => {
 
   it('renders stats and height when details include them', async () => {
     vi.mocked(api.getData).mockResolvedValue(mockItemWithStats);
-    render(<DetailsPannel />);
+    renderWithStore(<DetailsPannel />);
     await act(async () => {
       await vi.runAllTimersAsync();
     });

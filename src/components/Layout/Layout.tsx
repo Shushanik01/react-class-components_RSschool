@@ -1,32 +1,43 @@
-import { useState } from 'react';
-import { Outlet, useNavigate, useMatch } from 'react-router';
+import { useEffect } from 'react';
+import { Outlet, useNavigate, useMatch, useSearchParams } from 'react-router';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../pagination/Pagination';
-import { usePagination } from '../../hooks/usePagination';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import styles from './style.module.css';
 import CardList from '../CardList/CardList';
 import TestButton from '../testButton/testButton';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useTheme } from '../../ThemeContext/context';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import {
+  fetchPokemonList,
+  setSearchTerm,
+  setCurrentPage,
+  selectTotalPages,
+} from '../../slices/pokemonListSlice';
 import pikachu from '../../assets/apika.png';
 import gengar from '../../assets/gengar.png';
 
 export default function Layout() {
   const detailsMatch = useMatch('/details/:id');
-
-  const [savedTerm] = useLocalStorage('searchTerm');
-  const [searchTerm, setSearchTerm] = useState(savedTerm || '');
-  const { items, loading, error, currentPage, totalPages, goToPage } =
-    usePagination(searchTerm);
-
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const [, setSearchParams] = useSearchParams();
+
+  const { items, loading, error, currentPage, searchTerm } = useAppSelector(
+    (state) => state.pokemonList
+  );
+  const totalPages = useAppSelector(selectTotalPages);
+  const { theme, handleThemeChange } = useTheme();
+
+  useEffect(() => {
+    setSearchParams({ page: String(currentPage) }, { replace: true });
+    dispatch(fetchPokemonList({ searchTerm, page: currentPage }));
+  }, [searchTerm, currentPage]);
 
   const handleCardClick = (pokemonId: number) => {
     navigate(`/details/${pokemonId}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-  const { theme, handleThemeChange } = useTheme();
 
   return (
     <div className={styles.splitLayout}>
@@ -37,7 +48,10 @@ export default function Layout() {
         />
       </button>
       <div className={styles.leftSection}>
-        <SearchBar initialValue={searchTerm} onSearch={setSearchTerm} />
+        <SearchBar
+          initialValue={searchTerm}
+          onSearch={(term) => dispatch(setSearchTerm(term))}
+        />
         {loading ? (
           <LoadingSpinner />
         ) : error ? (
@@ -49,10 +63,9 @@ export default function Layout() {
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            onPageChange={goToPage}
+            onPageChange={(page) => dispatch(setCurrentPage(page))}
           />
         )}
-
         <TestButton />
         <button className={styles.aboutBtn} onClick={() => navigate('/about')}>
           About

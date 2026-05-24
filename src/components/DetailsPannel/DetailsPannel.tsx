@@ -1,35 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
-import { getData } from '../../services/api';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
-import type { Item, Stat } from '../../types';
+import type { Stat } from '../../types';
 import styles from './style.module.css';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import {
+  fetchPokemonDetails,
+  clearDetails,
+} from '../../slices/pokemonDetailsSlice';
 
 const DetailsPannel = () => {
   const { id } = useParams<{ id: string }>();
-
-  const [details, setDetails] = useState<Item>();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useAppDispatch();
+  const { details, loading, error } = useAppSelector(
+    (state) => state.pokemonDetails
+  );
   const navigate = useNavigate();
+
   useEffect(() => {
     if (!id) return;
-
-    const fetchDetails = async () => {
-      setLoading(true);
-      setError(null);
-      await new Promise((resolve) => setTimeout(resolve, 200));
-      try {
-        const dataDetails = await getData(id);
-        setDetails(dataDetails);
-      } catch (error) {
-        setError((error as Error).message);
-      } finally {
-        setLoading(false);
-      }
+    dispatch(fetchPokemonDetails(id));
+    return () => {
+      dispatch(clearDetails());
     };
-    fetchDetails();
-  }, [id]);
+  }, [id, dispatch]);
 
   const handleClose = () => {
     navigate('/');
@@ -107,4 +101,5 @@ const DetailsPannel = () => {
     </div>
   );
 };
+
 export default DetailsPannel;
