@@ -14,6 +14,9 @@ import {
   setCurrentPage,
   selectTotalPages,
 } from '../../slices/pokemonListSlice';
+import { toggleItem, clearAll } from '../../slices/selectedItemsSlice';
+import { getData } from '../../services/api';
+import Flyout from '../Flyout/Flyout';
 import pikachu from '../../assets/apika.png';
 import gengar from '../../assets/gengar.png';
 
@@ -27,6 +30,7 @@ export default function Layout() {
     (state) => state.pokemonList
   );
   const totalPages = useAppSelector(selectTotalPages);
+  const { selectedIds } = useAppSelector((state) => state.selectedItems);
   const { theme, handleThemeChange } = useTheme();
 
   useEffect(() => {
@@ -37,6 +41,49 @@ export default function Layout() {
   const handleCardClick = (pokemonId: number) => {
     navigate(`/details/${pokemonId}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleToggleSelect = (id: number) => {
+    dispatch(toggleItem(id));
+  };
+
+  const handleUnselectAll = () => {
+    dispatch(clearAll());
+  };
+
+  const handleDownload = async () => {
+    const cachedById = new Map(items.map((item) => [item.id, item]));
+
+    const pokemonData = await Promise.all(
+      selectedIds.map((id) =>
+        cachedById.has(id)
+          ? Promise.resolve(cachedById.get(id)!)
+          : getData(String(id))
+      )
+    );
+
+    const headers = ['id', 'name', 'type', 'weight', 'height', 'ability', 'description', 'details_url'];
+
+    const rows = pokemonData.map((p) => {
+      const type = p.types.map((t: { type: { name: string } }) => t.type.name).join('/');
+      const ability = p.abilities[0]?.ability.name ?? '';
+      const description = p.stats
+        ? p.stats.map((s: { stat: { name: string }; base_stat: number }) => `${s.stat.name}: ${s.base_stat}`).join(' | ')
+        : '';
+      const detailsUrl = `https://pokeapi.co/api/v2/pokemon/${p.id}`;
+      return [p.id, p.name, type, p.weight, p.height ?? '', ability, description, detailsUrl]
+        .map((v) => `"${String(v).replace(/"/g, '""')}"`)
+        .join(',');
+    });
+
+    const csv = [headers.join(','), ...rows].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${selectedIds.length}_items.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -57,7 +104,12 @@ export default function Layout() {
         ) : error ? (
           <p>{error}</p>
         ) : (
-          <CardList items={items} onCardClick={handleCardClick} />
+          <CardList
+            items={items}
+            onCardClick={handleCardClick}
+            selectedIds={selectedIds}
+            onToggleSelect={handleToggleSelect}
+          />
         )}
         {!loading && items.length > 0 && (
           <Pagination
@@ -76,6 +128,11 @@ export default function Layout() {
           <Outlet />
         </div>
       )}
+      <Flyout
+        selectedCount={selectedIds.length}
+        onUnselectAll={handleUnselectAll}
+        onDownload={handleDownload}
+      />
     </div>
   );
 }

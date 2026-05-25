@@ -3,12 +3,28 @@ import styles from './CardItem.module.css';
 
 const CardItem = (props: CardItemProps) => {
   return (
-    <article className={styles.container}>
+    <article
+      className={`${styles.container} ${props.isSelected ? styles.selected : ''}`}
+      onClick={() => props.onCardClick(props.id)}
+    >
+      <input
+        type="checkbox"
+        className={styles.checkbox}
+        checked={props.isSelected}
+        onChange={() => {}}
+        onClick={(e) => {
+          e.stopPropagation();
+          props.onToggleSelect(props.id);
+        }}
+      />
       <div className={styles.imageCol}>
         <img src={props.image} alt={props.name} width={120} height={120} />
         <button
           className={styles.detailsBtn}
-          onClick={() => props.onCardClick(props.id)}
+          onClick={(e) => {
+            e.stopPropagation();
+            props.onCardClick(props.id);
+          }}
         >
           View Details
         </button>

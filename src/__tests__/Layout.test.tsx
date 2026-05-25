@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import Layout from '../components/Layout/Layout';
 import pokemonListReducer from '../slices/pokemonListSlice';
 import pokemonDetailsReducer from '../slices/pokemonDetailsSlice';
+import selectedItemsReducer from '../slices/selectedItemsSlice';
 import { mockItems } from './mocks/mockData';
 
 const mockNavigate = vi.hoisted(() => vi.fn());
@@ -51,10 +52,12 @@ const createTestStore = (listState = defaultListState) =>
     reducer: {
       pokemonList: pokemonListReducer,
       pokemonDetails: pokemonDetailsReducer,
+      selectedItems: selectedItemsReducer,
     },
     preloadedState: {
       pokemonList: listState,
       pokemonDetails: { details: null, loading: false, error: null },
+      selectedItems: { selectedIds: [] },
     },
   });
 

@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,6 +14,21 @@
   transition:
     box-shadow 0.2s,
     background 0.3s ease;
+  cursor: pointer;
+}
+
+.selected {
+  outline: 2px solid var(--text-primary);
+}
+
+.checkbox {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--text-primary);
 }
 
 .container:hover {
