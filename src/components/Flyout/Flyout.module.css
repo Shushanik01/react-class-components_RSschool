@@ -1,0 +1,51 @@
+.flyout {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background: var(--bg-card);
+  box-shadow: 0 -4px 16px var(--shadow-dark);
+  border-top: 1px solid var(--shadow-dark);
+}
+
+.count {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.unselectBtn,
+.downloadBtn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.unselectBtn:hover,
+.downloadBtn:hover {
+  opacity: 0.8;
+}
+
+.unselectBtn {
+  background: var(--shadow-dark);
+  color: var(--text-primary);
+}
+
+.downloadBtn {
+  background: var(--text-primary);
+  color: #fff;
+}

@@ -36,6 +36,8 @@ export interface Item {
 export interface CardListProps {
   items: Item[];
   onCardClick: (id: number) => void;
+  selectedIds: number[];
+  onToggleSelect: (id: number) => void;
 }
 
 export interface CardItemProps {
@@ -45,7 +47,9 @@ export interface CardItemProps {
   weight: number;
   ability: string;
   image: string;
+  isSelected: boolean;
   onCardClick: (id: number) => void;
+  onToggleSelect: (id: number) => void;
 }
 
 export interface ErrorBoundaryProps {

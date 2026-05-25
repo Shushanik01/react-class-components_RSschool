@@ -15,12 +15,12 @@
 
 .fallbackContainer h2 {
   font-size: 1.5rem;
-  color: #1a1a1a;
+  color: var(--text-heading);
   margin: 0;
 }
 
 .fallbackContainer p {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   max-width: 400px;
   margin: 0;

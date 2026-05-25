@@ -15,7 +15,9 @@ const CardList = (props: CardListProps) => {
             weight={item.weight}
             ability={item.abilities[0].ability.name}
             image={item.sprites.front_default}
+            isSelected={props.selectedIds.includes(item.id)}
             onCardClick={props.onCardClick}
+            onToggleSelect={props.onToggleSelect}
           />
         </li>
       ))}

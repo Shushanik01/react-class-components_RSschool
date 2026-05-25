@@ -5,14 +5,15 @@
   justify-content: center;
   min-height: 100vh;
   text-align: center;
-  background: #fff;
+  background: var(--bg-inset);
   padding: 40px 20px;
+  transition: background 0.3s ease;
 }
 
 .errorCode {
   font-size: 120px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-heading);
   margin: 0;
   line-height: 1;
 }
@@ -20,13 +21,13 @@
 .errorMessage {
   font-size: 24px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-heading);
   margin: 16px 0 8px;
 }
 
 .description {
   font-size: 15px;
-  color: #6b7280;
+  color: var(--text-secondary);
   margin-bottom: 32px;
   max-width: 420px;
   line-height: 1.6;
@@ -37,7 +38,7 @@
   font-size: 15px;
   font-weight: 500;
   color: #fff;
-  background: #1a1a1a;
+  background: var(--text-heading);
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -45,5 +46,5 @@
 }
 
 .homeButton:hover {
-  background: #333;
+  background: var(--text-primary);
 }
