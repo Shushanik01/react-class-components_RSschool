@@ -1,4 +1,7 @@
-import reducer, { clearDetails, fetchPokemonDetails } from './pokemonDetailsSlice';
+import reducer, {
+  clearDetails,
+  fetchPokemonDetails,
+} from './pokemonDetailsSlice';
 import type { Item } from '../types';
 
 const mockItem: Item = {
@@ -39,19 +42,19 @@ describe('pokemonDetailsSlice', () => {
   });
 
   it('fetchPokemonDetails.fulfilled sets details and loading false', () => {
-    const state = reducer(
-      undefined,
-      { type: fetchPokemonDetails.fulfilled.type, payload: mockItem }
-    );
+    const state = reducer(undefined, {
+      type: fetchPokemonDetails.fulfilled.type,
+      payload: mockItem,
+    });
     expect(state.loading).toBe(false);
     expect(state.details).toEqual(mockItem);
   });
 
   it('fetchPokemonDetails.rejected sets error and loading false', () => {
-    const state = reducer(
-      undefined,
-      { type: fetchPokemonDetails.rejected.type, payload: 'Pokemon not found' }
-    );
+    const state = reducer(undefined, {
+      type: fetchPokemonDetails.rejected.type,
+      payload: 'Pokemon not found',
+    });
     expect(state.loading).toBe(false);
     expect(state.error).toBe('Pokemon not found');
   });

@@ -15,10 +15,11 @@ import {
   selectTotalPages,
 } from '../../slices/pokemonListSlice';
 import { toggleItem, clearAll } from '../../slices/selectedItemsSlice';
-import { getData } from '../../services/api';
+import type { Item } from '../../types';
 import Flyout from '../Flyout/Flyout';
 import pikachu from '../../assets/apika.png';
 import gengar from '../../assets/gengar.png';
+import { pokemonApi } from '../../api/api';
 
 export default function Layout() {
   const detailsMatch = useMatch('/details/:id');
@@ -54,24 +55,51 @@ export default function Layout() {
   const handleDownload = async () => {
     const cachedById = new Map(items.map((item) => [item.id, item]));
 
-    const pokemonData = await Promise.all(
+    const resolved = await Promise.all(
       selectedIds.map((id) =>
         cachedById.has(id)
           ? Promise.resolve(cachedById.get(id)!)
-          : getData(String(id))
+          : dispatch( pokemonApi.endpoints.getSinglePokemon.initiate(String(id)))
+          .then((result)=> result.data)
       )
-    );
+    )
+    const pokemonData = resolved.filter((p): p is Item => p !== undefined);
 
-    const headers = ['id', 'name', 'type', 'weight', 'height', 'ability', 'description', 'details_url'];
+    const headers = [
+      'id',
+      'name',
+      'type',
+      'weight',
+      'height',
+      'ability',
+      'description',
+      'details_url',
+    ];
 
     const rows = pokemonData.map((p) => {
-      const type = p.types.map((t: { type: { name: string } }) => t.type.name).join('/');
+      const type = p.types
+        .map((t: { type: { name: string } }) => t.type.name)
+        .join('/');
       const ability = p.abilities[0]?.ability.name ?? '';
       const description = p.stats
-        ? p.stats.map((s: { stat: { name: string }; base_stat: number }) => `${s.stat.name}: ${s.base_stat}`).join(' | ')
+        ? p.stats
+            .map(
+              (s: { stat: { name: string }; base_stat: number }) =>
+                `${s.stat.name}: ${s.base_stat}`
+            )
+            .join(' | ')
         : '';
       const detailsUrl = `https://pokeapi.co/api/v2/pokemon/${p.id}`;
-      return [p.id, p.name, type, p.weight, p.height ?? '', ability, description, detailsUrl]
+      return [
+        p.id,
+        p.name,
+        type,
+        p.weight,
+        p.height ?? '',
+        ability,
+        description,
+        detailsUrl,
+      ]
         .map((v) => `"${String(v).replace(/"/g, '""')}"`)
         .join(',');
     });

@@ -38,7 +38,14 @@ vi.mock('../ThemeContext/context', () => ({
   })),
 }));
 
-const defaultListState = {
+const defaultListState: {
+  items: (typeof mockItems)[number][];
+  loading: boolean;
+  error: string | null;
+  currentPage: number;
+  totalCount: number;
+  searchTerm: string;
+} = {
   items: mockItems,
   loading: false,
   error: null,
@@ -137,7 +144,7 @@ describe('Layout', () => {
   });
 
   it('renders Outlet when a details route is matched', () => {
-    mockUseMatch.mockReturnValue({ params: { id: '1' } });
+    mockUseMatch.mockReturnValue({ params: { id: '1' } } as unknown as null);
     renderWithStore();
     expect(screen.getByTestId('outlet')).toBeInTheDocument();
   });

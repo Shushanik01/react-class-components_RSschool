@@ -94,7 +94,7 @@ describe('DetailsPannel', () => {
   });
 
   it('does not fetch when id is undefined', async () => {
-    mockUseParams.mockReturnValue({ id: undefined });
+    mockUseParams.mockReturnValue({ id: undefined as unknown as string });
     renderWithStore(<DetailsPannel />);
     await act(async () => {
       await vi.runAllTimersAsync();

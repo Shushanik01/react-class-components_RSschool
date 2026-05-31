@@ -28,14 +28,20 @@ describe('SearchBar', () => {
   it('calls onSearch with typed value when Enter is pressed', async () => {
     const onSearch = vi.fn();
     render(<SearchBar initialValue="" onSearch={onSearch} />);
-    await userEvent.type(screen.getByPlaceholderText('Search...'), 'pikachu{Enter}');
+    await userEvent.type(
+      screen.getByPlaceholderText('Search...'),
+      'pikachu{Enter}'
+    );
     expect(onSearch).toHaveBeenCalledWith('pikachu');
   });
 
   it('trims whitespace before calling onSearch', async () => {
     const onSearch = vi.fn();
     render(<SearchBar initialValue="" onSearch={onSearch} />);
-    await userEvent.type(screen.getByPlaceholderText('Search...'), '  pikachu  ');
+    await userEvent.type(
+      screen.getByPlaceholderText('Search...'),
+      '  pikachu  '
+    );
     await userEvent.click(screen.getByRole('button', { name: /search/i }));
     expect(onSearch).toHaveBeenCalledWith('pikachu');
   });
