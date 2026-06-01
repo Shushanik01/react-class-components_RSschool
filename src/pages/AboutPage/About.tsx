@@ -39,7 +39,7 @@ const About = () => {
         <div className={styles.portfolioSection}>
           <p>🌟 Portfolio:</p>
           <a
-            href="https://portfolio-khaki-alpha-76.vercel.app/"
+            href="https://portfolio-nine-woad-6uds6ae8fd.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.portfolioLink}

@@ -28,7 +28,7 @@ export const pokemonApi = createApi({
     >({
       queryFn: async ({ offset, limit }, { dispatch }) => {
         const toError = (message: string) =>
-          ({ message } as unknown as FetchBaseQueryError);
+          ({ message }) as unknown as FetchBaseQueryError;
         try {
           const response = await fetch(
             `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`
