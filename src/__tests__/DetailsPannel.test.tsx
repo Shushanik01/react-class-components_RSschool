@@ -1,18 +1,23 @@
-import { render, screen, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { fireEvent } from '@testing-library/dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import DetailsPannel from '../components/DetailsPannel/DetailsPannel';
 import pokemonListReducer from '../slices/pokemonListSlice';
-import pokemonDetailsReducer from '../slices/pokemonDetailsSlice';
-import * as api from '../services/api';
+import selectedItemsReducer from '../slices/selectedItemsSlice';
+import { useGetSinglePokemonQuery } from '../api/api';
 import { mockItem } from './mocks/mockData';
 import type { Item } from '../types';
 
-vi.mock('../services/api');
+vi.mock('../api/api', () => ({
+  useGetSinglePokemonQuery: vi.fn(),
+  pokemonApi: {},
+}));
 
 const mockNavigate = vi.hoisted(() => vi.fn());
-const mockUseParams = vi.hoisted(() => vi.fn(() => ({ id: '1' })));
+const mockUseParams = vi.hoisted(() =>
+  vi.fn(() => ({ id: '1' as string | undefined }))
+);
 
 vi.mock('react-router', async (importOriginal) => {
   const actual = await importOriginal<typeof import('react-router')>();
@@ -22,6 +27,21 @@ vi.mock('react-router', async (importOriginal) => {
     useNavigate: () => mockNavigate,
   };
 });
+
+type SingleQueryResult = ReturnType<typeof useGetSinglePokemonQuery>;
+
+const mockQuery = (overrides: object) =>
+  overrides as unknown as SingleQueryResult;
+
+const defaultQueryResult = {
+  data: undefined,
+  isLoading: false,
+  isFetching: false,
+  isSuccess: false,
+  isError: false,
+  isUninitialized: false,
+  error: undefined,
+};
 
 const mockItemWithStats: Item = {
   ...mockItem,
@@ -36,7 +56,7 @@ const createTestStore = () =>
   configureStore({
     reducer: {
       pokemonList: pokemonListReducer,
-      pokemonDetails: pokemonDetailsReducer,
+      selectedItems: selectedItemsReducer,
     },
   });
 
@@ -47,14 +67,11 @@ const renderWithStore = (ui: React.ReactElement) => {
 
 describe('DetailsPannel', () => {
   beforeEach(() => {
-    vi.useFakeTimers();
     vi.clearAllMocks();
     mockUseParams.mockReturnValue({ id: '1' });
-    vi.mocked(api.getData).mockResolvedValue(mockItem);
-  });
-
-  afterEach(() => {
-    vi.useRealTimers();
+    vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
+      mockQuery({ ...defaultQueryResult, data: mockItem, isSuccess: true })
+    );
   });
 
   it('renders the Pokémon Details header', () => {
@@ -67,49 +84,69 @@ describe('DetailsPannel', () => {
     expect(screen.getByRole('button', { name: '✕' })).toBeInTheDocument();
   });
 
-  it('shows pokemon details after fetch completes', async () => {
-    renderWithStore(<DetailsPannel />);
-    await act(async () => {
-      await vi.runAllTimersAsync();
-    });
-    expect(screen.getByText('bulbasaur')).toBeInTheDocument();
-    expect(api.getData).toHaveBeenCalledWith('1');
-  });
-
-  it('shows error message when fetch fails', async () => {
-    vi.mocked(api.getData).mockRejectedValue(
-      new Error('Pokemon not found. Please check the name')
+  it('shows loading spinner while the query is in flight', () => {
+    vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
+      mockQuery({ ...defaultQueryResult, isLoading: true })
     );
     renderWithStore(<DetailsPannel />);
-    await act(async () => {
-      await vi.runAllTimersAsync();
-    });
+    expect(screen.getByRole('status')).toBeInTheDocument();
+  });
+
+  it('shows pokemon name and data after the query succeeds', () => {
+    renderWithStore(<DetailsPannel />);
+    expect(screen.getByText('bulbasaur')).toBeInTheDocument();
+  });
+
+  it('shows error message when the query fails with a message', () => {
+    vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
+      mockQuery({
+        ...defaultQueryResult,
+        isError: true,
+        error: { message: 'Pokemon not found. Please check the name' },
+      })
+    );
+    renderWithStore(<DetailsPannel />);
     expect(screen.getByText(/pokemon not found/i)).toBeInTheDocument();
   });
 
-  it('navigates to "/" when close button is clicked', () => {
+  it('navigates to "/" when the close button is clicked', () => {
     renderWithStore(<DetailsPannel />);
     fireEvent.click(screen.getByRole('button', { name: '✕' }));
     expect(mockNavigate).toHaveBeenCalledWith('/');
   });
 
-  it('does not fetch when id is undefined', async () => {
+  it('passes skip: true to the query when id is undefined', () => {
     mockUseParams.mockReturnValue({ id: undefined });
+    vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
+      mockQuery({ ...defaultQueryResult, isUninitialized: true })
+    );
     renderWithStore(<DetailsPannel />);
-    await act(async () => {
-      await vi.runAllTimersAsync();
-    });
-    expect(api.getData).not.toHaveBeenCalled();
+    expect(useGetSinglePokemonQuery).toHaveBeenCalledWith('', { skip: true });
   });
 
-  it('renders stats and height when details include them', async () => {
-    vi.mocked(api.getData).mockResolvedValue(mockItemWithStats);
+  it('renders stats and height when the data includes them', () => {
+    vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
+      mockQuery({
+        ...defaultQueryResult,
+        data: mockItemWithStats,
+        isSuccess: true,
+      })
+    );
     renderWithStore(<DetailsPannel />);
-    await act(async () => {
-      await vi.runAllTimersAsync();
-    });
     expect(screen.getByText('hp:')).toBeInTheDocument();
     expect(screen.getByText('attack:')).toBeInTheDocument();
     expect(screen.getByText('0.7 m')).toBeInTheDocument();
+  });
+
+  it('shows fallback error text when error has no message property', () => {
+    vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
+      mockQuery({
+        ...defaultQueryResult,
+        isError: true,
+        error: { status: 503 },
+      })
+    );
+    renderWithStore(<DetailsPannel />);
+    expect(screen.getByText(/Failed to load pokemon/i)).toBeInTheDocument();
   });
 });

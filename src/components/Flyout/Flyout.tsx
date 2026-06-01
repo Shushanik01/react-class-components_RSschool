@@ -11,7 +11,9 @@ const Flyout = ({ selectedCount, onUnselectAll, onDownload }: FlyoutProps) => {
 
   return (
     <div className={styles.flyout}>
-      <span className={styles.count}>{selectedCount} item{selectedCount !== 1 ? 's' : ''} selected</span>
+      <span className={styles.count}>
+        {selectedCount} item{selectedCount !== 1 ? 's' : ''} selected
+      </span>
       <div className={styles.actions}>
         <button className={styles.unselectBtn} onClick={onUnselectAll}>
           Unselect all

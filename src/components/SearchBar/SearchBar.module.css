@@ -7,8 +7,9 @@
   box-shadow:
     8px 8px 16px var(--shadow-dark),
     -8px -8px 16px var(--shadow-light);
-  width: 750px;
-  max-width: 90vw;
+  flex: 1;
+  min-width: 0;
+  max-width: 750px;
   gap: 12px;
   transition: background 0.3s ease;
 }

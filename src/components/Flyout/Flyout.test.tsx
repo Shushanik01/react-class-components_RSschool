@@ -35,7 +35,11 @@ describe('Flyout', () => {
   it('calls onUnselectAll when "Unselect all" is clicked', async () => {
     const onUnselectAll = vi.fn();
     render(
-      <Flyout selectedCount={2} onUnselectAll={onUnselectAll} onDownload={vi.fn()} />
+      <Flyout
+        selectedCount={2}
+        onUnselectAll={onUnselectAll}
+        onDownload={vi.fn()}
+      />
     );
     await userEvent.click(screen.getByText('Unselect all'));
     expect(onUnselectAll).toHaveBeenCalledTimes(1);
@@ -44,7 +48,11 @@ describe('Flyout', () => {
   it('calls onDownload when "Download" is clicked', async () => {
     const onDownload = vi.fn();
     render(
-      <Flyout selectedCount={2} onUnselectAll={vi.fn()} onDownload={onDownload} />
+      <Flyout
+        selectedCount={2}
+        onUnselectAll={vi.fn()}
+        onDownload={onDownload}
+      />
     );
     await userEvent.click(screen.getByText('Download'));
     expect(onDownload).toHaveBeenCalledTimes(1);
@@ -53,7 +61,11 @@ describe('Flyout', () => {
   it('does not call onDownload when "Unselect all" is clicked', async () => {
     const onDownload = vi.fn();
     render(
-      <Flyout selectedCount={2} onUnselectAll={vi.fn()} onDownload={onDownload} />
+      <Flyout
+        selectedCount={2}
+        onUnselectAll={vi.fn()}
+        onDownload={onDownload}
+      />
     );
     await userEvent.click(screen.getByText('Unselect all'));
     expect(onDownload).not.toHaveBeenCalled();

@@ -1,11 +1,24 @@
 import { renderHook, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { usePagination } from '../hooks/usePagination';
-import * as api from '../services/api';
+import { pokemonApi } from '../api/api';
 import { mockItem, mockItems } from './mocks/mockData';
 import type { ReactNode } from 'react';
 
-vi.mock('../services/api');
+const mockDispatch = vi.hoisted(() => vi.fn());
+
+vi.mock('../store/hooks', () => ({
+  useAppDispatch: () => mockDispatch,
+}));
+
+vi.mock('../api/api', () => ({
+  pokemonApi: {
+    endpoints: {
+      getSinglePokemon: { initiate: vi.fn() },
+      getAllPokemons: { initiate: vi.fn() },
+    },
+  },
+}));
 
 const wrapper = ({ children }: { children: ReactNode }) => (
   <MemoryRouter>{children}</MemoryRouter>
@@ -14,11 +27,20 @@ const wrapper = ({ children }: { children: ReactNode }) => (
 describe('usePagination', () => {
   beforeEach(() => {
     vi.useFakeTimers();
-    vi.mocked(api.getAllData).mockResolvedValue({
-      results: mockItems,
-      count: 40,
+
+    mockDispatch.mockImplementation(async (action: unknown) => {
+      if (typeof action === 'function')
+        return (action as (dispatch: unknown) => unknown)(mockDispatch);
+      return action;
     });
-    vi.mocked(api.getData).mockResolvedValue(mockItem);
+
+    vi.mocked(pokemonApi.endpoints.getAllPokemons.initiate).mockReturnValue(
+      (() =>
+        Promise.resolve({ data: { results: mockItems, count: 40 } })) as never
+    );
+    vi.mocked(pokemonApi.endpoints.getSinglePokemon.initiate).mockReturnValue(
+      (() => Promise.resolve({ data: mockItem })) as never
+    );
   });
 
   afterEach(() => {
@@ -38,7 +60,10 @@ describe('usePagination', () => {
     await act(async () => {
       await vi.runAllTimersAsync();
     });
-    expect(api.getAllData).toHaveBeenCalledWith(0, 20);
+    expect(pokemonApi.endpoints.getAllPokemons.initiate).toHaveBeenCalledWith({
+      offset: 0,
+      limit: 20,
+    });
     expect(result.current.items).toEqual(mockItems);
     expect(result.current.loading).toBe(false);
   });
@@ -50,14 +75,19 @@ describe('usePagination', () => {
     await act(async () => {
       await vi.runAllTimersAsync();
     });
-    expect(api.getData).toHaveBeenCalledWith('bulbasaur');
+    expect(pokemonApi.endpoints.getSinglePokemon.initiate).toHaveBeenCalledWith(
+      'bulbasaur'
+    );
     expect(result.current.items).toEqual([mockItem]);
     expect(result.current.loading).toBe(false);
   });
 
   it('sets error state when API throws', async () => {
-    vi.mocked(api.getAllData).mockRejectedValue(
-      new Error('Server error. Please try again later')
+    vi.mocked(pokemonApi.endpoints.getAllPokemons.initiate).mockReturnValue(
+      (() =>
+        Promise.reject(
+          new Error('Server error. Please try again later')
+        )) as never
     );
     const { result } = renderHook(() => usePagination(''), { wrapper });
     await act(async () => {
@@ -122,10 +152,12 @@ describe('usePagination', () => {
   });
 
   it('uses initialPage when page URL param resolves to 0', async () => {
-    const wrapper = ({ children }: { children: ReactNode }) => (
+    const localWrapper = ({ children }: { children: ReactNode }) => (
       <MemoryRouter initialEntries={['/?page=0']}>{children}</MemoryRouter>
     );
-    const { result } = renderHook(() => usePagination('', 3), { wrapper });
+    const { result } = renderHook(() => usePagination('', 3), {
+      wrapper: localWrapper,
+    });
     await act(async () => {
       await vi.runAllTimersAsync();
     });
@@ -133,9 +165,12 @@ describe('usePagination', () => {
   });
 
   it('clears error on new fetch', async () => {
-    vi.mocked(api.getData).mockRejectedValueOnce(
-      new Error('Pokemon not found. Please check the name')
-    );
+    vi.mocked(
+      pokemonApi.endpoints.getSinglePokemon.initiate
+    ).mockReturnValueOnce((() =>
+      Promise.reject(
+        new Error('Pokemon not found. Please check the name')
+      )) as never);
     const { result, rerender } = renderHook(
       ({ term }: { term: string }) => usePagination(term),
       { wrapper, initialProps: { term: 'badterm' } }
@@ -147,7 +182,6 @@ describe('usePagination', () => {
       'Pokemon not found. Please check the name'
     );
 
-    vi.mocked(api.getData).mockResolvedValue(mockItem);
     rerender({ term: 'bulbasaur' });
     await act(async () => {
       await vi.runAllTimersAsync();

@@ -51,4 +51,28 @@ describe('useLocalStorage', () => {
     expect(result.current[0]).toBe('charmander');
     expect(localStorage.getItem('testKey')).toBe('charmander');
   });
+
+  it('returns empty string when localStorage.getItem throws', () => {
+    vi.spyOn(Storage.prototype, 'getItem').mockImplementationOnce(() => {
+      throw new Error('Storage error');
+    });
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const { result } = renderHook(() => useLocalStorage('testKey'));
+    expect(result.current[0]).toBe('');
+    consoleSpy.mockRestore();
+  });
+
+  it('logs error and keeps state when localStorage.setItem throws', () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementationOnce(() => {
+      throw new Error('Storage full');
+    });
+    const { result } = renderHook(() => useLocalStorage('testKey'));
+    act(() => {
+      result.current[1]('squirtle');
+    });
+    expect(consoleSpy).toHaveBeenCalled();
+    expect(result.current[0]).toBe('squirtle');
+    consoleSpy.mockRestore();
+  });
 });

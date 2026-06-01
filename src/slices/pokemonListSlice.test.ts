@@ -59,10 +59,7 @@ describe('pokemonListSlice', () => {
   });
 
   it('fetchPokemonList.pending sets loading true and clears error', () => {
-    const state = reducer(
-      undefined,
-      { type: fetchPokemonList.pending.type }
-    );
+    const state = reducer(undefined, { type: fetchPokemonList.pending.type });
     expect(state.loading).toBe(true);
     expect(state.error).toBeNull();
   });
@@ -72,20 +69,20 @@ describe('pokemonListSlice', () => {
       results: [{ id: 1, name: 'bulbasaur' }],
       count: 1,
     };
-    const state = reducer(
-      undefined,
-      { type: fetchPokemonList.fulfilled.type, payload }
-    );
+    const state = reducer(undefined, {
+      type: fetchPokemonList.fulfilled.type,
+      payload,
+    });
     expect(state.loading).toBe(false);
     expect(state.items).toEqual(payload.results);
     expect(state.totalCount).toBe(1);
   });
 
   it('fetchPokemonList.rejected sets error and clears items', () => {
-    const state = reducer(
-      undefined,
-      { type: fetchPokemonList.rejected.type, payload: 'Pokemon not found' }
-    );
+    const state = reducer(undefined, {
+      type: fetchPokemonList.rejected.type,
+      payload: 'Pokemon not found',
+    });
     expect(state.loading).toBe(false);
     expect(state.error).toBe('Pokemon not found');
     expect(state.items).toEqual([]);

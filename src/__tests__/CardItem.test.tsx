@@ -4,6 +4,8 @@ import CardItem from '../components/CardItem/CardItem';
 
 const onCardClick = vi.fn();
 
+const onToggleSelect = vi.fn();
+
 const defaultProps = {
   id: 1,
   name: 'bulbasaur',
@@ -11,7 +13,9 @@ const defaultProps = {
   weight: 69,
   ability: 'overgrow',
   image: 'https://example.com/bulbasaur.png',
+  isSelected: false,
   onCardClick,
+  onToggleSelect,
 };
 
 describe('CardItem', () => {

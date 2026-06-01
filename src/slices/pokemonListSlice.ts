@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { getData, getAllData } from '../services/api';
 import type { Item } from '../types';
+import { pokemonApi } from '../api/api';
 
 const ITEMS_PER_PAGE = 20;
 
@@ -29,16 +29,26 @@ export const fetchPokemonList = createAsyncThunk(
   'pokemonList/fetch',
   async (
     { searchTerm, page }: { searchTerm: string; page: number },
-    { rejectWithValue }
+    { rejectWithValue, dispatch }
   ) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
     try {
       if (searchTerm.trim()) {
-        const item = await getData(searchTerm.trim());
-        return { results: [item], count: 1 };
+        const result = await dispatch(
+          pokemonApi.endpoints.getSinglePokemon.initiate(searchTerm.trim())
+        );
+        if (!result.data) return rejectWithValue('Pokemon not found');
+        return { results: [result.data], count: 1 };
       }
       const offset = (page - 1) * ITEMS_PER_PAGE;
-      return await getAllData(offset, ITEMS_PER_PAGE);
+      const result = await dispatch(
+        pokemonApi.endpoints.getAllPokemons.initiate({
+          offset,
+          limit: ITEMS_PER_PAGE,
+        })
+      );
+      if (!result.data) return rejectWithValue('Failed to fetch pokemon list');
+      return result.data;
     } catch (error) {
       return rejectWithValue((error as Error).message);
     }

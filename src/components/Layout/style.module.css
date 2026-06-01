@@ -78,6 +78,13 @@
   transform: scale(1.7);
 }
 
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
 .aboutBtn {
   padding: 0.5rem 1rem;
   background-color: #3d3de6;
