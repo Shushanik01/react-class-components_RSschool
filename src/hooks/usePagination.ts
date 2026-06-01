@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { getAllData, getData } from '../services/api';
 import type { UsePaginationReturn, Item } from '../types';
 import { useSearchParams } from 'react-router';
+import { pokemonApi } from '../api/api';
+import { useAppDispatch } from '../store/hooks';
 const ITEMS_PER_PAGE = 20;
 const LOADING_DELAY_MS = 500;
 
@@ -32,6 +33,8 @@ export const usePagination = (
     setCurrentPage(1);
   }, [searchTerm]);
 
+const dispatch = useAppDispatch()
+
   useEffect(() => {
     const loadItems = async () => {
       setLoading(true);
@@ -43,14 +46,14 @@ export const usePagination = (
         let results: Item[], count: number;
 
         if (searchTerm.trim()) {
-          const item = await getData(searchTerm.trim());
-          results = [item];
+          const item = await dispatch(pokemonApi.endpoints.getSinglePokemon.initiate(searchTerm.trim()));
+          results = [item.data];
           count = 1;
         } else {
           const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-          const fetchData = await getAllData(offset, ITEMS_PER_PAGE);
-          results = fetchData.results;
-          count = fetchData.count;
+          const fetchData = await dispatch(pokemonApi.endpoints.getAllPokemons.initiate({offset, limit: ITEMS_PER_PAGE}));
+          results = fetchData.data.results;
+          count = fetchData.data.count;
         }
 
         setItems(results);

@@ -1,29 +1,15 @@
-import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import type { Stat } from '../../types';
 import styles from './style.module.css';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import {
-  fetchPokemonDetails,
-  clearDetails,
-} from '../../slices/pokemonDetailsSlice';
+import { useGetSinglePokemonQuery } from '../../api/api';
 
 const DetailsPannel = () => {
   const { id } = useParams<{ id: string }>();
-  const dispatch = useAppDispatch();
-  const { details, loading, error } = useAppSelector(
-    (state) => state.pokemonDetails
-  );
+  const { data: details, isLoading, error } = useGetSinglePokemonQuery(id ?? '', {
+      skip: !id
+  });
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!id) return;
-    dispatch(fetchPokemonDetails(id));
-    return () => {
-      dispatch(clearDetails());
-    };
-  }, [id, dispatch]);
 
   const handleClose = () => {
     navigate('/');
@@ -38,7 +24,7 @@ const DetailsPannel = () => {
         </button>
       </div>
 
-      {loading && (
+      {isLoading && (
         <div className={styles.loading}>
           <LoadingSpinner />
         </div>
@@ -46,11 +32,11 @@ const DetailsPannel = () => {
 
       {error && (
         <div className={styles.error}>
-          <p>Error: {error}</p>
+          <p>Error: {'message' in error ? error.message : 'Failed to load pokemon'}</p>
         </div>
       )}
 
-      {details && !loading && !error && (
+      {details && !isLoading && !error && (
         <div className={styles.content}>
           <img
             src={details.sprites?.front_default}
