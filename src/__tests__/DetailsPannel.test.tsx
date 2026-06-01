@@ -15,7 +15,7 @@ vi.mock('../api/api', () => ({
 }));
 
 const mockNavigate = vi.hoisted(() => vi.fn());
-const mockUseParams = vi.hoisted(() => vi.fn(() => ({ id: '1' })));
+const mockUseParams = vi.hoisted(() => vi.fn(() => ({ id: '1' as string | undefined })));
 
 vi.mock('react-router', async (importOriginal) => {
   const actual = await importOriginal<typeof import('react-router')>();

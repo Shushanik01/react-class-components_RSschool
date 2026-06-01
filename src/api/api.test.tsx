@@ -188,7 +188,7 @@ describe('pokemonApi / useGetAllPokemonsQuery', () => {
     expect(result.current.isLoading).toBe(true);
   });
 
-  it('returns full pokemon data after transformResponse fetches details', async () => {
+  it('fetches individual pokemon details via getSinglePokemon and returns combined data', async () => {
     fetchMock
       .mockResolvedValueOnce(
         makeJsonResponse({

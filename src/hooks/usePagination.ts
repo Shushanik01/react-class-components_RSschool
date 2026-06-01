@@ -49,6 +49,7 @@ export const usePagination = (
           const item = await dispatch(
             pokemonApi.endpoints.getSinglePokemon.initiate(searchTerm.trim())
           );
+          if (!item.data) throw new Error('Pokemon not found');
           results = [item.data];
           count = 1;
         } else {
@@ -59,6 +60,7 @@ export const usePagination = (
               limit: ITEMS_PER_PAGE,
             })
           );
+          if (!fetchData.data) throw new Error('Failed to fetch pokemon list');
           results = fetchData.data.results;
           count = fetchData.data.count;
         }
