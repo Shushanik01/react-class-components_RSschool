@@ -45,9 +45,7 @@ vi.mock('../api/api', () => ({
     reducerPath: 'pokemonAPI',
     reducer: (state: unknown = {}) => state,
     middleware:
-      (_api: unknown) =>
-      (next: Function) =>
-      (action: unknown) =>
+      () => (next: (action: unknown) => unknown) => (action: unknown) =>
         next(action),
     endpoints: {
       getSinglePokemon: { initiate: vi.fn(() => ({ type: 'noop' })) },
@@ -62,14 +60,22 @@ type AllQueryResult = ReturnType<typeof useGetAllPokemonsQuery>;
 type SingleQueryResult = ReturnType<typeof useGetSinglePokemonQuery>;
 
 const mockAll = (
-  overrides: Partial<{ data: AllQueryResult['data']; isLoading: boolean; isFetching: boolean; error: unknown }>
-) =>
-  overrides as unknown as AllQueryResult;
+  overrides: Partial<{
+    data: AllQueryResult['data'];
+    isLoading: boolean;
+    isFetching: boolean;
+    error: unknown;
+  }>
+) => overrides as unknown as AllQueryResult;
 
 const mockSingle = (
-  overrides: Partial<{ data: SingleQueryResult['data']; isLoading: boolean; isFetching: boolean; error: unknown }>
-) =>
-  overrides as unknown as SingleQueryResult;
+  overrides: Partial<{
+    data: SingleQueryResult['data'];
+    isLoading: boolean;
+    isFetching: boolean;
+    error: unknown;
+  }>
+) => overrides as unknown as SingleQueryResult;
 
 const createTestStore = () =>
   configureStore({
@@ -137,10 +143,20 @@ describe('Layout', () => {
     window.scrollTo = vi.fn() as typeof window.scrollTo;
 
     vi.mocked(useGetAllPokemonsQuery).mockReturnValue(
-      mockAll({ data: { results: mockItems, count: 40 }, isLoading: false, isFetching: false, error: undefined })
+      mockAll({
+        data: { results: mockItems, count: 40 },
+        isLoading: false,
+        isFetching: false,
+        error: undefined,
+      })
     );
     vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
-      mockSingle({ data: undefined, isLoading: false, isFetching: false, error: undefined })
+      mockSingle({
+        data: undefined,
+        isLoading: false,
+        isFetching: false,
+        error: undefined,
+      })
     );
   });
 
@@ -151,7 +167,12 @@ describe('Layout', () => {
 
   it('shows loading spinner while loading', () => {
     vi.mocked(useGetAllPokemonsQuery).mockReturnValue(
-      mockAll({ data: undefined, isLoading: true, isFetching: false, error: undefined })
+      mockAll({
+        data: undefined,
+        isLoading: true,
+        isFetching: false,
+        error: undefined,
+      })
     );
     renderWithStore();
     expect(screen.getByRole('status')).toBeInTheDocument();
@@ -159,7 +180,12 @@ describe('Layout', () => {
 
   it('shows error message when there is an error', () => {
     vi.mocked(useGetAllPokemonsQuery).mockReturnValue(
-      mockAll({ data: undefined, isLoading: false, isFetching: false, error: { message: 'Something went wrong' } })
+      mockAll({
+        data: undefined,
+        isLoading: false,
+        isFetching: false,
+        error: { message: 'Something went wrong' },
+      })
     );
     renderWithStore();
     expect(screen.getByText('Something went wrong')).toBeInTheDocument();
@@ -180,7 +206,12 @@ describe('Layout', () => {
 
   it('does not render pagination while loading', () => {
     vi.mocked(useGetAllPokemonsQuery).mockReturnValue(
-      mockAll({ data: undefined, isLoading: true, isFetching: false, error: undefined })
+      mockAll({
+        data: undefined,
+        isLoading: true,
+        isFetching: false,
+        error: undefined,
+      })
     );
     renderWithStore();
     expect(
@@ -190,7 +221,12 @@ describe('Layout', () => {
 
   it('does not render pagination when items list is empty', () => {
     vi.mocked(useGetAllPokemonsQuery).mockReturnValue(
-      mockAll({ data: { results: [], count: 0 }, isLoading: false, isFetching: false, error: undefined })
+      mockAll({
+        data: { results: [], count: 0 },
+        isLoading: false,
+        isFetching: false,
+        error: undefined,
+      })
     );
     renderWithStore();
     expect(
@@ -223,7 +259,12 @@ describe('Layout', () => {
 
   it('shows fallback message when error has no message field', () => {
     vi.mocked(useGetAllPokemonsQuery).mockReturnValue(
-      mockAll({ data: undefined, isLoading: false, isFetching: false, error: { status: 404 } })
+      mockAll({
+        data: undefined,
+        isLoading: false,
+        isFetching: false,
+        error: { status: 404 },
+      })
     );
     renderWithStore();
     expect(screen.getByText('Failed to load pokemon')).toBeInTheDocument();

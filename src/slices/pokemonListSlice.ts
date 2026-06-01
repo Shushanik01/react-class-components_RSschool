@@ -42,7 +42,10 @@ export const fetchPokemonList = createAsyncThunk(
       }
       const offset = (page - 1) * ITEMS_PER_PAGE;
       const result = await dispatch(
-        pokemonApi.endpoints.getAllPokemons.initiate({ offset, limit: ITEMS_PER_PAGE })
+        pokemonApi.endpoints.getAllPokemons.initiate({
+          offset,
+          limit: ITEMS_PER_PAGE,
+        })
       );
       if (!result.data) return rejectWithValue('Failed to fetch pokemon list');
       return result.data;

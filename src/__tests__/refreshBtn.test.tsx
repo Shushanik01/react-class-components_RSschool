@@ -11,11 +11,8 @@ vi.mock('../api/api', () => ({
   pokemonApi: {
     reducerPath: 'pokemonAPI',
     reducer: (state: unknown = {}) => state,
-    middleware:
-      (_api: unknown) =>
-      (next: (a: unknown) => unknown) =>
-      (action: unknown) =>
-        next(action),
+    middleware: () => (next: (a: unknown) => unknown) => (action: unknown) =>
+      next(action),
     util: {
       invalidateTags: mockInvalidateTags,
     },
@@ -46,7 +43,9 @@ describe('RefreshBtn', () => {
 
   it('renders the refresh button', () => {
     renderRefreshBtn();
-    expect(screen.getByRole('button', { name: /refresh/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /refresh/i })
+    ).toBeInTheDocument();
   });
 
   it('calls invalidateTags with Pokemon tag when clicked', () => {

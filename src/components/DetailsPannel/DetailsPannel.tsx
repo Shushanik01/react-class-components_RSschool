@@ -6,8 +6,12 @@ import { useGetSinglePokemonQuery } from '../../api/api';
 
 const DetailsPannel = () => {
   const { id } = useParams<{ id: string }>();
-  const { data: details, isLoading, error } = useGetSinglePokemonQuery(id ?? '', {
-      skip: !id
+  const {
+    data: details,
+    isLoading,
+    error,
+  } = useGetSinglePokemonQuery(id ?? '', {
+    skip: !id,
   });
   const navigate = useNavigate();
 
@@ -32,7 +36,10 @@ const DetailsPannel = () => {
 
       {error && (
         <div className={styles.error}>
-          <p>Error: {'message' in error ? error.message : 'Failed to load pokemon'}</p>
+          <p>
+            Error:{' '}
+            {'message' in error ? error.message : 'Failed to load pokemon'}
+          </p>
         </div>
       )}
 

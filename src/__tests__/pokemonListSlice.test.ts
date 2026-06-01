@@ -13,11 +13,8 @@ vi.mock('../api/api', () => ({
   pokemonApi: {
     reducerPath: 'pokemonAPI',
     reducer: (state: unknown = {}) => state,
-    middleware:
-      (_api: unknown) =>
-      (next: (a: unknown) => unknown) =>
-      (action: unknown) =>
-        next(action),
+    middleware: () => (next: (a: unknown) => unknown) => (action: unknown) =>
+      next(action),
     endpoints: {
       getSinglePokemon: { initiate: vi.fn() },
       getAllPokemons: { initiate: vi.fn() },
@@ -74,9 +71,12 @@ describe('pokemonListSlice', () => {
   it('fetchPokemonList sets loading to true while pending', async () => {
     const store = createTestStore();
     vi.mocked(pokemonApi.endpoints.getAllPokemons.initiate).mockReturnValue(
-      (() => Promise.resolve({ data: { results: mockItems, count: 40 } })) as never
+      (() =>
+        Promise.resolve({ data: { results: mockItems, count: 40 } })) as never
     );
-    const promise = store.dispatch(fetchPokemonList({ searchTerm: '', page: 1 }));
+    const promise = store.dispatch(
+      fetchPokemonList({ searchTerm: '', page: 1 })
+    );
     expect(store.getState().pokemonList.loading).toBe(true);
     await vi.runAllTimersAsync();
     await promise;
@@ -85,9 +85,12 @@ describe('pokemonListSlice', () => {
   it('fetchPokemonList fetches all pokemons when searchTerm is empty', async () => {
     const store = createTestStore();
     vi.mocked(pokemonApi.endpoints.getAllPokemons.initiate).mockReturnValue(
-      (() => Promise.resolve({ data: { results: mockItems, count: 40 } })) as never
+      (() =>
+        Promise.resolve({ data: { results: mockItems, count: 40 } })) as never
     );
-    const promise = store.dispatch(fetchPokemonList({ searchTerm: '', page: 1 }));
+    const promise = store.dispatch(
+      fetchPokemonList({ searchTerm: '', page: 1 })
+    );
     await vi.runAllTimersAsync();
     await promise;
     expect(pokemonApi.endpoints.getAllPokemons.initiate).toHaveBeenCalledWith({
@@ -135,10 +138,14 @@ describe('pokemonListSlice', () => {
     vi.mocked(pokemonApi.endpoints.getAllPokemons.initiate).mockReturnValue(
       (() => Promise.resolve({ data: null })) as never
     );
-    const promise = store.dispatch(fetchPokemonList({ searchTerm: '', page: 1 }));
+    const promise = store.dispatch(
+      fetchPokemonList({ searchTerm: '', page: 1 })
+    );
     await vi.runAllTimersAsync();
     await promise;
-    expect(store.getState().pokemonList.error).toBe('Failed to fetch pokemon list');
+    expect(store.getState().pokemonList.error).toBe(
+      'Failed to fetch pokemon list'
+    );
     expect(store.getState().pokemonList.loading).toBe(false);
   });
 
@@ -147,7 +154,9 @@ describe('pokemonListSlice', () => {
     vi.mocked(pokemonApi.endpoints.getAllPokemons.initiate).mockReturnValue(
       (() => Promise.reject(new Error('Network error'))) as never
     );
-    const promise = store.dispatch(fetchPokemonList({ searchTerm: '', page: 1 }));
+    const promise = store.dispatch(
+      fetchPokemonList({ searchTerm: '', page: 1 })
+    );
     await vi.runAllTimersAsync();
     await promise;
     expect(store.getState().pokemonList.error).toBe('Network error');

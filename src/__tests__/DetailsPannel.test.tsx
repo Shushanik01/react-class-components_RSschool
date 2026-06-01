@@ -97,7 +97,11 @@ describe('DetailsPannel', () => {
 
   it('shows error message when the query fails with a message', () => {
     vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
-      mockQuery({ ...defaultQueryResult, isError: true, error: { message: 'Pokemon not found. Please check the name' } })
+      mockQuery({
+        ...defaultQueryResult,
+        isError: true,
+        error: { message: 'Pokemon not found. Please check the name' },
+      })
     );
     renderWithStore(<DetailsPannel />);
     expect(screen.getByText(/pokemon not found/i)).toBeInTheDocument();
@@ -120,7 +124,11 @@ describe('DetailsPannel', () => {
 
   it('renders stats and height when the data includes them', () => {
     vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
-      mockQuery({ ...defaultQueryResult, data: mockItemWithStats, isSuccess: true })
+      mockQuery({
+        ...defaultQueryResult,
+        data: mockItemWithStats,
+        isSuccess: true,
+      })
     );
     renderWithStore(<DetailsPannel />);
     expect(screen.getByText('hp:')).toBeInTheDocument();
@@ -130,7 +138,11 @@ describe('DetailsPannel', () => {
 
   it('shows fallback error text when error has no message property', () => {
     vi.mocked(useGetSinglePokemonQuery).mockReturnValue(
-      mockQuery({ ...defaultQueryResult, isError: true, error: { status: 503 } })
+      mockQuery({
+        ...defaultQueryResult,
+        isError: true,
+        error: { status: 503 },
+      })
     );
     renderWithStore(<DetailsPannel />);
     expect(screen.getByText(/Failed to load pokemon/i)).toBeInTheDocument();

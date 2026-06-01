@@ -33,7 +33,7 @@ export const usePagination = (
     setCurrentPage(1);
   }, [searchTerm]);
 
-const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const loadItems = async () => {
@@ -46,12 +46,19 @@ const dispatch = useAppDispatch()
         let results: Item[], count: number;
 
         if (searchTerm.trim()) {
-          const item = await dispatch(pokemonApi.endpoints.getSinglePokemon.initiate(searchTerm.trim()));
+          const item = await dispatch(
+            pokemonApi.endpoints.getSinglePokemon.initiate(searchTerm.trim())
+          );
           results = [item.data];
           count = 1;
         } else {
           const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-          const fetchData = await dispatch(pokemonApi.endpoints.getAllPokemons.initiate({offset, limit: ITEMS_PER_PAGE}));
+          const fetchData = await dispatch(
+            pokemonApi.endpoints.getAllPokemons.initiate({
+              offset,
+              limit: ITEMS_PER_PAGE,
+            })
+          );
           results = fetchData.data.results;
           count = fetchData.data.count;
         }

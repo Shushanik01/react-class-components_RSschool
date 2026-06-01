@@ -29,12 +29,14 @@ describe('usePagination', () => {
     vi.useFakeTimers();
 
     mockDispatch.mockImplementation(async (action: unknown) => {
-      if (typeof action === 'function') return (action as Function)(mockDispatch);
+      if (typeof action === 'function')
+        return (action as (dispatch: unknown) => unknown)(mockDispatch);
       return action;
     });
 
     vi.mocked(pokemonApi.endpoints.getAllPokemons.initiate).mockReturnValue(
-      (() => Promise.resolve({ data: { results: mockItems, count: 40 } })) as never
+      (() =>
+        Promise.resolve({ data: { results: mockItems, count: 40 } })) as never
     );
     vi.mocked(pokemonApi.endpoints.getSinglePokemon.initiate).mockReturnValue(
       (() => Promise.resolve({ data: mockItem })) as never
@@ -67,18 +69,25 @@ describe('usePagination', () => {
   });
 
   it('fetches single item when searchTerm is provided', async () => {
-    const { result } = renderHook(() => usePagination('bulbasaur'), { wrapper });
+    const { result } = renderHook(() => usePagination('bulbasaur'), {
+      wrapper,
+    });
     await act(async () => {
       await vi.runAllTimersAsync();
     });
-    expect(pokemonApi.endpoints.getSinglePokemon.initiate).toHaveBeenCalledWith('bulbasaur');
+    expect(pokemonApi.endpoints.getSinglePokemon.initiate).toHaveBeenCalledWith(
+      'bulbasaur'
+    );
     expect(result.current.items).toEqual([mockItem]);
     expect(result.current.loading).toBe(false);
   });
 
   it('sets error state when API throws', async () => {
     vi.mocked(pokemonApi.endpoints.getAllPokemons.initiate).mockReturnValue(
-      (() => Promise.reject(new Error('Server error. Please try again later'))) as never
+      (() =>
+        Promise.reject(
+          new Error('Server error. Please try again later')
+        )) as never
     );
     const { result } = renderHook(() => usePagination(''), { wrapper });
     await act(async () => {
@@ -156,9 +165,12 @@ describe('usePagination', () => {
   });
 
   it('clears error on new fetch', async () => {
-    vi.mocked(pokemonApi.endpoints.getSinglePokemon.initiate).mockReturnValueOnce(
-      (() => Promise.reject(new Error('Pokemon not found. Please check the name'))) as never
-    );
+    vi.mocked(
+      pokemonApi.endpoints.getSinglePokemon.initiate
+    ).mockReturnValueOnce((() =>
+      Promise.reject(
+        new Error('Pokemon not found. Please check the name')
+      )) as never);
     const { result, rerender } = renderHook(
       ({ term }: { term: string }) => usePagination(term),
       { wrapper, initialProps: { term: 'badterm' } }
@@ -166,7 +178,9 @@ describe('usePagination', () => {
     await act(async () => {
       await vi.runAllTimersAsync();
     });
-    expect(result.current.error).toBe('Pokemon not found. Please check the name');
+    expect(result.current.error).toBe(
+      'Pokemon not found. Please check the name'
+    );
 
     rerender({ term: 'bulbasaur' });
     await act(async () => {

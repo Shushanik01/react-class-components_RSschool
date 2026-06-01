@@ -9,7 +9,8 @@ const store = configureStore({
     pokemonList: pokemonListReducer,
     selectedItems: selectedItemsReducer,
   },
-  middleware: (getDefaultMiddleware)=> getDefaultMiddleware().concat(pokemonApi.middleware)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(pokemonApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

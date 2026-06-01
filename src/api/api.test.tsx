@@ -3,7 +3,11 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { renderHook, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import type { ReactNode } from 'react';
-import { pokemonApi, useGetSinglePokemonQuery, useGetAllPokemonsQuery } from './api';
+import {
+  pokemonApi,
+  useGetSinglePokemonQuery,
+  useGetAllPokemonsQuery,
+} from './api';
 import { mockItem } from '../__tests__/mocks/mockData';
 
 const createStore = () => {
@@ -17,10 +21,12 @@ const createStore = () => {
 
 type TestStore = ReturnType<typeof createStore>;
 
-const makeWrapper = (store: TestStore) =>
-  ({ children }: { children: ReactNode }) => (
-    <Provider store={store}>{children}</Provider>
-  );
+const makeWrapper = (store: TestStore) => {
+  function Wrapper({ children }: { children: ReactNode }) {
+    return <Provider store={store}>{children}</Provider>;
+  }
+  return Wrapper;
+};
 
 const makeJsonResponse = (data: unknown, status = 200) =>
   new Response(JSON.stringify(data), {
@@ -46,21 +52,27 @@ describe('pokemonApi / useGetSinglePokemonQuery', () => {
 
   it('is in loading state while the request is in flight', () => {
     fetchMock.mockReturnValue(new Promise(() => {}));
-    const { result } = renderHook(() => useGetSinglePokemonQuery('bulbasaur'), { wrapper });
+    const { result } = renderHook(() => useGetSinglePokemonQuery('bulbasaur'), {
+      wrapper,
+    });
     expect(result.current.isLoading).toBe(true);
     expect(result.current.data).toBeUndefined();
   });
 
   it('returns pokemon data on a successful fetch', async () => {
     fetchMock.mockResolvedValue(makeJsonResponse(mockItem));
-    const { result } = renderHook(() => useGetSinglePokemonQuery('bulbasaur'), { wrapper });
+    const { result } = renderHook(() => useGetSinglePokemonQuery('bulbasaur'), {
+      wrapper,
+    });
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     expect(result.current.data).toEqual(mockItem);
   });
 
   it('transforms a 404 response into the correct error message', async () => {
     fetchMock.mockResolvedValue(makeJsonResponse({}, 404));
-    const { result } = renderHook(() => useGetSinglePokemonQuery('missingno'), { wrapper });
+    const { result } = renderHook(() => useGetSinglePokemonQuery('missingno'), {
+      wrapper,
+    });
     await waitFor(() => expect(result.current.isError).toBe(true));
     expect(result.current.error).toEqual({
       message: 'Pokemon not found. Please check the name',
@@ -69,7 +81,9 @@ describe('pokemonApi / useGetSinglePokemonQuery', () => {
 
   it('transforms a 400 response into the correct error message', async () => {
     fetchMock.mockResolvedValue(makeJsonResponse({}, 400));
-    const { result } = renderHook(() => useGetSinglePokemonQuery('???'), { wrapper });
+    const { result } = renderHook(() => useGetSinglePokemonQuery('???'), {
+      wrapper,
+    });
     await waitFor(() => expect(result.current.isError).toBe(true));
     expect(result.current.error).toEqual({
       message: 'Invalid request. Please check your input',
@@ -78,7 +92,9 @@ describe('pokemonApi / useGetSinglePokemonQuery', () => {
 
   it('transforms a 503 response into the correct error message', async () => {
     fetchMock.mockResolvedValue(makeJsonResponse({}, 503));
-    const { result } = renderHook(() => useGetSinglePokemonQuery('bulbasaur'), { wrapper });
+    const { result } = renderHook(() => useGetSinglePokemonQuery('bulbasaur'), {
+      wrapper,
+    });
     await waitFor(() => expect(result.current.isError).toBe(true));
     expect(result.current.error).toEqual({
       message: 'Service is temporarily unavailable',
@@ -87,7 +103,9 @@ describe('pokemonApi / useGetSinglePokemonQuery', () => {
 
   it('falls back to a generic error message for unknown status codes', async () => {
     fetchMock.mockResolvedValue(makeJsonResponse({}, 500));
-    const { result } = renderHook(() => useGetSinglePokemonQuery('bulbasaur'), { wrapper });
+    const { result } = renderHook(() => useGetSinglePokemonQuery('bulbasaur'), {
+      wrapper,
+    });
     await waitFor(() => expect(result.current.isError).toBe(true));
     expect(result.current.error).toEqual({ message: 'Something went wrong' });
   });
@@ -124,7 +142,9 @@ describe('pokemonApi / useGetSinglePokemonQuery', () => {
   it('makes a new fetch for different query arguments', async () => {
     fetchMock
       .mockResolvedValueOnce(makeJsonResponse(mockItem))
-      .mockResolvedValueOnce(makeJsonResponse({ ...mockItem, id: 4, name: 'charmander' }));
+      .mockResolvedValueOnce(
+        makeJsonResponse({ ...mockItem, id: 4, name: 'charmander' })
+      );
 
     const { result: r1 } = renderHook(
       () => useGetSinglePokemonQuery('bulbasaur'),
@@ -251,13 +271,21 @@ describe('pokemonApi / useGetAllPokemonsQuery', () => {
   it('fetches fresh data for a different offset value', async () => {
     fetchMock
       .mockResolvedValueOnce(
-        makeJsonResponse({ results: [{ url: 'https://pokeapi.co/api/v2/pokemon/1/' }], count: 100 })
+        makeJsonResponse({
+          results: [{ url: 'https://pokeapi.co/api/v2/pokemon/1/' }],
+          count: 100,
+        })
       )
       .mockResolvedValueOnce(makeJsonResponse(mockItem))
       .mockResolvedValueOnce(
-        makeJsonResponse({ results: [{ url: 'https://pokeapi.co/api/v2/pokemon/4/' }], count: 100 })
+        makeJsonResponse({
+          results: [{ url: 'https://pokeapi.co/api/v2/pokemon/4/' }],
+          count: 100,
+        })
       )
-      .mockResolvedValueOnce(makeJsonResponse({ ...mockItem, id: 4, name: 'charmander' }));
+      .mockResolvedValueOnce(
+        makeJsonResponse({ ...mockItem, id: 4, name: 'charmander' })
+      );
 
     const { result: r1 } = renderHook(
       () => useGetAllPokemonsQuery({ offset: 0, limit: 20 }),
