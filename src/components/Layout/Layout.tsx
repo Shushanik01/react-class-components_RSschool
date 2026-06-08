@@ -147,9 +147,10 @@ export default function Layout() {
       <button className={styles.themeToggleBtn} onClick={handleThemeChange}>
         <img
           src={theme === 'Light' ? pikachu : gengar}
-          alt="pikachu ang gengar"
+          alt="pikachu and gengar"
         />
       </button>
+      
       <div className={styles.leftSection}>
         <div className={styles.searchRow}>
           <SearchBar
