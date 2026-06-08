@@ -11,7 +11,6 @@ export function Modal({ children, onClose, isOpen }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    
     if (!isOpen) return;
 
     modalRef.current?.focus();
@@ -23,7 +22,6 @@ export function Modal({ children, onClose, isOpen }: ModalProps) {
     document.addEventListener('keydown', handleKeyDown);
 
     return () => document.removeEventListener('keydown', handleKeyDown);
-
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -32,7 +30,12 @@ export function Modal({ children, onClose, isOpen }: ModalProps) {
   if (!portalTarget) return null;
 
   return ReactDOM.createPortal(
-    <div ref={modalRef} tabIndex={-1}>
+    <div
+     ref={modalRef}
+      tabIndex={-1}
+      aria-modal='true'
+      onClick={(e)=> e.stopPropagation()}
+      >
       <button onClick={onClose}>✖️</button>
       {children}
     </div>,

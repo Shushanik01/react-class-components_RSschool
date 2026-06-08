@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import pokemonListReducer from '../slices/pokemonListSlice';
 import selectedItemsReducer from '../slices/selectedItemsSlice';
 import { pokemonApi } from '../api/api';
+import userInfoReducer from '../slices/userInfoSlice'
 
 const store = configureStore({
   reducer: {
     [pokemonApi.reducerPath]: pokemonApi.reducer,
     pokemonList: pokemonListReducer,
     selectedItems: selectedItemsReducer,
+    userInfo: userInfoReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(pokemonApi.middleware),

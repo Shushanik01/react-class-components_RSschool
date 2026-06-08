@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, useNavigate, useMatch, useSearchParams } from 'react-router';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../pagination/Pagination';
@@ -20,12 +20,15 @@ import {
   useGetSinglePokemonQuery,
 } from '../../api/api';
 import RefreshBtn from '../refreshBtn/refreshBtn';
+import { Modal } from '../modal/modal';
+import UserInfoUncontrolled from '../userInfo/UserInfo';
 
 export default function Layout() {
   const detailsMatch = useMatch('/details/:id');
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [, setSearchParams] = useSearchParams();
+  const [isOpen, setIsopen] = useState(false)
 
   const { currentPage, searchTerm } = useAppSelector(
     (state) => state.pokemonList
@@ -150,7 +153,11 @@ export default function Layout() {
           alt="pikachu and gengar"
         />
       </button>
-      
+
+      <Modal onClose={()=> setIsopen(false)} isOpen={isOpen}>
+        <UserInfoUncontrolled/>
+      </Modal>
+
       <div className={styles.leftSection}>
         <div className={styles.searchRow}>
           <SearchBar
