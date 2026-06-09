@@ -31,11 +31,11 @@ export function Modal({ children, onClose, isOpen }: ModalProps) {
 
   return ReactDOM.createPortal(
     <div
-     ref={modalRef}
+      ref={modalRef}
       tabIndex={-1}
-      aria-modal='true'
-      onClick={(e)=> e.stopPropagation()}
-      >
+      aria-modal="true"
+      onClick={(e) => e.stopPropagation()}
+    >
       <button onClick={onClose}>✖️</button>
       {children}
     </div>,

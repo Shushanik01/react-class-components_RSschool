@@ -1,6 +1,6 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-interface UserInfo {
+export interface UserInfo {
   name: string;
   email: string;
   gender: string;
@@ -8,16 +8,16 @@ interface UserInfo {
   termsAccepted: boolean;
 }
 
-const initialState:UserInfo[] = [];
+const initialState: UserInfo[] = [];
 
 const userInfoSlice = createSlice({
-    name: 'userInfo',
-    initialState,
-    reducers : {
-        addUserInfo:(state, action: PayloadAction<UserInfo>)=> {
-            state.push(action.payload)
-        }
-    }
-})
-export const {addUserInfo} = userInfoSlice.actions;
-export default userInfoSlice.reducer
+  name: 'userInfo',
+  initialState,
+  reducers: {
+    addUserInfo: (state, action: PayloadAction<UserInfo>) => {
+      state.push(action.payload);
+    },
+  },
+});
+export const { addUserInfo } = userInfoSlice.actions;
+export default userInfoSlice.reducer;

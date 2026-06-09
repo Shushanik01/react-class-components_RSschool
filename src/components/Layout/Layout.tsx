@@ -28,7 +28,7 @@ export default function Layout() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [, setSearchParams] = useSearchParams();
-  const [isOpen, setIsopen] = useState(false)
+  const [isOpen, setIsopen] = useState(false);
 
   const { currentPage, searchTerm } = useAppSelector(
     (state) => state.pokemonList
@@ -154,8 +154,8 @@ export default function Layout() {
         />
       </button>
 
-      <Modal onClose={()=> setIsopen(false)} isOpen={isOpen}>
-        <UserInfoUncontrolled/>
+      <Modal onClose={() => setIsopen(false)} isOpen={isOpen}>
+        <UserInfoUncontrolled />
       </Modal>
 
       <div className={styles.leftSection}>
