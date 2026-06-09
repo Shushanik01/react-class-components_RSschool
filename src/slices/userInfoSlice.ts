@@ -1,12 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { UserInfo } from '../components/userInfo/userSchema';
 
-export interface UserInfo {
-  name: string;
-  email: string;
-  gender: string;
-  age: number;
-  termsAccepted: boolean;
-}
+export type { UserInfo };
 
 const initialState: UserInfo[] = [];
 
@@ -19,5 +14,6 @@ const userInfoSlice = createSlice({
     },
   },
 });
+
 export const { addUserInfo } = userInfoSlice.actions;
 export default userInfoSlice.reducer;
