@@ -1,17 +1,34 @@
 import { z } from 'zod';
 
 export const COUNTRIES = [
-  'Armenia', 'Australia', 'Canada', 'France', 'Germany',
-  'India', 'Italy', 'Japan', 'Mexico', 'Russia',
-  'Spain', 'Ukraine', 'United Kingdom', 'United States',
+  'Armenia',
+  'Australia',
+  'Canada',
+  'France',
+  'Germany',
+  'India',
+  'Italy',
+  'Japan',
+  'Mexico',
+  'Russia',
+  'Spain',
+  'Ukraine',
+  'United Kingdom',
+  'United States',
 ];
 
 const commonFields = {
-  name: z.string()
+  name: z
+    .string()
     .min(2, 'Name must be at least 2 characters')
-    .refine((val) => /^[A-Z]/.test(val), 'Name must start with an uppercase letter'),
+    .refine(
+      (val) => /^[A-Z]/.test(val),
+      'Name must start with an uppercase letter'
+    ),
   email: z.email('Invalid email address'),
-  gender: z.enum(['female', 'male', 'none'], { error: 'Please select a gender' }),
+  gender: z.enum(['female', 'male', 'none'], {
+    error: 'Please select a gender',
+  }),
   age: z.coerce
     .number({ error: 'Age is required' })
     .min(0, 'Age cannot be negative')
@@ -32,8 +49,14 @@ export const userSchema = z
     ...commonFields,
     image: z
       .any()
-      .refine((file) => file instanceof File && file.size > 0, 'Please select an image')
-      .refine((file) => file.size <= 5 * 1024 * 1024, 'Image must be smaller than 5MB')
+      .refine(
+        (file) => file instanceof File && file.size > 0,
+        'Please select an image'
+      )
+      .refine(
+        (file) => file.size <= 5 * 1024 * 1024,
+        'Image must be smaller than 5MB'
+      )
       .refine(
         (file) => ['image/png', 'image/jpeg'].includes(file.type),
         'Only PNG and JPEG files are allowed'

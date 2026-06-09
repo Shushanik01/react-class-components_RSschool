@@ -13,7 +13,9 @@ export default function UserInfoHook() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<UserInfoInput, unknown, UserInfo>({ resolver: zodResolver(userSchema) });
+  } = useForm<UserInfoInput, unknown, UserInfo>({
+    resolver: zodResolver(userSchema),
+  });
 
   const dispatch = useDispatch();
 
@@ -43,8 +45,14 @@ export default function UserInfoHook() {
       <input {...register('age')} type="number" id="age" />
       {errors.age && <span>{errors.age.message}</span>}
 
-      <label htmlFor="termsAccepted">I agree with your terms and conditions</label>
-      <input {...register('termsAccepted')} type="checkbox" id="termsAccepted" />
+      <label htmlFor="termsAccepted">
+        I agree with your terms and conditions
+      </label>
+      <input
+        {...register('termsAccepted')}
+        type="checkbox"
+        id="termsAccepted"
+      />
       {errors.termsAccepted && <span>{errors.termsAccepted.message}</span>}
 
       <button>Submit</button>

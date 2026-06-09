@@ -60,7 +60,9 @@ export default function UserInfoUncontrolled() {
         <input type="number" name="age" id="age" />
         {errors.age && <span>{errors.age}</span>}
 
-        <label htmlFor="termsAccepted">I agree with your terms and conditions</label>
+        <label htmlFor="termsAccepted">
+          I agree with your terms and conditions
+        </label>
         <input type="checkbox" name="termsAccepted" id="termsAccepted" />
         {errors.termsAccepted && <span>{errors.termsAccepted}</span>}
 
