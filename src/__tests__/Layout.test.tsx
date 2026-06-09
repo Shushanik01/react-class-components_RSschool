@@ -4,6 +4,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import Layout from '../components/Layout/Layout';
 import pokemonListReducer from '../slices/pokemonListSlice';
 import selectedItemsReducer from '../slices/selectedItemsSlice';
+import userInfoReducer from '../slices/userInfoSlice';
+import userProfileReducer, { COUNTRIES } from '../slices/userProfileSlice';
 import { useGetAllPokemonsQuery, useGetSinglePokemonQuery } from '../api/api';
 import { mockItems } from './mocks/mockData';
 
@@ -82,6 +84,8 @@ const createTestStore = () =>
     reducer: {
       pokemonList: pokemonListReducer,
       selectedItems: selectedItemsReducer,
+      userInfo: userInfoReducer,
+      userProfile: userProfileReducer,
     },
     preloadedState: {
       pokemonList: {
@@ -93,6 +97,8 @@ const createTestStore = () =>
         searchTerm: '',
       },
       selectedItems: { selectedIds: [] },
+      userInfo: [],
+      userProfile: { profiles: [], countries: COUNTRIES },
     },
   });
 
@@ -111,6 +117,8 @@ const createSelectedStore = () =>
     reducer: {
       pokemonList: pokemonListReducer,
       selectedItems: selectedItemsReducer,
+      userInfo: userInfoReducer,
+      userProfile: userProfileReducer,
     },
     preloadedState: {
       pokemonList: {
@@ -122,6 +130,8 @@ const createSelectedStore = () =>
         searchTerm: '',
       },
       selectedItems: { selectedIds: [1] },
+      userInfo: [],
+      userProfile: { profiles: [], countries: COUNTRIES },
     },
   });
 

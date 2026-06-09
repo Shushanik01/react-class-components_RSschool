@@ -4,8 +4,11 @@ import { addProfileDetails } from '../../slices/userProfileSlice';
 import { useAppSelector } from '../../store/hooks';
 import { profileSchema } from './profileSchema';
 import type { ProfileFormOutput } from './profileSchema';
+import styles from './profileUncontrolled.module.css';
 
-type ProfileErrors = Partial<Record<keyof ProfileFormOutput | 'confirmPassword', string>>;
+type ProfileErrors = Partial<
+  Record<keyof ProfileFormOutput | 'confirmPassword', string>
+>;
 
 function getStrength(password: string) {
   return {
@@ -16,7 +19,11 @@ function getStrength(password: string) {
   };
 }
 
-function ProfileUncontrolledForm() {
+interface Props {
+  onSuccess?: () => void;
+}
+
+function ProfileUncontrolledForm({ onSuccess }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
   const dispatch = useDispatch();
   const countries = useAppSelector((state) => state.userProfile.countries);
@@ -60,62 +67,131 @@ function ProfileUncontrolledForm() {
           country: result.data.country,
         })
       );
+      formRef.current?.reset();
+      setPassword('');
+      onSuccess?.();
     };
     reader.readAsDataURL(file);
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit}>
-      <label htmlFor="profilePicture">Profile picture</label>
-      <input
-        type="file"
-        accept="image/png,image/jpeg"
-        name="profilePicture"
-        id="profilePicture"
-      />
-      {errors.profilePicture && <span>{errors.profilePicture}</span>}
+    <div>
+      <h2 className={styles.formTitle}>Edit Profile</h2>
+      <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor="profilePicture">
+            Profile picture
+          </label>
+          <input
+            className={styles.input}
+            type="file"
+            accept="image/png,image/jpeg"
+            name="profilePicture"
+            id="profilePicture"
+          />
+          {errors.profilePicture && (
+            <p className={styles.errorMsg}>{errors.profilePicture}</p>
+          )}
+        </div>
 
-      <label htmlFor="username">Username</label>
-      <input type="text" name="username" id="username" />
-      {errors.username && <span>{errors.username}</span>}
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor="username">
+            Username
+          </label>
+          <input
+            className={`${styles.input}${errors.username ? ` ${styles.error}` : ''}`}
+            type="text"
+            name="username"
+            id="username"
+            placeholder="johndoe"
+          />
+          {errors.username && (
+            <p className={styles.errorMsg}>{errors.username}</p>
+          )}
+        </div>
 
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {errors.password && <span>{errors.password}</span>}
+        <div className={styles.row}>
+          <div className={styles.field}>
+            <label className={styles.label} htmlFor="profilePassword">
+              Password
+            </label>
+            <input
+              className={`${styles.input}${errors.password ? ` ${styles.error}` : ''}`}
+              type="password"
+              name="password"
+              id="profilePassword"
+              placeholder="••••••••"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {errors.password && (
+              <p className={styles.errorMsg}>{errors.password}</p>
+            )}
+          </div>
 
-      <div>
-        <span style={{ color: strength.hasNumber ? 'green' : 'red' }}>1 number</span>{' '}
-        <span style={{ color: strength.hasUppercase ? 'green' : 'red' }}>1 uppercase</span>{' '}
-        <span style={{ color: strength.hasLowercase ? 'green' : 'red' }}>1 lowercase</span>{' '}
-        <span style={{ color: strength.hasSpecial ? 'green' : 'red' }}>1 special character</span>
-      </div>
+          <div className={styles.field}>
+            <label className={styles.label} htmlFor="profileConfirmPassword">
+              Confirm password
+            </label>
+            <input
+              className={`${styles.input}${errors.confirmPassword ? ` ${styles.error}` : ''}`}
+              type="password"
+              name="confirmPassword"
+              id="profileConfirmPassword"
+              placeholder="••••••••"
+            />
+            {errors.confirmPassword && (
+              <p className={styles.errorMsg}>{errors.confirmPassword}</p>
+            )}
+          </div>
+        </div>
 
-      <label htmlFor="confirmPassword">Confirm password</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" />
-      {errors.confirmPassword && <span>{errors.confirmPassword}</span>}
+        <div className={styles.strengthRow}>
+          <span style={{ color: strength.hasNumber ? '#16a34a' : '#dc2626' }}>
+            1 number
+          </span>
+          <span
+            style={{ color: strength.hasUppercase ? '#16a34a' : '#dc2626' }}
+          >
+            1 uppercase
+          </span>
+          <span
+            style={{ color: strength.hasLowercase ? '#16a34a' : '#dc2626' }}
+          >
+            1 lowercase
+          </span>
+          <span style={{ color: strength.hasSpecial ? '#16a34a' : '#dc2626' }}>
+            1 special char
+          </span>
+        </div>
 
-      <label htmlFor="country">Country</label>
-      <input
-        type="text"
-        name="country"
-        id="country"
-        list="uncontrolled-countries"
-        autoComplete="off"
-      />
-      <datalist id="uncontrolled-countries">
-        {countries.map((c) => (
-          <option key={c} value={c} />
-        ))}
-      </datalist>
-      {errors.country && <span>{errors.country}</span>}
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor="profileCountry">
+            Country
+          </label>
+          <input
+            className={`${styles.input}${errors.country ? ` ${styles.error}` : ''}`}
+            type="text"
+            name="country"
+            id="profileCountry"
+            list="uncontrolled-countries"
+            autoComplete="off"
+            placeholder="Start typing…"
+          />
+          <datalist id="uncontrolled-countries">
+            {countries.map((c) => (
+              <option key={c} value={c} />
+            ))}
+          </datalist>
+          {errors.country && (
+            <p className={styles.errorMsg}>{errors.country}</p>
+          )}
+        </div>
 
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit" className={styles.submitBtn}>
+          Save profile
+        </button>
+      </form>
+    </div>
   );
 }
 

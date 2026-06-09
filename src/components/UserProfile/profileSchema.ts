@@ -7,7 +7,10 @@ const passwordSchema = z
   .refine((val) => /[A-Z]/.test(val), 'Must contain an uppercase letter')
   .refine((val) => /[a-z]/.test(val), 'Must contain a lowercase letter')
   .refine((val) => /[0-9]/.test(val), 'Must contain a number')
-  .refine((val) => /[^A-Za-z0-9]/.test(val), 'Must contain a special character');
+  .refine(
+    (val) => /[^A-Za-z0-9]/.test(val),
+    'Must contain a special character'
+  );
 
 const countrySchema = z
   .string()

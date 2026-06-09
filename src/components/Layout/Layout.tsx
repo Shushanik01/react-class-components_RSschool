@@ -24,6 +24,7 @@ import { Modal } from '../modal/modal';
 import UserInfoUncontrolled from '../userInfo/UserInfo';
 import ProfileUncontrolledForm from '../UserProfile/profileUncontrolled';
 import ProfileDisplay from '../UserProfile/ProfileDisplay';
+import Submitions from '../userInfo/submitions';
 
 export default function Layout() {
   const detailsMatch = useMatch('/details/:id');
@@ -158,11 +159,11 @@ export default function Layout() {
       </button>
 
       <Modal onClose={() => setIsopen(false)} isOpen={isOpen}>
-        <UserInfoUncontrolled />
+        <UserInfoUncontrolled onSuccess={() => setIsopen(false)} />
       </Modal>
 
       <Modal onClose={() => setIsProfileOpen(false)} isOpen={isProfileOpen}>
-        <ProfileUncontrolledForm />
+        <ProfileUncontrolledForm onSuccess={() => setIsProfileOpen(false)} />
       </Modal>
 
       <div className={styles.leftSection}>
@@ -193,10 +194,27 @@ export default function Layout() {
           />
         )}
         <TestButton />
-        <button className={styles.aboutBtn} onClick={() => navigate('/about')}>
-          About
-        </button>
-        <button onClick={() => setIsProfileOpen(true)}>Edit profile</button>
+        <div className={styles.actionRow}>
+          <button
+            className={styles.aboutBtn}
+            onClick={() => navigate('/about')}
+          >
+            About
+          </button>
+          <button
+            className={`${styles.formBtn} ${styles.formBtnPrimary}`}
+            onClick={() => setIsopen(true)}
+          >
+            + User form
+          </button>
+          <button
+            className={`${styles.formBtn} ${styles.formBtnSecondary}`}
+            onClick={() => setIsProfileOpen(true)}
+          >
+            ✎ Edit profile
+          </button>
+        </div>
+        <Submitions />
         <ProfileDisplay />
       </div>
       {detailsMatch && (

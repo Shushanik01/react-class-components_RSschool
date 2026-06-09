@@ -2,29 +2,43 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useDispatch } from 'react-redux';
 import { addUserInfo } from '../../slices/userInfoSlice';
-import { userSchema } from './userSchema';
-import type { UserInfo } from '../../slices/userInfoSlice';
+import { rhfUserSchema, COUNTRIES } from './userSchema';
+import type { RhfUserInfo } from './userSchema';
 import type { z } from 'zod';
 
-type UserInfoInput = z.input<typeof userSchema>;
+type UserInfoInput = z.input<typeof rhfUserSchema>;
 
-export default function UserInfoHook() {
+interface Props {
+  onSuccess?: () => void;
+}
+
+export default function UserInfoHook({ onSuccess }: Props) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<UserInfoInput, unknown, UserInfo>({
-    resolver: zodResolver(userSchema),
+    reset,
+    formState: { errors, isValid },
+  } = useForm<UserInfoInput, unknown, RhfUserInfo>({
+    resolver: zodResolver(rhfUserSchema),
+    mode: 'onChange',
   });
 
   const dispatch = useDispatch();
 
-  const sendDataToStore = (data: UserInfo) => {
-    dispatch(addUserInfo(data));
+  const sendDataToStore = (data: RhfUserInfo) => {
+    const files = data.image as FileList;
+    const file = files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      dispatch(addUserInfo({ ...data, image: reader.result as string }));
+      reset();
+      onSuccess?.();
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
-    <form action="submit" onSubmit={handleSubmit(sendDataToStore)}>
+    <form onSubmit={handleSubmit(sendDataToStore)}>
       <label htmlFor="name">Enter your name</label>
       <input {...register('name')} type="text" id="name" />
       {errors.name && <span>{errors.name.message}</span>}
@@ -45,6 +59,42 @@ export default function UserInfoHook() {
       <input {...register('age')} type="number" id="age" />
       {errors.age && <span>{errors.age.message}</span>}
 
+      <label htmlFor="image">Profile image</label>
+      <input
+        {...register('image')}
+        type="file"
+        accept="image/png,image/jpeg"
+        id="image"
+      />
+      {errors.image && <span>{errors.image.message as string}</span>}
+
+      <label htmlFor="password">Password</label>
+      <input {...register('password')} type="password" id="password" />
+      {errors.password && <span>{errors.password.message}</span>}
+
+      <label htmlFor="confirmPassword">Confirm password</label>
+      <input
+        {...register('confirmPassword')}
+        type="password"
+        id="confirmPassword"
+      />
+      {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
+
+      <label htmlFor="country">Country</label>
+      <input
+        {...register('country')}
+        type="text"
+        id="country"
+        list="hook-countries"
+        autoComplete="off"
+      />
+      <datalist id="hook-countries">
+        {COUNTRIES.map((c) => (
+          <option key={c} value={c} />
+        ))}
+      </datalist>
+      {errors.country && <span>{errors.country.message}</span>}
+
       <label htmlFor="termsAccepted">
         I agree with your terms and conditions
       </label>
@@ -55,7 +105,7 @@ export default function UserInfoHook() {
       />
       {errors.termsAccepted && <span>{errors.termsAccepted.message}</span>}
 
-      <button>Submit</button>
+      <button disabled={!isValid}>Submit</button>
     </form>
   );
 }

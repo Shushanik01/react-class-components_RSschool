@@ -4,7 +4,10 @@ import { useDispatch } from 'react-redux';
 import { addProfileDetails } from '../../slices/userProfileSlice';
 import { useAppSelector } from '../../store/hooks';
 import { rhfProfileSchema } from './profileSchema';
-import type { RhfProfileFormInput, RhfProfileFormOutput } from './profileSchema';
+import type {
+  RhfProfileFormInput,
+  RhfProfileFormOutput,
+} from './profileSchema';
 
 function getStrength(password: string) {
   return {
@@ -15,14 +18,20 @@ function getStrength(password: string) {
   };
 }
 
-function ProfileRHFForm() {
+interface Props {
+  onSuccess?: () => void;
+}
+
+function ProfileRHFForm({ onSuccess }: Props) {
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    reset,
+    formState: { errors, isValid },
   } = useForm<RhfProfileFormInput, unknown, RhfProfileFormOutput>({
     resolver: zodResolver(rhfProfileSchema),
+    mode: 'onChange',
   });
 
   const dispatch = useDispatch();
@@ -42,6 +51,8 @@ function ProfileRHFForm() {
           country: data.country,
         })
       );
+      reset();
+      onSuccess?.();
     };
     reader.readAsDataURL(file);
   };
@@ -68,10 +79,18 @@ function ProfileRHFForm() {
       {errors.password && <span>{errors.password.message}</span>}
 
       <div>
-        <span style={{ color: strength.hasNumber ? 'green' : 'red' }}>1 number</span>{' '}
-        <span style={{ color: strength.hasUppercase ? 'green' : 'red' }}>1 uppercase</span>{' '}
-        <span style={{ color: strength.hasLowercase ? 'green' : 'red' }}>1 lowercase</span>{' '}
-        <span style={{ color: strength.hasSpecial ? 'green' : 'red' }}>1 special character</span>
+        <span style={{ color: strength.hasNumber ? 'green' : 'red' }}>
+          1 number
+        </span>{' '}
+        <span style={{ color: strength.hasUppercase ? 'green' : 'red' }}>
+          1 uppercase
+        </span>{' '}
+        <span style={{ color: strength.hasLowercase ? 'green' : 'red' }}>
+          1 lowercase
+        </span>{' '}
+        <span style={{ color: strength.hasSpecial ? 'green' : 'red' }}>
+          1 special character
+        </span>
       </div>
 
       <label htmlFor="rhf-confirmPassword">Confirm password</label>
@@ -97,7 +116,9 @@ function ProfileRHFForm() {
       </datalist>
       {errors.country && <span>{errors.country.message}</span>}
 
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={!isValid}>
+        Submit
+      </button>
     </form>
   );
 }

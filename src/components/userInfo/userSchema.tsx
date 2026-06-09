@@ -33,7 +33,16 @@ const commonFields = {
     .number({ error: 'Age is required' })
     .min(0, 'Age cannot be negative')
     .max(120, 'Age must be at most 120'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
+  password: z
+    .string()
+    .min(1, 'Password is required')
+    .refine((val) => /[A-Z]/.test(val), 'Must contain an uppercase letter')
+    .refine((val) => /[a-z]/.test(val), 'Must contain a lowercase letter')
+    .refine((val) => /[0-9]/.test(val), 'Must contain a number')
+    .refine(
+      (val) => /[^A-Za-z0-9]/.test(val),
+      'Must contain a special character'
+    ),
   confirmPassword: z.string().min(1, 'Please confirm your password'),
   country: z
     .string()
