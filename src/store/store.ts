@@ -3,6 +3,7 @@ import pokemonListReducer from '../slices/pokemonListSlice';
 import selectedItemsReducer from '../slices/selectedItemsSlice';
 import { pokemonApi } from '../api/api';
 import userInfoReducer from '../slices/userInfoSlice';
+import userProfileReducer from '../slices/userProfileSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     pokemonList: pokemonListReducer,
     selectedItems: selectedItemsReducer,
     userInfo: userInfoReducer,
+    userProfile: userProfileReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(pokemonApi.middleware),

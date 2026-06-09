@@ -22,6 +22,8 @@ import {
 import RefreshBtn from '../refreshBtn/refreshBtn';
 import { Modal } from '../modal/modal';
 import UserInfoUncontrolled from '../userInfo/UserInfo';
+import ProfileUncontrolledForm from '../UserProfile/profileUncontrolled';
+import ProfileDisplay from '../UserProfile/ProfileDisplay';
 
 export default function Layout() {
   const detailsMatch = useMatch('/details/:id');
@@ -29,6 +31,7 @@ export default function Layout() {
   const dispatch = useAppDispatch();
   const [, setSearchParams] = useSearchParams();
   const [isOpen, setIsopen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const { currentPage, searchTerm } = useAppSelector(
     (state) => state.pokemonList
@@ -158,6 +161,10 @@ export default function Layout() {
         <UserInfoUncontrolled />
       </Modal>
 
+      <Modal onClose={() => setIsProfileOpen(false)} isOpen={isProfileOpen}>
+        <ProfileUncontrolledForm />
+      </Modal>
+
       <div className={styles.leftSection}>
         <div className={styles.searchRow}>
           <SearchBar
@@ -189,6 +196,8 @@ export default function Layout() {
         <button className={styles.aboutBtn} onClick={() => navigate('/about')}>
           About
         </button>
+        <button onClick={() => setIsProfileOpen(true)}>Edit profile</button>
+        <ProfileDisplay />
       </div>
       {detailsMatch && (
         <div className={styles.rightSection}>

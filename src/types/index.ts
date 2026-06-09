@@ -76,7 +76,8 @@ export interface PaginationProps {
 }
 
 export interface UserProfile {
-  profilePicture: string,
-  username: string,
-  password: string
+  profilePicture: string;
+  username: string;
+  password: string;
+  country: string;
 }
