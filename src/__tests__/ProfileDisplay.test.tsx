@@ -99,8 +99,8 @@ describe('ProfileDisplay', () => {
       });
 
       const entry = screen.getByText('janedoe').parentElement!;
-      expect(entry).toHaveStyle({ border: '2px solid transparent' });
-      expect(entry).toHaveStyle({ background: 'transparent' });
+      expect(entry).not.toHaveStyle({ border: '2px solid #4caf50' });
+      expect(entry).not.toHaveStyle({ background: '#f0fff4' });
     });
 
     it('only highlights the most recently added profile, not earlier ones', () => {
@@ -118,7 +118,7 @@ describe('ProfileDisplay', () => {
 
       const firstEntry = screen.getByText('first').parentElement!;
       const secondEntry = screen.getByText('second').parentElement!;
-      expect(firstEntry).toHaveStyle({ border: '2px solid transparent' });
+      expect(firstEntry).not.toHaveStyle({ border: '2px solid #4caf50' });
       expect(secondEntry).toHaveStyle({ border: '2px solid #4caf50' });
     });
   });

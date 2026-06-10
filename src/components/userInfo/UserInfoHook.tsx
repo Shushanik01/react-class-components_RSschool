@@ -55,7 +55,9 @@ export default function UserInfoHook({ onSuccess }: Props) {
       <form onSubmit={handleSubmit(sendDataToStore)} className={styles.form}>
         <div className={styles.row}>
           <div className={styles.field}>
-            <label className={styles.label} htmlFor="rhf-name">Name</label>
+            <label className={styles.label} htmlFor="rhf-name">
+              Name
+            </label>
             <input
               {...register('name')}
               className={`${styles.input}${errors.name ? ` ${styles.error}` : ''}`}
@@ -63,11 +65,15 @@ export default function UserInfoHook({ onSuccess }: Props) {
               id="rhf-name"
               placeholder="Jane Doe"
             />
-            {errors.name && <p className={styles.errorMsg}>{errors.name.message}</p>}
+            {errors.name && (
+              <p className={styles.errorMsg}>{errors.name.message}</p>
+            )}
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label} htmlFor="rhf-email">Email</label>
+            <label className={styles.label} htmlFor="rhf-email">
+              Email
+            </label>
             <input
               {...register('email')}
               className={`${styles.input}${errors.email ? ` ${styles.error}` : ''}`}
@@ -75,13 +81,17 @@ export default function UserInfoHook({ onSuccess }: Props) {
               id="rhf-email"
               placeholder="jane@example.com"
             />
-            {errors.email && <p className={styles.errorMsg}>{errors.email.message}</p>}
+            {errors.email && (
+              <p className={styles.errorMsg}>{errors.email.message}</p>
+            )}
           </div>
         </div>
 
         <div className={styles.row}>
           <div className={styles.field}>
-            <label className={styles.label} htmlFor="rhf-gender">Gender</label>
+            <label className={styles.label} htmlFor="rhf-gender">
+              Gender
+            </label>
             <select
               {...register('gender')}
               className={`${styles.select}${errors.gender ? ` ${styles.error}` : ''}`}
@@ -91,11 +101,15 @@ export default function UserInfoHook({ onSuccess }: Props) {
               <option value="male">Male</option>
               <option value="none">Prefer not to say</option>
             </select>
-            {errors.gender && <p className={styles.errorMsg}>{errors.gender.message}</p>}
+            {errors.gender && (
+              <p className={styles.errorMsg}>{errors.gender.message}</p>
+            )}
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label} htmlFor="rhf-age">Age</label>
+            <label className={styles.label} htmlFor="rhf-age">
+              Age
+            </label>
             <input
               {...register('age')}
               className={`${styles.input}${errors.age ? ` ${styles.error}` : ''}`}
@@ -104,12 +118,16 @@ export default function UserInfoHook({ onSuccess }: Props) {
               placeholder="25"
               min="0"
             />
-            {errors.age && <p className={styles.errorMsg}>{errors.age.message}</p>}
+            {errors.age && (
+              <p className={styles.errorMsg}>{errors.age.message}</p>
+            )}
           </div>
         </div>
 
         <div className={styles.field}>
-          <label className={styles.label} htmlFor="rhf-image">Profile image</label>
+          <label className={styles.label} htmlFor="rhf-image">
+            Profile image
+          </label>
           <input
             {...register('image')}
             className={styles.input}
@@ -117,12 +135,16 @@ export default function UserInfoHook({ onSuccess }: Props) {
             accept="image/png,image/jpeg"
             id="rhf-image"
           />
-          {errors.image && <p className={styles.errorMsg}>{errors.image.message as string}</p>}
+          {errors.image && (
+            <p className={styles.errorMsg}>{errors.image.message as string}</p>
+          )}
         </div>
 
         <div className={styles.row}>
           <div className={styles.field}>
-            <label className={styles.label} htmlFor="rhf-password">Password</label>
+            <label className={styles.label} htmlFor="rhf-password">
+              Password
+            </label>
             <input
               {...register('password')}
               className={`${styles.input}${errors.password ? ` ${styles.error}` : ''}`}
@@ -130,11 +152,15 @@ export default function UserInfoHook({ onSuccess }: Props) {
               id="rhf-password"
               placeholder="••••••••"
             />
-            {errors.password && <p className={styles.errorMsg}>{errors.password.message}</p>}
+            {errors.password && (
+              <p className={styles.errorMsg}>{errors.password.message}</p>
+            )}
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label} htmlFor="rhf-confirmPassword">Confirm password</label>
+            <label className={styles.label} htmlFor="rhf-confirmPassword">
+              Confirm password
+            </label>
             <input
               {...register('confirmPassword')}
               className={`${styles.input}${errors.confirmPassword ? ` ${styles.error}` : ''}`}
@@ -143,20 +169,36 @@ export default function UserInfoHook({ onSuccess }: Props) {
               placeholder="••••••••"
             />
             {errors.confirmPassword && (
-              <p className={styles.errorMsg}>{errors.confirmPassword.message}</p>
+              <p className={styles.errorMsg}>
+                {errors.confirmPassword.message}
+              </p>
             )}
           </div>
         </div>
 
         <div className={styles.strengthRow}>
-          <span style={{ color: strength.hasNumber ? '#16a34a' : '#dc2626' }}>1 number</span>
-          <span style={{ color: strength.hasUppercase ? '#16a34a' : '#dc2626' }}>1 uppercase</span>
-          <span style={{ color: strength.hasLowercase ? '#16a34a' : '#dc2626' }}>1 lowercase</span>
-          <span style={{ color: strength.hasSpecial ? '#16a34a' : '#dc2626' }}>1 special char</span>
+          <span style={{ color: strength.hasNumber ? '#16a34a' : '#dc2626' }}>
+            1 number
+          </span>
+          <span
+            style={{ color: strength.hasUppercase ? '#16a34a' : '#dc2626' }}
+          >
+            1 uppercase
+          </span>
+          <span
+            style={{ color: strength.hasLowercase ? '#16a34a' : '#dc2626' }}
+          >
+            1 lowercase
+          </span>
+          <span style={{ color: strength.hasSpecial ? '#16a34a' : '#dc2626' }}>
+            1 special char
+          </span>
         </div>
 
         <div className={styles.field}>
-          <label className={styles.label} htmlFor="rhf-country">Country</label>
+          <label className={styles.label} htmlFor="rhf-country">
+            Country
+          </label>
           <input
             {...register('country')}
             className={`${styles.input}${errors.country ? ` ${styles.error}` : ''}`}
@@ -171,7 +213,9 @@ export default function UserInfoHook({ onSuccess }: Props) {
               <option key={c} value={c} />
             ))}
           </datalist>
-          {errors.country && <p className={styles.errorMsg}>{errors.country.message}</p>}
+          {errors.country && (
+            <p className={styles.errorMsg}>{errors.country.message}</p>
+          )}
         </div>
 
         <div className={styles.field}>

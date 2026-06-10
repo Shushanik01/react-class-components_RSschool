@@ -27,17 +27,31 @@ const makeFileList = (file: File): FileList => {
 const fillValidForm = async () => {
   const file = new File(['img'], 'avatar.png', { type: 'image/png' });
 
-  fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'Jane Doe' } });
-  fireEvent.change(screen.getByLabelText('Email'), { target: { value: 'jane@example.com' } });
-  fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'female' } });
+  fireEvent.change(screen.getByLabelText('Name'), {
+    target: { value: 'Jane Doe' },
+  });
+  fireEvent.change(screen.getByLabelText('Email'), {
+    target: { value: 'jane@example.com' },
+  });
+  fireEvent.change(screen.getByLabelText('Gender'), {
+    target: { value: 'female' },
+  });
   fireEvent.change(screen.getByLabelText('Age'), { target: { value: '25' } });
   fireEvent.change(screen.getByLabelText('Profile image'), {
     target: { files: makeFileList(file) },
   });
-  fireEvent.change(screen.getByLabelText('Password'), { target: { value: 'Pass123!' } });
-  fireEvent.change(screen.getByLabelText('Confirm password'), { target: { value: 'Pass123!' } });
-  fireEvent.change(screen.getByLabelText('Country'), { target: { value: 'Armenia' } });
-  fireEvent.click(screen.getByLabelText(/I agree to the terms and conditions/i));
+  fireEvent.change(screen.getByLabelText('Password'), {
+    target: { value: 'Pass123!' },
+  });
+  fireEvent.change(screen.getByLabelText('Confirm password'), {
+    target: { value: 'Pass123!' },
+  });
+  fireEvent.change(screen.getByLabelText('Country'), {
+    target: { value: 'Armenia' },
+  });
+  fireEvent.click(
+    screen.getByLabelText(/I agree to the terms and conditions/i)
+  );
 
   await waitFor(() => {
     expect(screen.getByRole('button', { name: 'Submit' })).toBeEnabled();
@@ -96,7 +110,9 @@ describe('UserInfoHook', () => {
 
     it('renders submit button', () => {
       renderForm();
-      expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: 'Submit' })
+      ).toBeInTheDocument();
     });
 
     it('renders all four password strength indicators', () => {
@@ -138,7 +154,9 @@ describe('UserInfoHook', () => {
       expect(screen.getByText('1 uppercase')).toHaveStyle({ color: '#16a34a' });
       expect(screen.getByText('1 lowercase')).toHaveStyle({ color: '#16a34a' });
       expect(screen.getByText('1 number')).toHaveStyle({ color: '#16a34a' });
-      expect(screen.getByText('1 special char')).toHaveStyle({ color: '#16a34a' });
+      expect(screen.getByText('1 special char')).toHaveStyle({
+        color: '#16a34a',
+      });
     });
   });
 
