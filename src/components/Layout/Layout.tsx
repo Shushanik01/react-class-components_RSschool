@@ -22,6 +22,7 @@ import {
 import RefreshBtn from '../refreshBtn/refreshBtn';
 import { Modal } from '../modal/modal';
 import UserInfoUncontrolled from '../userInfo/UserInfo';
+import UserInfoHook from '../userInfo/UserInfoHook';
 import ProfileUncontrolledForm from '../UserProfile/profileUncontrolled';
 import ProfileDisplay from '../UserProfile/ProfileDisplay';
 import Submitions from '../userInfo/submitions';
@@ -32,6 +33,7 @@ export default function Layout() {
   const dispatch = useAppDispatch();
   const [, setSearchParams] = useSearchParams();
   const [isOpen, setIsopen] = useState(false);
+  const [isHookOpen, setIsHookOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const { currentPage, searchTerm } = useAppSelector(
@@ -162,6 +164,10 @@ export default function Layout() {
         <UserInfoUncontrolled onSuccess={() => setIsopen(false)} />
       </Modal>
 
+      <Modal onClose={() => setIsHookOpen(false)} isOpen={isHookOpen}>
+        <UserInfoHook onSuccess={() => setIsHookOpen(false)} />
+      </Modal>
+
       <Modal onClose={() => setIsProfileOpen(false)} isOpen={isProfileOpen}>
         <ProfileUncontrolledForm onSuccess={() => setIsProfileOpen(false)} />
       </Modal>
@@ -206,6 +212,12 @@ export default function Layout() {
             onClick={() => setIsopen(true)}
           >
             + User form
+          </button>
+          <button
+            className={`${styles.formBtn} ${styles.formBtnPrimary}`}
+            onClick={() => setIsHookOpen(true)}
+          >
+            + User form (RHF)
           </button>
           <button
             className={`${styles.formBtn} ${styles.formBtnSecondary}`}

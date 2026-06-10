@@ -225,11 +225,13 @@ export default function UserInfoUncontrolled({ onSuccess }: Props) {
           )}
         </div>
 
-        <div className={styles.checkRow}>
-          <input type="checkbox" name="termsAccepted" id="termsAccepted" />
-          <label className={styles.label} htmlFor="termsAccepted">
-            I agree to the terms and conditions
-          </label>
+        <div className={styles.field}>
+          <div className={styles.checkRow}>
+            <input type="checkbox" name="termsAccepted" id="termsAccepted" />
+            <label className={styles.label} htmlFor="termsAccepted">
+              I agree to the terms and conditions
+            </label>
+          </div>
           {errors.termsAccepted && (
             <p className={styles.errorMsg}>{errors.termsAccepted}</p>
           )}
