@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, useNavigate, useMatch, useSearchParams } from 'react-router';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../pagination/Pagination';
@@ -20,12 +20,21 @@ import {
   useGetSinglePokemonQuery,
 } from '../../api/api';
 import RefreshBtn from '../refreshBtn/refreshBtn';
+import { Modal } from '../modal/modal';
+import UserInfoUncontrolled from '../userInfo/UserInfo';
+import UserInfoHook from '../userInfo/UserInfoHook';
+import ProfileUncontrolledForm from '../UserProfile/profileUncontrolled';
+import ProfileDisplay from '../UserProfile/ProfileDisplay';
+import Submitions from '../userInfo/submitions';
 
 export default function Layout() {
   const detailsMatch = useMatch('/details/:id');
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [, setSearchParams] = useSearchParams();
+  const [isOpen, setIsopen] = useState(false);
+  const [isHookOpen, setIsHookOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const { currentPage, searchTerm } = useAppSelector(
     (state) => state.pokemonList
@@ -147,9 +156,22 @@ export default function Layout() {
       <button className={styles.themeToggleBtn} onClick={handleThemeChange}>
         <img
           src={theme === 'Light' ? pikachu : gengar}
-          alt="pikachu ang gengar"
+          alt="pikachu and gengar"
         />
       </button>
+
+      <Modal onClose={() => setIsopen(false)} isOpen={isOpen}>
+        <UserInfoUncontrolled onSuccess={() => setIsopen(false)} />
+      </Modal>
+
+      <Modal onClose={() => setIsHookOpen(false)} isOpen={isHookOpen}>
+        <UserInfoHook onSuccess={() => setIsHookOpen(false)} />
+      </Modal>
+
+      <Modal onClose={() => setIsProfileOpen(false)} isOpen={isProfileOpen}>
+        <ProfileUncontrolledForm onSuccess={() => setIsProfileOpen(false)} />
+      </Modal>
+
       <div className={styles.leftSection}>
         <div className={styles.searchRow}>
           <SearchBar
@@ -178,9 +200,34 @@ export default function Layout() {
           />
         )}
         <TestButton />
-        <button className={styles.aboutBtn} onClick={() => navigate('/about')}>
-          About
-        </button>
+        <div className={styles.actionRow}>
+          <button
+            className={styles.aboutBtn}
+            onClick={() => navigate('/about')}
+          >
+            About
+          </button>
+          <button
+            className={`${styles.formBtn} ${styles.formBtnPrimary}`}
+            onClick={() => setIsopen(true)}
+          >
+            + User form
+          </button>
+          <button
+            className={`${styles.formBtn} ${styles.formBtnPrimary}`}
+            onClick={() => setIsHookOpen(true)}
+          >
+            + User form (RHF)
+          </button>
+          <button
+            className={`${styles.formBtn} ${styles.formBtnSecondary}`}
+            onClick={() => setIsProfileOpen(true)}
+          >
+            ✎ Edit profile
+          </button>
+        </div>
+        <Submitions />
+        <ProfileDisplay />
       </div>
       {detailsMatch && (
         <div className={styles.rightSection}>
